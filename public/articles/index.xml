@@ -5,22 +5,22 @@
     
     
     
-    <link>http://riceset.com/articles/</link>
+    <link>https://riceset.com/articles/</link>
     <description>Recent content in Articles on riceset</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2021 riceset</copyright>
     <lastBuildDate>Fri, 11 Jun 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://riceset.com/articles/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://riceset.com/articles/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CS50 Week 7 - SQL (Structured Query Language)</title>
-      <link>http://riceset.com/articles/2021-06-11-cs50-week-7-sql/</link>
+      <link>https://riceset.com/articles/2021-06-11-cs50-week-7-sql/</link>
       <pubDate>Fri, 11 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://riceset.com/articles/2021-06-11-cs50-week-7-sql/</guid>
+      <guid>https://riceset.com/articles/2021-06-11-cs50-week-7-sql/</guid>
       <description>
         
           
@@ -241,10 +241,10 @@ Brian Baumgartner&lt;/p&gt;
     
     <item>
       <title>Introduction to pointers in C</title>
-      <link>http://riceset.com/articles/2021-06-09-introduction-to-pointers-in-c/</link>
+      <link>https://riceset.com/articles/2021-06-09-introduction-to-pointers-in-c/</link>
       <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://riceset.com/articles/2021-06-09-introduction-to-pointers-in-c/</guid>
+      <guid>https://riceset.com/articles/2021-06-09-introduction-to-pointers-in-c/</guid>
       <description>
         
           
