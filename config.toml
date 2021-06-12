@@ -1,4 +1,4 @@
-baseURL = "http://riceset.com/"
+baseURL = "https://riceset.com/"
 languageCode = "en-us"
 theme = "hello-friend"
 paginate = 5
