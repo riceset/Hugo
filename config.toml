@@ -28,13 +28,13 @@ paginate = 5
 [languages]
   [languages.en]
     title = "riceset"
-    subtitle = "Welcome"
+    subtitle = ""
     keywords = ""
     copyright = "© 2021 riceset"
     menuMore = "Show more"
     writtenBy = "Written by "
     readMore = "Read more"
-    readOtherPosts = "Read other articles"
+    readOtherPosts = "Suggested"
     newerPosts = "Newer articles"
     olderPosts = "Older articles"
     minuteReadingTime = "min read"
