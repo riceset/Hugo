@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Articles on riceset</title>
+    
+    
+    
+    <link>http://riceset.com/articles/</link>
+    <description>Recent content in Articles on riceset</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2021 riceset</copyright>
+    <lastBuildDate>Fri, 11 Jun 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://riceset.com/articles/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CS50 Week 7 - SQL (Structured Query Language)</title>
+      <link>http://riceset.com/articles/2021-06-11-cs50-week-7-sql/</link>
+      <pubDate>Fri, 11 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://riceset.com/articles/2021-06-11-cs50-week-7-sql/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        &lt;h2 id=&#34;databases&#34;&gt;Databases&lt;/h2&gt;
+&lt;p&gt;A &lt;strong&gt;database&lt;/strong&gt; is a file / program that stores data.&lt;/p&gt;
+&lt;p&gt;A CSV is considered a &lt;strong&gt;flat-file database&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;relational databases&lt;/strong&gt; are programs that store data.
+Some examples are &lt;strong&gt;Oracle&lt;/strong&gt;, &lt;strong&gt;MySQL&lt;/strong&gt; and &lt;strong&gt;PostgreSQL&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;canonicalization&#34;&gt;Canonicalization&lt;/h2&gt;
+&lt;p&gt;Means to format all of your data in some standard way.&lt;/p&gt;
+&lt;h2 id=&#34;massaging-data&#34;&gt;Massaging Data&lt;/h2&gt;
+&lt;p&gt;Doing some mutation to the data that doesn’t change it’s meaning but, canonicalizes it.&lt;/p&gt;
+&lt;h2 id=&#34;database-normalization&#34;&gt;Database Normalization&lt;/h2&gt;
+&lt;p&gt;To separate data into tables that are related to each other.&lt;/p&gt;
+&lt;h2 id=&#34;primary-and-foreign-keys&#34;&gt;Primary and Foreign keys&lt;/h2&gt;
+&lt;h3 id=&#34;primary-key&#34;&gt;Primary key&lt;/h3&gt;
+&lt;p&gt;Used to uniquely identify a piece of data. (e.g. ID)&lt;/p&gt;
+&lt;h3 id=&#34;foreign-key&#34;&gt;Foreign key&lt;/h3&gt;
+&lt;p&gt;A particular column that references a primary key in another table.&lt;/p&gt;
+&lt;h2 id=&#34;working-with-sqlite&#34;&gt;Working with SQLite&lt;/h2&gt;
+&lt;p&gt;Run the command &lt;code&gt;sqlite3&lt;/code&gt; to start the program.&lt;/p&gt;
+&lt;p&gt;To start &lt;code&gt;csv&lt;/code&gt; mode run:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.mode csv
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;To load a &lt;code&gt;csv&lt;/code&gt; file into a table run:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.import &#39;FILENAME&#39; TABLENAME
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;To show the structure / schema of the database run:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.schema
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;operations-crud&#34;&gt;Operations (CRUD)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Create (Insert)&lt;/li&gt;
+&lt;li&gt;Read (Select)&lt;/li&gt;
+&lt;li&gt;Update&lt;/li&gt;
+&lt;li&gt;Delete&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;functions&#34;&gt;Functions&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;AVG&lt;/li&gt;
+&lt;li&gt;COUNT&lt;/li&gt;
+&lt;li&gt;DISTINCT&lt;/li&gt;
+&lt;li&gt;LOWER&lt;/li&gt;
+&lt;li&gt;MAX&lt;/li&gt;
+&lt;li&gt;MIN&lt;/li&gt;
+&lt;li&gt;UPPER&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;clauses&#34;&gt;Clauses&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;WHERE&lt;/li&gt;
+&lt;li&gt;LIKE&lt;/li&gt;
+&lt;li&gt;ORDER BY&lt;/li&gt;
+&lt;li&gt;LIMIT&lt;/li&gt;
+&lt;li&gt;GROUP BY&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;select&#34;&gt;SELECT&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;column&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;table&lt;/span&gt;;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;column&lt;/span&gt; column2 &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;table&lt;/span&gt;;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;table&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;where&#34;&gt;WHERE&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; title &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; shows &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; title &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;The Office&amp;#34;&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;output&lt;/strong&gt;:
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;&lt;/p&gt;
+&lt;h3 id=&#34;like&#34;&gt;LIKE&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; title &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; shows &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; title &lt;span style=&#34;color:#66d9ef&#34;&gt;LIKE&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%Office%&amp;#34;&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;% - Zero or more characters to the left / right.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;output&lt;/strong&gt;:
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;the office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office &amp;quot;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;the office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;the office &amp;quot;
+&amp;ldquo;The office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The office&amp;rdquo;
+office
+&amp;ldquo;the office &amp;quot;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;
+&amp;ldquo;The Office&amp;rdquo;&lt;/p&gt;
+&lt;h3 id=&#34;order-by&#34;&gt;ORDER BY&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;DISTINCT&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;UPPER&lt;/span&gt;(title)) &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; shows &lt;span style=&#34;color:#66d9ef&#34;&gt;ORDER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;UPPER&lt;/span&gt;(title);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;output&lt;/strong&gt;:
+FRIENDS
+&amp;ldquo;FRIENDS &amp;quot;
+&amp;ldquo;FRIENDS ETC.&amp;rdquo;
+OFFICE
+&amp;ldquo;SHERLOCKS; FRIENDS &amp;quot;
+&amp;ldquo;THE OFFICE&amp;rdquo;
+&amp;ldquo;THE OFFICE &amp;quot;&lt;/p&gt;
+&lt;h3 id=&#34;group-by&#34;&gt;GROUP BY&lt;/h3&gt;
+&lt;p&gt;Groups identical titles together&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;UPPER&lt;/span&gt;(title), &lt;span style=&#34;color:#66d9ef&#34;&gt;COUNT&lt;/span&gt;(title) &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; shows &lt;span style=&#34;color:#66d9ef&#34;&gt;GROUP&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;UPPER&lt;/span&gt;(title);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;output&lt;/strong&gt;:
+FRIENDS,26
+&amp;ldquo;FRIENDS &amp;ldquo;,1
+&amp;ldquo;FRIENDS ETC.&amp;quot;,2
+OFFICE,1
+&amp;ldquo;SHERLOCKS; FRIENDS &amp;ldquo;,1
+&amp;ldquo;THE OFFICE&amp;rdquo;,23
+&amp;ldquo;THE OFFICE &amp;ldquo;,3&lt;/p&gt;
+&lt;h3 id=&#34;desc--asc&#34;&gt;DESC / ASC&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;UPPER&lt;/span&gt;(title), &lt;span style=&#34;color:#66d9ef&#34;&gt;COUNT&lt;/span&gt;(title) &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; shows &lt;span style=&#34;color:#66d9ef&#34;&gt;GROUP&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;UPPER&lt;/span&gt;(title) &lt;span style=&#34;color:#66d9ef&#34;&gt;ORDER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;COUNT&lt;/span&gt;(title) &lt;span style=&#34;color:#66d9ef&#34;&gt;DESC&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;output&lt;/strong&gt;:
+FRIENDS,26
+&amp;ldquo;THE OFFICE&amp;rdquo;,23
+&amp;ldquo;THE OFFICE &amp;ldquo;,3
+&amp;ldquo;FRIENDS ETC.&amp;quot;,2
+&amp;ldquo;SHERLOCKS; FRIENDS &amp;ldquo;,1
+OFFICE,1
+&amp;ldquo;FRIENDS &amp;ldquo;,1&lt;/p&gt;
+&lt;h3 id=&#34;limit&#34;&gt;LIMIT&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;UPPER&lt;/span&gt;(title), &lt;span style=&#34;color:#66d9ef&#34;&gt;COUNT&lt;/span&gt;(title) &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; shows &lt;span style=&#34;color:#66d9ef&#34;&gt;GROUP&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;UPPER&lt;/span&gt;(title) &lt;span style=&#34;color:#66d9ef&#34;&gt;ORDER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;COUNT&lt;/span&gt;(title) &lt;span style=&#34;color:#66d9ef&#34;&gt;DESC&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;LIMIT&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;output&lt;/strong&gt;:
+FRIENDS,26
+&amp;ldquo;THE OFFICE&amp;rdquo;,23
+&amp;ldquo;THE OFFICE &amp;ldquo;,3&lt;/p&gt;
+&lt;h3 id=&#34;trim&#34;&gt;TRIM&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;UPPER&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;TRIM&lt;/span&gt;(title)), &lt;span style=&#34;color:#66d9ef&#34;&gt;COUNT&lt;/span&gt;(title) &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; shows &lt;span style=&#34;color:#66d9ef&#34;&gt;GROUP&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;UPPER&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;TRIM&lt;/span&gt;(title)) &lt;span style=&#34;color:#66d9ef&#34;&gt;ORDER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;COUNT&lt;/span&gt;(title) &lt;span style=&#34;color:#66d9ef&#34;&gt;DESC&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;output&lt;/strong&gt;:
+FRIENDS,27
+&amp;ldquo;THE OFFICE&amp;rdquo;,26
+&amp;ldquo;FRIENDS ETC.&amp;quot;,2
+&amp;ldquo;SHERLOCKS; FRIENDS&amp;rdquo;,1
+OFFICE,1&lt;/p&gt;
+&lt;h3 id=&#34;saving&#34;&gt;Saving&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;.save FILENAME.db
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;insert&#34;&gt;INSERT&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;INSERT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;INTO&lt;/span&gt; shows (&lt;span style=&#34;color:#66d9ef&#34;&gt;Timestamp&lt;/span&gt;, title, genres) &lt;span style=&#34;color:#66d9ef&#34;&gt;VALUES&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;now&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;The Muppet Show&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Comedy, Musical&amp;#34;&lt;/span&gt;);
+&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; shows &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; title &lt;span style=&#34;color:#66d9ef&#34;&gt;LIKE&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%muppet%&amp;#34;&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;output&lt;/strong&gt;:  now,&amp;ldquo;The Muppet Show&amp;rdquo;,&amp;ldquo;Comedy, Musical&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;update&#34;&gt;UPDATE&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;UPDATE&lt;/span&gt; shows &lt;span style=&#34;color:#66d9ef&#34;&gt;SET&lt;/span&gt; genres &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Comedy, Musical, Drama&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; title &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;The Muppet Show&amp;#34;&lt;/span&gt;;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; shows &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; title &lt;span style=&#34;color:#66d9ef&#34;&gt;LIKE&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%muppet%&amp;#34;&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;output&lt;/strong&gt;: now,&amp;ldquo;The Muppet Show&amp;rdquo;,&amp;ldquo;Comedy, Musical, Drama&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;delete&#34;&gt;Delete&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;DELETE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; shows &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; title &lt;span style=&#34;color:#66d9ef&#34;&gt;LIKE&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%Friends%&amp;#34;&lt;/span&gt;;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;COUNT&lt;/span&gt;(title) &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; shows &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; title &lt;span style=&#34;color:#66d9ef&#34;&gt;LIKE&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%Friends%&amp;#34;&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;output&lt;/strong&gt;: 0&lt;/p&gt;
+&lt;h2 id=&#34;main-data-types&#34;&gt;Main Data Types&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;BLOB (Binary Large Object)&lt;/li&gt;
+&lt;li&gt;INTEGER&lt;/li&gt;
+&lt;li&gt;NUMERIC (Number-like)&lt;/li&gt;
+&lt;li&gt;REAL (float)&lt;/li&gt;
+&lt;li&gt;TEXT&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;specifications&#34;&gt;Specifications&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;NOT NULL (A column cannot be null)&lt;/li&gt;
+&lt;li&gt;UNIQUE (A column must be unique)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;nested-queries&#34;&gt;Nested Queries&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; title &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; shows &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; id &lt;span style=&#34;color:#66d9ef&#34;&gt;IN&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; show_id &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; genres &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; genre &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Comedy&amp;#34;&lt;/span&gt;);
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; title &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; shows &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; id &lt;span style=&#34;color:#66d9ef&#34;&gt;IN&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; show_id &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; stars &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; person_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; id &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; people &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; name &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Steve Carell&amp;#34;&lt;/span&gt;));
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;join&#34;&gt;JOIN&lt;/h2&gt;
+&lt;p&gt;Joins tables together.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; title &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; people
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;JOIN&lt;/span&gt; stars &lt;span style=&#34;color:#66d9ef&#34;&gt;ON&lt;/span&gt; people.id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; stars.person_id
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;JOIN&lt;/span&gt; shows &lt;span style=&#34;color:#66d9ef&#34;&gt;ON&lt;/span&gt; stars.show_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; shows.id
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; name &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Steve Carell&amp;#34;&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;indexes&#34;&gt;Indexes&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;INDEX&lt;/span&gt; name &lt;span style=&#34;color:#66d9ef&#34;&gt;ON&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;table&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;column&lt;/span&gt;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;using-in-and-&#34;&gt;Using IN and ‘=’&lt;/h2&gt;
+&lt;p&gt;If we used &lt;code&gt;=&lt;/code&gt;  we would be checking if &lt;code&gt;id&lt;/code&gt; is equal to one particular &lt;code&gt;person_id&lt;/code&gt;. So if there were multiple values returned by this query, we would only get the first one.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; name &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; people &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; id &lt;span style=&#34;color:#66d9ef&#34;&gt;IN&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; person_id &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; stars &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; show_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;386676&lt;/span&gt;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;output&lt;/strong&gt;:
+name
+Angela Kinsey&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; name &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; people &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; id &lt;span style=&#34;color:#66d9ef&#34;&gt;IN&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; person_id &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; stars &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; show_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;386676&lt;/span&gt;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;output&lt;/strong&gt;:
+name
+Steve Carell
+Jenna Fischer
+Rainn Wilson
+John Krasinski
+Angela Kinsey
+Leslie David Baker
+Brian Baumgartner&lt;/p&gt;
+
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Introduction to pointers in C</title>
+      <link>http://riceset.com/articles/2021-06-09-introduction-to-pointers-in-c/</link>
+      <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://riceset.com/articles/2021-06-09-introduction-to-pointers-in-c/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        &lt;p&gt;When we declare a variable in C, we generally do something like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; num &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As you might know, variables are stored in memory, and the size of each variable will differ depending on its data type.&lt;/p&gt;
+&lt;p&gt;For instance, an integer variable like  &lt;code&gt;num&lt;/code&gt; declared above, is 4 bytes long on my Mac, but the size could vary depending on the machine.&lt;/p&gt;
+&lt;p&gt;You can always check the size of a particular data type by using the &lt;code&gt;sizeof()&lt;/code&gt; operator.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%lu&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;sizeof&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;));
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;output: 4&lt;/p&gt;
+&lt;h2 id=&#34;the-address-of-operator-&#34;&gt;The address-of operator (&amp;amp;)&lt;/h2&gt;
+&lt;p&gt;The address-of operator is just an operator we place before some variable name to get that variable’s address in memory. We print this address using the &lt;code&gt;%p&lt;/code&gt; format specifier to get the address in hexadecimal.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; num &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%p&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;num);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;output: &lt;em&gt;0x7ffee7ea278c&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;the-concept-of-a-pointer&#34;&gt;The concept of a pointer&lt;/h2&gt;
+&lt;p&gt;A pointer is just a variable that holds the address in memory of some other variable.&lt;/p&gt;
+&lt;p&gt;When declaring a pointer variable, we have to place a &lt;code&gt;*&lt;/code&gt;  symbol just before the variable name.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;pointer;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now that we declared our pointer variable, let’s try assigning it the address of the variable &lt;code&gt;num&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;pointer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;num;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now &lt;code&gt;pointer&lt;/code&gt; will hold &lt;em&gt;0x7ffee7ea278c&lt;/em&gt;, the address in memory of the variable &lt;code&gt;num&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;You can also declare a pointer variable, and assign it a value at the same line.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;pointer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;num;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;dereferencing-a-pointer&#34;&gt;Dereferencing a pointer&lt;/h2&gt;
+&lt;p&gt;Dereferencing a pointer means accessing or manipulating data stored at a certain address in memory through a pointer variable.&lt;/p&gt;
+&lt;p&gt;Let’s say we wanted to change the value of &lt;code&gt;num&lt;/code&gt; from 1 (the value we initialized it with) to 2.
+We could do something like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;num &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;But, what if we wanted to use the pointer we declared to change &lt;code&gt;num&lt;/code&gt;’s value?
+That’s when we use the &lt;em&gt;dereference operator&lt;/em&gt; (*)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;pointer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;;
+printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, num);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;output: 2&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;use-example&#34;&gt;Use Example&lt;/h2&gt;
+&lt;p&gt;Say, we wanted to make a function that receives 2 numbers, and swap them.
+That would be kinda tricky to do because, we can only return a single value from a function. But with pointers, we can access some variable’s memory location and change it directly.&lt;/p&gt;
+&lt;p&gt;Consider the following example:&lt;/p&gt;
+&lt;p&gt;We are declaring a function that receives 2 pointers and we want to swap their values.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;First, we create a temporary variable and assign it the value pointed by &lt;code&gt;a&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Second, we dereference the pointer &lt;code&gt;a&lt;/code&gt;  and set it to be equal to what &lt;code&gt;b&lt;/code&gt; is pointing to. (That is, if &lt;code&gt;a&lt;/code&gt; is pointing to a variable x containing 1 and &lt;code&gt;b&lt;/code&gt; is pointing to a variable y containing 2 then, &lt;code&gt;a&lt;/code&gt; would still be pointing to x but x would now contain 2.)&lt;/li&gt;
+&lt;li&gt;Third, we set the value pointed by &lt;code&gt;b&lt;/code&gt; to be equal to &lt;code&gt;temp&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;swap&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;a, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;b)
+{
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; temp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;a;
+    &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;b;
+    &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;b &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; temp;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, we can call the swap function on main and see if it actually works.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; argc, &lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;argv)
+{
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; x &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; y &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;;
+
+    swap(&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;x, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;y);
+
+    printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;x: %i&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;y: %i&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, x, y);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;output:
+x: 2
+y: 1&lt;/p&gt;
+
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

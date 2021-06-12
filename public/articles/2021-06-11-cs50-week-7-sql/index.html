@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        CS50 Week 7 - SQL (Structured Query Language) ::
+        riceset — Welcome
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Databases A database is a file / program that stores data.
+A CSV is considered a flat-file database.
+relational databases are programs that store data. Some examples are Oracle, MySQL and PostgreSQL.
+Canonicalization Means to format all of your data in some standard way.
+Massaging Data Doing some mutation to the data that doesn’t change it’s meaning but, canonicalizes it.
+Database Normalization To separate data into tables that are related to each other."
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="http://riceset.com/articles/2021-06-11-cs50-week-7-sql/" />
+
+
+
+
+
+<link rel="stylesheet" href="http://riceset.com/assets/style.css" />
+
+<link rel="stylesheet" href="http://riceset.com/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="http://riceset.com/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="http://riceset.com/img/favicon.png" />
+
+
+<link href="http://riceset.com/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="http://riceset.com/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="http://riceset.com/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="http://riceset.com/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="http://riceset.com/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="http://riceset.com/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CS50 Week 7 - SQL (Structured Query Language)"/>
+<meta name="twitter:description" content="Databases A database is a file / program that stores data.
+A CSV is considered a flat-file database.
+relational databases are programs that store data. Some examples are Oracle, MySQL and PostgreSQL.
+Canonicalization Means to format all of your data in some standard way.
+Massaging Data Doing some mutation to the data that doesn’t change it’s meaning but, canonicalizes it.
+Database Normalization To separate data into tables that are related to each other."/>
+
+
+
+<meta property="og:title" content="CS50 Week 7 - SQL (Structured Query Language)" />
+<meta property="og:description" content="Databases A database is a file / program that stores data.
+A CSV is considered a flat-file database.
+relational databases are programs that store data. Some examples are Oracle, MySQL and PostgreSQL.
+Canonicalization Means to format all of your data in some standard way.
+Massaging Data Doing some mutation to the data that doesn’t change it’s meaning but, canonicalizes it.
+Database Normalization To separate data into tables that are related to each other." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://riceset.com/articles/2021-06-11-cs50-week-7-sql/" /><meta property="article:section" content="articles" />
+<meta property="article:published_time" content="2021-06-11T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-06-11T00:00:00&#43;00:00" /><meta property="og:site_name" content="riceset" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >riceset</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">CS50 Week 7 - SQL (Structured Query Language)</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2021-06-11
+        </span>
+
+        
+          
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by  Komeno</span
+        >
+
+
+      
+        <span class="post-read-time"
+          >— 4 min read</span
+        >
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      <h2 id="databases">Databases</h2>
+<p>A <strong>database</strong> is a file / program that stores data.</p>
+<p>A CSV is considered a <strong>flat-file database</strong>.</p>
+<p><strong>relational databases</strong> are programs that store data.
+Some examples are <strong>Oracle</strong>, <strong>MySQL</strong> and <strong>PostgreSQL</strong>.</p>
+<h2 id="canonicalization">Canonicalization</h2>
+<p>Means to format all of your data in some standard way.</p>
+<h2 id="massaging-data">Massaging Data</h2>
+<p>Doing some mutation to the data that doesn’t change it’s meaning but, canonicalizes it.</p>
+<h2 id="database-normalization">Database Normalization</h2>
+<p>To separate data into tables that are related to each other.</p>
+<h2 id="primary-and-foreign-keys">Primary and Foreign keys</h2>
+<h3 id="primary-key">Primary key</h3>
+<p>Used to uniquely identify a piece of data. (e.g. ID)</p>
+<h3 id="foreign-key">Foreign key</h3>
+<p>A particular column that references a primary key in another table.</p>
+<h2 id="working-with-sqlite">Working with SQLite</h2>
+<p>Run the command <code>sqlite3</code> to start the program.</p>
+<p>To start <code>csv</code> mode run:</p>
+<pre><code>.mode csv
+</code></pre><p>To load a <code>csv</code> file into a table run:</p>
+<pre><code>.import 'FILENAME' TABLENAME
+</code></pre><p>To show the structure / schema of the database run:</p>
+<pre><code>.schema
+</code></pre><h2 id="operations-crud">Operations (CRUD)</h2>
+<ul>
+<li>Create (Insert)</li>
+<li>Read (Select)</li>
+<li>Update</li>
+<li>Delete</li>
+</ul>
+<h2 id="functions">Functions</h2>
+<ul>
+<li>AVG</li>
+<li>COUNT</li>
+<li>DISTINCT</li>
+<li>LOWER</li>
+<li>MAX</li>
+<li>MIN</li>
+<li>UPPER</li>
+</ul>
+<h2 id="clauses">Clauses</h2>
+<ul>
+<li>WHERE</li>
+<li>LIKE</li>
+<li>ORDER BY</li>
+<li>LIMIT</li>
+<li>GROUP BY</li>
+</ul>
+<h2 id="select">SELECT</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">column</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">column</span> column2 <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table</span>;
+</code></pre></div><h3 id="where">WHERE</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> shows <span style="color:#66d9ef">WHERE</span> title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;The Office&#34;</span>;
+</code></pre></div><p><strong>output</strong>:
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;</p>
+<h3 id="like">LIKE</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> shows <span style="color:#66d9ef">WHERE</span> title <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#34;%Office%&#34;</span>;
+</code></pre></div><p>% - Zero or more characters to the left / right.</p>
+<p><strong>output</strong>:
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;the office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office &quot;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;the office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;the office &quot;
+&ldquo;The office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The office&rdquo;
+office
+&ldquo;the office &quot;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;
+&ldquo;The Office&rdquo;</p>
+<h3 id="order-by">ORDER BY</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">DISTINCT</span>(<span style="color:#66d9ef">UPPER</span>(title)) <span style="color:#66d9ef">FROM</span> shows <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#66d9ef">UPPER</span>(title);
+</code></pre></div><p><strong>output</strong>:
+FRIENDS
+&ldquo;FRIENDS &quot;
+&ldquo;FRIENDS ETC.&rdquo;
+OFFICE
+&ldquo;SHERLOCKS; FRIENDS &quot;
+&ldquo;THE OFFICE&rdquo;
+&ldquo;THE OFFICE &quot;</p>
+<h3 id="group-by">GROUP BY</h3>
+<p>Groups identical titles together</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">UPPER</span>(title), <span style="color:#66d9ef">COUNT</span>(title) <span style="color:#66d9ef">FROM</span> shows <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> <span style="color:#66d9ef">UPPER</span>(title);
+</code></pre></div><p><strong>output</strong>:
+FRIENDS,26
+&ldquo;FRIENDS &ldquo;,1
+&ldquo;FRIENDS ETC.&quot;,2
+OFFICE,1
+&ldquo;SHERLOCKS; FRIENDS &ldquo;,1
+&ldquo;THE OFFICE&rdquo;,23
+&ldquo;THE OFFICE &ldquo;,3</p>
+<h3 id="desc--asc">DESC / ASC</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">UPPER</span>(title), <span style="color:#66d9ef">COUNT</span>(title) <span style="color:#66d9ef">FROM</span> shows <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> <span style="color:#66d9ef">UPPER</span>(title) <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#66d9ef">COUNT</span>(title) <span style="color:#66d9ef">DESC</span>;
+</code></pre></div><p><strong>output</strong>:
+FRIENDS,26
+&ldquo;THE OFFICE&rdquo;,23
+&ldquo;THE OFFICE &ldquo;,3
+&ldquo;FRIENDS ETC.&quot;,2
+&ldquo;SHERLOCKS; FRIENDS &ldquo;,1
+OFFICE,1
+&ldquo;FRIENDS &ldquo;,1</p>
+<h3 id="limit">LIMIT</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">UPPER</span>(title), <span style="color:#66d9ef">COUNT</span>(title) <span style="color:#66d9ef">FROM</span> shows <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> <span style="color:#66d9ef">UPPER</span>(title) <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#66d9ef">COUNT</span>(title) <span style="color:#66d9ef">DESC</span> <span style="color:#66d9ef">LIMIT</span> <span style="color:#ae81ff">3</span>;
+</code></pre></div><p><strong>output</strong>:
+FRIENDS,26
+&ldquo;THE OFFICE&rdquo;,23
+&ldquo;THE OFFICE &ldquo;,3</p>
+<h3 id="trim">TRIM</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">UPPER</span>(<span style="color:#66d9ef">TRIM</span>(title)), <span style="color:#66d9ef">COUNT</span>(title) <span style="color:#66d9ef">FROM</span> shows <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> <span style="color:#66d9ef">UPPER</span>(<span style="color:#66d9ef">TRIM</span>(title)) <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#66d9ef">COUNT</span>(title) <span style="color:#66d9ef">DESC</span>;
+</code></pre></div><p><strong>output</strong>:
+FRIENDS,27
+&ldquo;THE OFFICE&rdquo;,26
+&ldquo;FRIENDS ETC.&quot;,2
+&ldquo;SHERLOCKS; FRIENDS&rdquo;,1
+OFFICE,1</p>
+<h3 id="saving">Saving</h3>
+<pre><code>.save FILENAME.db
+</code></pre><h2 id="insert">INSERT</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> shows (<span style="color:#66d9ef">Timestamp</span>, title, genres) <span style="color:#66d9ef">VALUES</span>(<span style="color:#e6db74">&#34;now&#34;</span>, <span style="color:#e6db74">&#34;The Muppet Show&#34;</span>, <span style="color:#e6db74">&#34;Comedy, Musical&#34;</span>);
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> shows <span style="color:#66d9ef">WHERE</span> title <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#34;%muppet%&#34;</span>;
+</code></pre></div><p><strong>output</strong>:  now,&ldquo;The Muppet Show&rdquo;,&ldquo;Comedy, Musical&rdquo;</p>
+<h2 id="update">UPDATE</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">UPDATE</span> shows <span style="color:#66d9ef">SET</span> genres <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Comedy, Musical, Drama&#34;</span> <span style="color:#66d9ef">WHERE</span> title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;The Muppet Show&#34;</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> shows <span style="color:#66d9ef">WHERE</span> title <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#34;%muppet%&#34;</span>;
+</code></pre></div><p><strong>output</strong>: now,&ldquo;The Muppet Show&rdquo;,&ldquo;Comedy, Musical, Drama&rdquo;</p>
+<h2 id="delete">Delete</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DELETE</span> <span style="color:#66d9ef">FROM</span> shows <span style="color:#66d9ef">WHERE</span> title <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#34;%Friends%&#34;</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">COUNT</span>(title) <span style="color:#66d9ef">FROM</span> shows <span style="color:#66d9ef">WHERE</span> title <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#34;%Friends%&#34;</span>;
+</code></pre></div><p><strong>output</strong>: 0</p>
+<h2 id="main-data-types">Main Data Types</h2>
+<ul>
+<li>BLOB (Binary Large Object)</li>
+<li>INTEGER</li>
+<li>NUMERIC (Number-like)</li>
+<li>REAL (float)</li>
+<li>TEXT</li>
+</ul>
+<h2 id="specifications">Specifications</h2>
+<ul>
+<li>NOT NULL (A column cannot be null)</li>
+<li>UNIQUE (A column must be unique)</li>
+</ul>
+<h2 id="nested-queries">Nested Queries</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> shows <span style="color:#66d9ef">WHERE</span> id <span style="color:#66d9ef">IN</span> (<span style="color:#66d9ef">SELECT</span> show_id <span style="color:#66d9ef">FROM</span> genres <span style="color:#66d9ef">WHERE</span> genre <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Comedy&#34;</span>);
+
+<span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> shows <span style="color:#66d9ef">WHERE</span> id <span style="color:#66d9ef">IN</span> (<span style="color:#66d9ef">SELECT</span> show_id <span style="color:#66d9ef">FROM</span> stars <span style="color:#66d9ef">WHERE</span> person_id <span style="color:#f92672">=</span> (<span style="color:#66d9ef">SELECT</span> id <span style="color:#66d9ef">FROM</span> people <span style="color:#66d9ef">WHERE</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Steve Carell&#34;</span>));
+</code></pre></div><h2 id="join">JOIN</h2>
+<p>Joins tables together.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> title <span style="color:#66d9ef">FROM</span> people
+	<span style="color:#66d9ef">JOIN</span> stars <span style="color:#66d9ef">ON</span> people.id <span style="color:#f92672">=</span> stars.person_id
+	<span style="color:#66d9ef">JOIN</span> shows <span style="color:#66d9ef">ON</span> stars.show_id <span style="color:#f92672">=</span> shows.id
+	<span style="color:#66d9ef">WHERE</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Steve Carell&#34;</span>;
+</code></pre></div><h2 id="indexes">Indexes</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">INDEX</span> name <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">table</span> (<span style="color:#66d9ef">column</span>);
+</code></pre></div><h2 id="using-in-and-">Using IN and ‘=’</h2>
+<p>If we used <code>=</code>  we would be checking if <code>id</code> is equal to one particular <code>person_id</code>. So if there were multiple values returned by this query, we would only get the first one.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> name <span style="color:#66d9ef">FROM</span> people <span style="color:#66d9ef">WHERE</span> id <span style="color:#66d9ef">IN</span> (<span style="color:#66d9ef">SELECT</span> person_id <span style="color:#66d9ef">FROM</span> stars <span style="color:#66d9ef">WHERE</span> show_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">386676</span>);
+</code></pre></div><p><strong>output</strong>:
+name
+Angela Kinsey</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> name <span style="color:#66d9ef">FROM</span> people <span style="color:#66d9ef">WHERE</span> id <span style="color:#66d9ef">IN</span> (<span style="color:#66d9ef">SELECT</span> person_id <span style="color:#66d9ef">FROM</span> stars <span style="color:#66d9ef">WHERE</span> show_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">386676</span>);
+</code></pre></div><p><strong>output</strong>:
+name
+Steve Carell
+Jenna Fischer
+Rainn Wilson
+John Krasinski
+Angela Kinsey
+Leslie David Baker
+Brian Baumgartner</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other articles</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="http://riceset.com/articles/2021-06-09-introduction-to-pointers-in-c/">
+                  <span class="button__text">Introduction to pointers in C</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">© 2021 riceset</div>
+      
+  </div>
+</footer>
+
+<script src="http://riceset.com/assets/main.js"></script>
+<script src="http://riceset.com/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
