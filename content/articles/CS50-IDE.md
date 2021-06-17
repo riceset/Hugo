@@ -1,6 +1,5 @@
 ---
 title:  "How to set up the CS50 IDE locally (Mac)"
-author: Komeno
 date:   2021-03-06
 tags: [CS50]
 ---

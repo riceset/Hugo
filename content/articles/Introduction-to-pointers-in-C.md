@@ -1,6 +1,5 @@
 ---
 title:  "Introduction to pointers in C"
-author: Komeno
 date:   2021-06-09
 tags: [C]
 ---
