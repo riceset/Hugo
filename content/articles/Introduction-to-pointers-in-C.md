@@ -81,7 +81,9 @@ Consider the following example:
  We are declaring a function that receives two pointers and, we want to swap their values.
 
 - First, we create a temporary variable and assign it the value pointed by `a`.
+
 - Second, we dereference the pointer `a`  and set it to be equal to what `b` is pointing to. (That is, if `a` is pointing to a variable x containing 1 and `b` is pointing to a variable y containing 2 then, `a` would still be pointing to x but x would now contain 2.)
+
 - Third, we set the value pointed by `b` to be equal to `temp`.
 
 ```c
