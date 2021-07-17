@@ -9,9 +9,9 @@ When we declare a variable in C, we generally do something like this:
 int num = 1;
 ```
 
-As you might know, variables are stored in memory, and the size of each variable will differ depending on its data type.
+As you might know, variables get stored in memory, and the size of each variable will differ depending on its data type.
 
-For instance, an integer variable like  `num` declared above, is 4 bytes long on my Mac, but the size could vary depending on the machine.
+For instance, an integer variable like  `num` declared above is 4 bytes long on my Mac, but the size could vary depending on the machine.
 
 You can always check the size of a particular data type by using the `sizeof()` operator.
 
@@ -37,7 +37,7 @@ When declaring a pointer variable, we have to place a `*`  symbol just before th
 int *pointer;
 ```
 
-Now that we declared our pointer variable, let’s try assigning it the address of the variable `num`
+Now that we declared our pointer variable let’s try assigning it the address of the variable `num`
 
 ```c
 pointer = &num;
@@ -45,15 +45,15 @@ pointer = &num;
 
 Now `pointer` will hold *0x7ffee7ea278c*, the address in memory of the variable `num`.
 
-You can also declare a pointer variable, and assign it a value at the same line.
+You can also declare a pointer variable and assign it a value at the same line.
 ```c
 int *pointer = &num;
 ```
 
 ## Dereferencing a pointer
-Dereferencing a pointer means accessing or manipulating data stored at a certain address in memory through a pointer variable.
+Dereferencing a pointer means accessing or manipulating data stored at an address in memory through a pointer variable.
 
-Let’s say we wanted to change the value of `num` from 1 (the value we initialized it with) to 2.
+Say we wanted to change the value of `num` from 1 (the value we initialized it with) to 2.
 We could do something like this:
 
 ```c
@@ -72,12 +72,13 @@ output: 2
 - - - -
 
 ## Use Example
-Say, we wanted to make a function that receives 2 numbers, and swap them.
-That would be kinda tricky to do because, we can only return a single value from a function. But with pointers, we can access some variable’s memory location and change it directly.
+Say we wanted to make a function that receives two numbers and swap them.
+That would be kind of tricky to do because we can only return a single value from a function.
+But with pointers, we can access some variable’s memory location and change it directly.
 
 Consider the following example:
 
- We are declaring a function that receives 2 pointers and we want to swap their values.
+ We are declaring a function that receives two pointers and, we want to swap their values.
 
 - First, we create a temporary variable and assign it the value pointed by `a`.
 - Second, we dereference the pointer `a`  and set it to be equal to what `b` is pointing to. (That is, if `a` is pointing to a variable x containing 1 and `b` is pointing to a variable y containing 2 then, `a` would still be pointing to x but x would now contain 2.)
@@ -92,7 +93,7 @@ void swap(int *a, int *b)
 }
 ```
 
-Now, we can call the swap function on main and see if it actually works.
+Now, we can call the swap function on main and see if it works.
 ```c
 int main(int argc, char **argv)
 {
