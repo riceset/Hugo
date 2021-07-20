@@ -110,3 +110,5 @@ int main(int argc, char **argv)
 output:
 x: 2
 y: 1
+
+![image](/riceset.svg)
