@@ -61,5 +61,3 @@ with the path to where Python is located. In my case it was:
 ```
 
 Now, save the file and everything should be working.
-
-![demo2](/ranger_img_demo2.png)
