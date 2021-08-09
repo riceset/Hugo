@@ -26,7 +26,7 @@ Install the [Pillow](https://pillow.readthedocs.io/en/stable/#) library using `p
 pip install Pillow
 ```
 
-The image preview feature should be working now. If you’re getting an error, try following the steps bellow.
+The image preview feature should be working now. If you’re getting an error, try following the steps below.
 
 ## ERROR: Image previews in kitty require PIL (pillow)
 First, check where Python is located on your computer using the `which` command.
