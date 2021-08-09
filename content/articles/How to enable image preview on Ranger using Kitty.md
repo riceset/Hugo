@@ -4,7 +4,7 @@ date:   2021-08-09
 tags: [Ranger, Kitty]
 ---
 
-![demo1](/ranger_img_demo1.png)
+![demo](/ranger_img_demo.png)
 
 ## Getting Started
 First, create a config file for Ranger in `~/.config/ranger` called `rc.conf`
