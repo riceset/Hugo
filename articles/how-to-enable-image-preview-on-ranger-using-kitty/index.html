@@ -88,27 +88,27 @@ ERROR: Image previews in kitty require PIL (pillow) First, check where Python is
 <p><img src=/ranger_img_demo.png alt=demo></p>
 <h2 id=getting-started>Getting Started</h2>
 <p>First, create a config file for Ranger in <code>~/.config/ranger</code> called <code>rc.conf</code></p>
-<pre><code>cd ~/.config/ranger &amp;&amp; touch rc.config
-</code></pre><p>Open the config file and add the following lines to it:</p>
-<pre><code>set preview_images true
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>cd ~/.config/ranger <span style=color:#f92672>&amp;&amp;</span> touch rc.config
+</code></pre></div><p>Open the config file and add the following lines to it:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>set preview_images true
 set preview_images_method kitty
-</code></pre><p>Install the <a href=https://pillow.readthedocs.io/en/stable/#>Pillow</a> library using <code>pip</code> (Python’s package installer)</p>
-<pre><code>pip install Pillow
-</code></pre><p>The image preview feature should be working now. If you’re getting an error, try following the steps below.</p>
+</code></pre></div><p>Install the <a href=https://pillow.readthedocs.io/en/stable/#>Pillow</a> library using <code>pip</code> (Python’s package installer)</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>pip install Pillow
+</code></pre></div><p>The image preview feature should be working now. If you’re getting an error, try following the steps below.</p>
 <h2 id=error-image-previews-in-kitty-require-pil-pillow>ERROR: Image previews in kitty require PIL (pillow)</h2>
 <p>First, check where Python is located on your computer using the <code>which</code> command.</p>
-<pre><code>which python
-</code></pre><p>You should see something other than <code>/usr/bin/python</code> and that’s probably the reason why you are getting this error.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>which python
+</code></pre></div><p>You should see something other than <code>/usr/bin/python</code> and that’s probably the reason why you are getting this error.</p>
 <p>In my case, I installed Python through <a href=https://asdf-vm.com/>ASDF</a>. So I get the following output when I run <code>which python</code>:</p>
-<pre><code>/Users/riceset/.asdf/shims/python
-</code></pre><p>You should copy this path.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>/Users/riceset/.asdf/shims/python
+</code></pre></div><p>You should copy this path.</p>
 <hr>
 <p>Now go to where Ranger is installed. If you installed it via <a href=https://brew.sh>Homebrew</a>, you should go to <code>/usr/local/Cellar/ranger/1.9.3/libexec</code> where 1.9.3 is the version of Ranger that you have installed.</p>
 <p>Open <code>ranger.py</code> with Vim or any other text editor and replace this line:</p>
-<pre><code>#!/usr/bin/python -O
-</code></pre><p>with the path to where Python is located. In my case it was:</p>
-<pre><code>#!/Users/riceset/.asdf/shims/python
-</code></pre><p>Now, save the file and everything should be working.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#75715e>#!/usr/bin/python -O
+</span></code></pre></div><p>with the path to where Python is located. In my case it was:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#75715e>#!/Users/riceset/.asdf/shims/python
+</span></code></pre></div><p>Now, save the file and everything should be working.</p>
 </div>
 <div class=pagination>
 <div class=pagination__title>
