@@ -210,7 +210,7 @@ Record your current position in a register.
 - `:delmarks a-c` Delete a range of marks.
 - `:demarks!` Delete all the marks.
 
-## . Command
+## . command
 Rerun the last executed command on Normal Mode.
 
 ## g
@@ -231,7 +231,7 @@ e.g. `:! ls` to run `ls`.
  `%` Jump to the matching parenthesis, brackets, etc.
 
 - - - -
-### ✨ Sources
+### ✨ Referenced
 - [Vim Tutorial by Mental Outlaw](https://www.youtube.com/playlist?list=PL3cu45aM3C2DJVGfCjSBB1yD9YkC7q27-)
 - [Vim Meetups by thoughtbot](https://www.youtube.com/playlist?list=PL8tzorAO7s0jy7DQ3Q0FwF3BnXGQnDirs)
 - [What do the f and t commands do in Vim? answered by Michael Kristofik](https://stackoverflow.com/questions/12495442/what-do-the-f-and-t-commands-do-in-vim)
