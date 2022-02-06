@@ -116,7 +116,7 @@ To delete text, you can use the `d` followed by what you want to delete.
 (You can use all of the following commands with `c` instead of `d` to delete and CHANGE what you just deleted. In other words, it deletes and puts you on Insert Mode.)
 
 ### Counts
-In Vim you specify the number of times to execute a command. For example, you can delete a line with `dd` and `5dd` for deleting 5 lines at once. It also works for other commands like `5dap`, `5daw`, etc.
+In Vim you can specify the number of times to execute a command. For example, you can delete a line with `dd` and `5dd` for deleting 5 lines at once. It also works for other commands like `5dap`, `5daw`, etc.
 
 ### Some delete commands
 - `diw` Delete a word.
@@ -194,10 +194,6 @@ In Vim you specify the number of times to execute a command. For example, you ca
 
 ## Editing
 `edit` or `e` open a file in Vim. (On a new tab for example.)
-
-## d and x difference
-`d` Delete and yank the text.
-`x` Delete something without putting it into the register.
 
 ## Macros
 Start / Stop recording a macro with `q` on one of Vim’s 26 registers (a-z)
