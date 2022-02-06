@@ -211,7 +211,7 @@ Use&lt;code>gg&lt;/code> Go to the top of the file.&lt;/p>
 &lt;h2 id="editing">Editing&lt;/h2>
 &lt;p>&lt;code>edit&lt;/code> or &lt;code>e&lt;/code> open a file in Vim. (On a new tab for example.)&lt;/p>
 &lt;h2 id="macros">Macros&lt;/h2>
-&lt;p>Start / Stop recording a macro with &lt;code>q&lt;/code> on one of Vim’s 26 registers (a-z)
+&lt;p>Start / Stop recording a macro with &lt;code>q&lt;/code> on one of Vim’s 26 registers (a-z).
 Use &lt;code>@&lt;/code> with the register key to play the recorded macro.
 You can play it &lt;code>n&lt;/code> times with &lt;code>n@q&lt;/code> with &lt;code>q&lt;/code> being the register.&lt;/p>
 &lt;h2 id="marks">Marks&lt;/h2>
@@ -224,7 +224,7 @@ You can play it &lt;code>n&lt;/code> times with &lt;code>n@q&lt;/code> with &lt;
 &lt;li>&lt;code>:delmarks a-c&lt;/code> Delete a range of marks.&lt;/li>
 &lt;li>&lt;code>:demarks!&lt;/code> Delete all the marks.&lt;/li>
 &lt;/ul>
-&lt;h2 id="heading">.&lt;/h2>
+&lt;h2 id="-command">. Command&lt;/h2>
 &lt;p>Rerun the last executed command on Normal Mode.&lt;/p>
 &lt;h2 id="g">g&lt;/h2>
 &lt;ul>
@@ -239,7 +239,7 @@ You can play it &lt;code>n&lt;/code> times with &lt;code>n@q&lt;/code> with &lt;
 &lt;h2 id="running-a-shell-command">Running a Shell command&lt;/h2>
 &lt;p>Use &lt;code>:!&lt;/code> to run a Shell command.
 e.g. &lt;code>:! ls&lt;/code> to run &lt;code>ls&lt;/code>.&lt;/p>
-&lt;h2 id="heading-1">%&lt;/h2>
+&lt;h2 id="heading">%&lt;/h2>
 &lt;p>&lt;code>%&lt;/code> Jump to the matching parenthesis, brackets, etc.&lt;/p>
 &lt;hr>
 &lt;h3 id="-sources">✨ Sources&lt;/h3>
