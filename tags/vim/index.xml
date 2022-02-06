@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vim on riceset</title><link>https://riceset.com/tags/vim/</link><description>Recent content in Vim on riceset</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© 2021 riceset</copyright><lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://riceset.com/tags/vim/index.xml" rel="self" type="application/rss+xml"/><item><title>Introduction to Vim</title><link>https://riceset.com/articles/introduction-to-vim/</link><pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/introduction-to-vim/</guid><description>
+&lt;p>Vim is one of the most powerful text editors you can think of. In this article, I will introduce you some basic and useful Vim commands.&lt;/p>
+&lt;h2 id="vim-modes">Vim modes&lt;/h2>
+&lt;p>There are two main modes in Vim. Normal Mode and Insert Mode.
+In Insert Mode you can type on the document as in any other text editor. In Normal Mode you can execute commands to navigate though the file or modify it.&lt;/p>
+&lt;h2 id="entering-normal-mode">Entering Normal Mode&lt;/h2>
+&lt;p>Press the escape key to enter Normal Mode. (Most Vim users usually remap escape to caps lock. On a Mac you can do it using &lt;a href="https://github.com/pqrs-org/Karabiner-Elements">Karabiner&lt;/a>.)&lt;/p>
+&lt;h2 id="entering-insert-mode">Entering Insert Mode&lt;/h2>
+&lt;p>To enter insert mode you just have to type &lt;code>i&lt;/code> or &lt;code>a&lt;/code> while on Normal Mode. If you entered normal mode with the &lt;code>i&lt;/code> key, you will be able to insert text on the left side of your cursor. In contrast, with &lt;code>a&lt;/code>, you will insert text on the right side of the cursor. &lt;code>C&lt;/code> (Shift-c) deletes all the text from the cursor position to the end of the line and puts you in Insert Mode.&lt;/p>
+&lt;p>There is also &lt;code>o&lt;/code> that allows you to insert text on the next line.&lt;/p>
+&lt;h3 id="uppercased-versions">Uppercased versions&lt;/h3>
+&lt;p>&lt;code>I&lt;/code> (Shift-i) will put you on insert mode on the beginning of the line.
+&lt;code>A&lt;/code> (Shift-a) will put you on insert mode on the end of the line. &lt;code>O&lt;/code> (Shift-o) will put on insert mode on the previous line.&lt;/p>
+&lt;h2 id="visual-mode">Visual Mode&lt;/h2>
+&lt;p>Visual Mode is used for selecting text.&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>v&lt;/code> Enter visual mode.&lt;/li>
+&lt;li>&lt;code>V&lt;/code> Enter visual line mode.&lt;/li>
+&lt;li>&lt;code>ctrl-v&lt;/code> Enter visual block mode.&lt;/li>
+&lt;/ul>
+&lt;h2 id="exiting-vim">Exiting Vim&lt;/h2>
+&lt;p>The most known way of exiting Vim is using &lt;code>:wq&lt;/code> (write and quit) or &lt;code>:q!&lt;/code> (quit without saving).&lt;/p>
+&lt;p>But, there is a more efficient ways of exiting Vim. You type &lt;code>ZZ&lt;/code> (shift-zz) to exit Vim saving or &lt;code>ZQ&lt;/code> (shift-zq) to exit it without saving.&lt;/p>
+&lt;hr>
+&lt;h2 id="cursor-movement">Cursor Movement&lt;/h2>
+&lt;h3 id="basic-movement-hjkl">Basic Movement (HJKL)&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>H&lt;/code> Move to the left.&lt;/li>
+&lt;li>&lt;code>J&lt;/code> Move down.&lt;/li>
+&lt;li>&lt;code>K&lt;/code> Move up.&lt;/li>
+&lt;li>&lt;code>L&lt;/code> Move to the right.&lt;/li>
+&lt;/ul>
+&lt;h3 id="movement-word-per-word">Movement word per word&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>w&lt;/code> Move to the next word.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>W&lt;/code> Move to the next word (separated by whitespace).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>b&lt;/code> Move a word backwards.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>B&lt;/code> Move a word backwards (separated by whitespace).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>e&lt;/code> Move to the end of the next word.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>E&lt;/code> Move to the end of the next word (separated by whitespace).&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>You can use all of these commands with a count. e.g. &lt;code>5w&lt;/code> to move the cursor 5 words forward.&lt;/p>
+&lt;h3 id="moving-the-cursor">Moving the cursor&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>H&lt;/code> Put the cursor on the top.&lt;/li>
+&lt;li>&lt;code>M&lt;/code> Put the cursor on the middle.&lt;/li>
+&lt;li>&lt;code>L&lt;/code> Put the cursor on the bottom.&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>Mnemonic: High, Middle, Low.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="movement-by-paragraph">Movement by paragraph&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>{&lt;/code> Move the cursor a paragraph up.&lt;/li>
+&lt;li>&lt;code>}&lt;/code> Move the cursor a paragraph down.&lt;/li>
+&lt;/ul>
+&lt;h2 id="movement-through-the-line">Movement through the line&lt;/h2>
+&lt;h3 id="including-whitespace">Including whitespace&lt;/h3>
+&lt;p>&lt;code>0&lt;/code> Go to the beginning of the line.
+&lt;code>$&lt;/code> Go to the end of the line.&lt;/p>
+&lt;h3 id="not-including-whitespace">Not including whitespace&lt;/h3>
+&lt;p>&lt;code>^&lt;/code> Go to the beginning of the line.
+&lt;code>g_&lt;/code> Go to the end of the line.&lt;/p>
+&lt;h2 id="g-and-gg">G and gg&lt;/h2>
+&lt;p>&lt;code>G&lt;/code> Go to the bottom of the file.
+&lt;code>gg&lt;/code> Go to the top of the file.&lt;/p>
+&lt;h2 id="f-and-t">f and t&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>f&lt;/code> followed by a word &lt;code>a&lt;/code> moves the cursor the the next occurrence of the word &lt;code>a&lt;/code> on a line.&lt;/li>
+&lt;li>&lt;code>t&lt;/code> followed by a word &lt;code>a&lt;/code> moves your cursor a word before the the next occurrence of the word &lt;code>a&lt;/code> word on a line.&lt;/li>
+&lt;/ul>
+&lt;h3 id="example">Example&lt;/h3>
+&lt;pre tabindex="0">&lt;code>The quick brown fox jumps over the lazy dog.
+^
+&lt;/code>&lt;/pre>&lt;p>Using &lt;code>fb&lt;/code>&lt;/p>
+&lt;pre tabindex="0">&lt;code>The quick brown fox jumps over the lazy dog.
+^
+&lt;/code>&lt;/pre>&lt;p>Using &lt;code>tb&lt;/code>&lt;/p>
+&lt;pre tabindex="0">&lt;code>The quick brown fox jumps over the lazy dog.
+^
+&lt;/code>&lt;/pre>&lt;h2 id="moving-the-screen">Moving the screen&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>zt&lt;/code> Put the current line on the top of the screen.&lt;/li>
+&lt;li>&lt;code>zz&lt;/code> Put the current line on the middle of the screen.&lt;/li>
+&lt;li>&lt;code>zb&lt;/code> Put the current line on the bottom of the screen.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="deleting-text">Deleting text&lt;/h2>
+&lt;p>To delete text, you can use the &amp;rsquo;d' command followed by what you want to delete.
+(You can use all of the following commands with &amp;lsquo;c&amp;rsquo; instead of &amp;rsquo;d' to delete and CHANGE what you just deleted. In other words, it deletes and puts you on Insert Mode.)&lt;/p>
+&lt;h3 id="counts">Counts&lt;/h3>
+&lt;p>In Vim you specify the number of times to execute a command. For example, you can delete a line with &lt;code>dd&lt;/code> and &lt;code>5dd&lt;/code> for deleting 5 lines at once. It also works for other commands like &lt;code>5dap&lt;/code>, &lt;code>5daw&lt;/code>, etc.&lt;/p>
+&lt;h3 id="some-delete-commands">Some delete commands&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>diw&lt;/code> Delete a word.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>daw&lt;/code> Delete a word w/ surrounding whitespace.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>di(&lt;/code> Delete inside a ().&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>da(&lt;/code> Delete a () w/ surrounding whitespace.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>di[&lt;/code> Delete inside a [].&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>da[&lt;/code> Delete a [] w/ surrounding whitespace.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>di{&lt;/code> Delete inside a {}.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>da{&lt;/code> Delete a {} w/ surrounding whitespace.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>dip&lt;/code> Delete inside a paragraph.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>dap&lt;/code> Delete a paragraph w/ surrounding whitespace.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>dit&lt;/code> Delete inside an HTML tag.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>dat&lt;/code> Delete an HTML tag w/ surrounding whitespace.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>dw&lt;/code> Delete word, only works if the cursor is positioned on the beginning of the word.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>D&lt;/code> Delete from the cursor to the end of the line.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>dd&lt;/code> Delete the current line.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>5dd&lt;/code> Delete the next 5 lines.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>dG&lt;/code> Delete from the current line until the end of the document.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>dgg&lt;/code> Delete form the current line until the beginning of the document.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="copying-and-pasting">Copying and Pasting&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>y&lt;/code> (for YANK) copy. (e.g. to copy a word type &lt;code>yw&lt;/code>)&lt;/li>
+&lt;li>&lt;code>yy&lt;/code> Copy a whole line.&lt;/li>
+&lt;li>&lt;code>p&lt;/code> Paste.&lt;/li>
+&lt;/ul>
+&lt;h2 id="searching">Searching&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>/&lt;/code> Search. (Navigate with ‘n/N’)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>?&lt;/code> Search backwards. (Navigate with ‘n/N’)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>//&lt;/code> Search for the last pattern searched.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>??&lt;/code> Search for the last pattern searched backwards.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>*&lt;/code> Search the current word.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>#&lt;/code> Search the current word backwards.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>:set ic&lt;/code> Search case insensitively.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="replacing-text">Replacing Text&lt;/h2>
+&lt;pre tabindex="0">&lt;code>:%s/old/new/g
+:%s/old/new/gi (case insensitive)
+:%s/old/new/gc (prompts before each replacement)
+&lt;/code>&lt;/pre>&lt;h2 id="undo-and-redo">Undo and Redo&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>u&lt;/code> Undo the last change.&lt;/li>
+&lt;li>&lt;code>U&lt;/code> Undo the last changes on the current line.&lt;/li>
+&lt;li>&lt;code>ctrl-r&lt;/code> Redo the last change.&lt;/li>
+&lt;/ul>
+&lt;h2 id="tabs">Tabs&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>:tabnew&lt;/code> Open a new tab.&lt;/li>
+&lt;li>&lt;code>:tabnext&lt;/code> Go to the next tab. (Also &lt;code>:tabn&lt;/code>)&lt;/li>
+&lt;li>&lt;code>:tabprevious&lt;/code> Go to the previous tab. (Also &lt;code>:tabp&lt;/code>)&lt;/li>
+&lt;li>&lt;code>:tabfirst&lt;/code> Go to the first tab.&lt;/li>
+&lt;li>&lt;code>:tablast&lt;/code> Go to the last tab.&lt;/li>
+&lt;li>&lt;code>:tabmove (num)&lt;/code> Move the current tab to the specified &lt;code>num&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="editing">Editing&lt;/h2>
+&lt;p>&lt;code>edit&lt;/code> or &lt;code>e&lt;/code> open a file in Vim. (On a new tab for example.)&lt;/p>
+&lt;h2 id="d-and-x-difference">d and x difference&lt;/h2>
+&lt;p>&lt;code>d&lt;/code> Delete and yank the text.
+&lt;code>x&lt;/code> Delete something without putting it into the register.&lt;/p>
+&lt;h2 id="macros">Macros&lt;/h2>
+&lt;p>Start / Stop recording a macro with &lt;code>q&lt;/code> on one of Vim’s 26 registers (a-z)
+Use &lt;code>@&lt;/code> with the register key to play the recorded macro.
+You can play it &lt;code>n&lt;/code> times with &lt;code>n@q&lt;/code> with &lt;code>q&lt;/code> being the register.&lt;/p>
+&lt;h2 id="marks">Marks&lt;/h2>
+&lt;p>Record your current position in a register.&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>mb&lt;/code> Set a mark on register &lt;code>b&lt;/code>. (Using an uppercased mark like &lt;code>mB&lt;/code> makes it accessible on all the files being edited.)&lt;/li>
+&lt;li>&lt;code>’b&lt;/code> Go the the mark set on &lt;code>b&lt;/code>.&lt;/li>
+&lt;li>&lt;code>:marks&lt;/code> List all the current marks.&lt;/li>
+&lt;li>&lt;code>:delmarks b&lt;/code> Delete a mark.&lt;/li>
+&lt;li>&lt;code>:delmarks a-c&lt;/code> Delete a range of marks.&lt;/li>
+&lt;li>&lt;code>:demarks!&lt;/code> Delete all the marks.&lt;/li>
+&lt;/ul>
+&lt;h2 id="heading">.&lt;/h2>
+&lt;p>Rerun the last executed command on Normal Mode.&lt;/p>
+&lt;h2 id="g">g&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>g&lt;/code> + hjkl, 0, $, etc navigates an one line paragraph.&lt;/li>
+&lt;li>&lt;code>gq&lt;/code> Reformat an one line paragraph.&lt;/li>
+&lt;li>&lt;code>ga&lt;/code> Give you the ASCII value of the current character.&lt;/li>
+&lt;li>&lt;code>gf&lt;/code> Open the file under the cursor.&lt;/li>
+&lt;li>&lt;code>gi&lt;/code> Continue inserting text to where you were before.&lt;/li>
+&lt;/ul>
+&lt;h2 id="indentation">Indentation&lt;/h2>
+&lt;p>Indent the current line using &lt;code>&amp;lt;&lt;/code> and &lt;code>&amp;gt;&lt;/code>.&lt;/p>
+&lt;h2 id="running-a-shell-command">Running a Shell command&lt;/h2>
+&lt;p>Use &lt;code>:!&lt;/code> to run a Shell command.
+e.g. &lt;code>:! ls&lt;/code> to run &lt;code>ls&lt;/code>.&lt;/p>
+&lt;h2 id="heading-1">%&lt;/h2>
+&lt;p>&lt;code>%&lt;/code> Jump to the matching parenthesis, brackets, etc.&lt;/p>
+&lt;hr>
+&lt;h3 id="-sources">✨ Sources&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.youtube.com/playlist?list=PL3cu45aM3C2DJVGfCjSBB1yD9YkC7q27-">Vim Tutorial by Mental Outlaw&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.youtube.com/playlist?list=PL8tzorAO7s0jy7DQ3Q0FwF3BnXGQnDirs">Vim Meetups by thoughtbot&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/12495442/what-do-the-f-and-t-commands-do-in-vim">What do the f and t commands do in Vim? answered by Michael Kristofik&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.youtube.com/watch?v=d8XtNXutVto">OFFICIAL Vimtutor Commentary by Luke Smith&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
