@@ -196,7 +196,7 @@ In Vim you can specify the number of times to execute a command. For example, yo
 `edit` or `e` open a file in Vim. (On a new tab for example.)
 
 ## Macros
-Start / Stop recording a macro with `q` on one of Vim’s 26 registers (a-z)
+Start / Stop recording a macro with `q` on one of Vim’s 26 registers (a-z).
 Use `@` with the register key to play the recorded macro.
 You can play it `n` times with `n@q` with `q` being the register.
 
@@ -210,7 +210,7 @@ Record your current position in a register.
 - `:delmarks a-c` Delete a range of marks.
 - `:demarks!` Delete all the marks.
 
-## .
+## . Command
 Rerun the last executed command on Normal Mode.
 
 ## g
