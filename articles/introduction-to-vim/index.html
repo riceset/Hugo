@@ -82,7 +82,7 @@ In Insert Mode you can type on the document as in any other text editor. In Norm
 <h2 id=entering-normal-mode>Entering Normal Mode</h2>
 <p>Press the escape key to enter Normal Mode. (Most Vim users usually remap escape to caps lock. On a Mac you can do it using <a href=https://github.com/pqrs-org/Karabiner-Elements>Karabiner</a>.)</p>
 <h2 id=entering-insert-mode>Entering Insert Mode</h2>
-<p>To enter insert mode you just have to type <code>i</code> or <code>a</code> while on Normal Mode. If you entered normal mode with the <code>i</code> key, you will be able to insert text on the left side of your cursor. In contrast, with <code>a</code>, you will insert text on the right side of the cursor. <code>C</code> (Shift-c) deletes all the text from the cursor position to the end of the line and puts you in Insert Mode.</p>
+<p>To enter insert mode you just have to type <code>i</code> or <code>a</code> while on Normal Mode. If you entered Insert Mode with the <code>i</code> key, you will be able to insert text on the left side of your cursor. In contrast, with <code>a</code>, you will insert text on the right side of the cursor. <code>C</code> (Shift-c) deletes all the text from the cursor position to the end of the line and puts you in Insert Mode.</p>
 <p>There is also <code>o</code> that allows you to insert text on the next line.</p>
 <h3 id=uppercased-versions>Uppercased versions</h3>
 <p><code>I</code> (Shift-i) will put you on insert mode on the beginning of the line.
@@ -150,8 +150,8 @@ In Insert Mode you can type on the document as in any other text editor. In Norm
 <p><code>^</code> Go to the beginning of the line.
 <code>g_</code> Go to the end of the line.</p>
 <h2 id=g-and-gg>G and gg</h2>
-<p><code>G</code> Go to the bottom of the file.
-<code>gg</code> Go to the top of the file.</p>
+<p>Use <code>G</code> Go to the bottom of the file.
+Use<code>gg</code> Go to the top of the file.</p>
 <h2 id=f-and-t>f and t</h2>
 <ul>
 <li><code>f</code> followed by a word <code>a</code> moves the cursor the the next occurrence of the word <code>a</code> on a line.</li>
@@ -174,8 +174,8 @@ In Insert Mode you can type on the document as in any other text editor. In Norm
 </ul>
 <hr>
 <h2 id=deleting-text>Deleting text</h2>
-<p>To delete text, you can use the &rsquo;d' command followed by what you want to delete.
-(You can use all of the following commands with &lsquo;c&rsquo; instead of &rsquo;d' to delete and CHANGE what you just deleted. In other words, it deletes and puts you on Insert Mode.)</p>
+<p>To delete text, you can use the <code>d</code> followed by what you want to delete.
+(You can use all of the following commands with <code>c</code> instead of <code>d</code> to delete and CHANGE what you just deleted. In other words, it deletes and puts you on Insert Mode.)</p>
 <h3 id=counts>Counts</h3>
 <p>In Vim you specify the number of times to execute a command. For example, you can delete a line with <code>dd</code> and <code>5dd</code> for deleting 5 lines at once. It also works for other commands like <code>5dap</code>, <code>5daw</code>, etc.</p>
 <h3 id=some-delete-commands>Some delete commands</h3>
