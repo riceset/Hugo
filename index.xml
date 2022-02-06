@@ -101,7 +101,7 @@ Use&lt;code>gg&lt;/code> Go to the top of the file.&lt;/p>
 &lt;p>To delete text, you can use the &lt;code>d&lt;/code> followed by what you want to delete.
 (You can use all of the following commands with &lt;code>c&lt;/code> instead of &lt;code>d&lt;/code> to delete and CHANGE what you just deleted. In other words, it deletes and puts you on Insert Mode.)&lt;/p>
 &lt;h3 id="counts">Counts&lt;/h3>
-&lt;p>In Vim you specify the number of times to execute a command. For example, you can delete a line with &lt;code>dd&lt;/code> and &lt;code>5dd&lt;/code> for deleting 5 lines at once. It also works for other commands like &lt;code>5dap&lt;/code>, &lt;code>5daw&lt;/code>, etc.&lt;/p>
+&lt;p>In Vim you can specify the number of times to execute a command. For example, you can delete a line with &lt;code>dd&lt;/code> and &lt;code>5dd&lt;/code> for deleting 5 lines at once. It also works for other commands like &lt;code>5dap&lt;/code>, &lt;code>5daw&lt;/code>, etc.&lt;/p>
 &lt;h3 id="some-delete-commands">Some delete commands&lt;/h3>
 &lt;ul>
 &lt;li>
@@ -210,9 +210,6 @@ Use&lt;code>gg&lt;/code> Go to the top of the file.&lt;/p>
 &lt;/ul>
 &lt;h2 id="editing">Editing&lt;/h2>
 &lt;p>&lt;code>edit&lt;/code> or &lt;code>e&lt;/code> open a file in Vim. (On a new tab for example.)&lt;/p>
-&lt;h2 id="d-and-x-difference">d and x difference&lt;/h2>
-&lt;p>&lt;code>d&lt;/code> Delete and yank the text.
-&lt;code>x&lt;/code> Delete something without putting it into the register.&lt;/p>
 &lt;h2 id="macros">Macros&lt;/h2>
 &lt;p>Start / Stop recording a macro with &lt;code>q&lt;/code> on one of Vim’s 26 registers (a-z)
 Use &lt;code>@&lt;/code> with the register key to play the recorded macro.
