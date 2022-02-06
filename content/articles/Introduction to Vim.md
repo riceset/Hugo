@@ -14,7 +14,7 @@ In Insert Mode you can type on the document as in any other text editor. In Norm
 Press the escape key to enter Normal Mode. (Most Vim users usually remap escape to caps lock. On a Mac you can do it using [Karabiner](https://github.com/pqrs-org/Karabiner-Elements).)
 
 ## Entering Insert Mode
-To enter insert mode you just have to type `i` or `a` while on Normal Mode. If you entered normal mode with the `i` key, you will be able to insert text on the left side of your cursor. In contrast, with `a`, you will insert text on the right side of the cursor. `C` (Shift-c) deletes all the text from the cursor position to the end of the line and puts you in Insert Mode.
+To enter insert mode you just have to type `i` or `a` while on Normal Mode. If you entered Insert Mode with the `i` key, you will be able to insert text on the left side of your cursor. In contrast, with `a`, you will insert text on the right side of the cursor. `C` (Shift-c) deletes all the text from the cursor position to the end of the line and puts you in Insert Mode.
 
 There is also `o` that allows you to insert text on the next line.
 
@@ -79,8 +79,8 @@ You can use all of these commands with a count. e.g. `5w` to move the cursor 5 w
 `g_` Go to the end of the line.
 
 ## G and gg
-`G` Go to the bottom of the file.
-`gg` Go to the top of the file.
+Use `G` Go to the bottom of the file.
+Use`gg` Go to the top of the file.
 
 ## f and t
 - `f` followed by a word `a` moves the cursor the the next occurrence of the word `a` on a line.
@@ -112,8 +112,8 @@ The quick brown fox jumps over the lazy dog.
 - - - -
 
 ## Deleting text
-To delete text, you can use the 'd' command followed by what you want to delete.
-(You can use all of the following commands with 'c' instead of 'd' to delete and CHANGE what you just deleted. In other words, it deletes and puts you on Insert Mode.)
+To delete text, you can use the `d` followed by what you want to delete.
+(You can use all of the following commands with `c` instead of `d` to delete and CHANGE what you just deleted. In other words, it deletes and puts you on Insert Mode.)
 
 ### Counts
 In Vim you specify the number of times to execute a command. For example, you can delete a line with `dd` and `5dd` for deleting 5 lines at once. It also works for other commands like `5dap`, `5daw`, etc.
