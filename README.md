@@ -1,5 +1,7 @@
 # [riceset.com](https://riceset.com)
 
+![image](https://user-images.githubusercontent.com/48802655/129465914-1110542c-dc2c-446b-92f2-1d138cb10f5c.png)
+
 ## Getting started
 
 ### Hugo
