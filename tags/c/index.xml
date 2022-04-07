@@ -1,35 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>C on riceset</title><link>https://riceset.com/tags/c/</link><description>Recent content in C on riceset</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© 2021 riceset</copyright><lastBuildDate>Wed, 09 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://riceset.com/tags/c/index.xml" rel="self" type="application/rss+xml"/><item><title>Introduction to pointers in C</title><link>https://riceset.com/articles/introduction-to-pointers-in-c/</link><pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/introduction-to-pointers-in-c/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>C on riceset</title><link>https://riceset.com/tags/c/</link><description>Recent content in C on riceset</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© 2022 riceset</copyright><lastBuildDate>Wed, 09 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://riceset.com/tags/c/index.xml" rel="self" type="application/rss+xml"/><item><title>Introduction to pointers in C</title><link>https://riceset.com/articles/introduction-to-pointers-in-c/</link><pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/introduction-to-pointers-in-c/</guid><description>
 &lt;p>When we declare a variable in C, we generally do something like this:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c" data-lang="c">&lt;span style="color:#66d9ef">int&lt;/span> num &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>As you might know, variables get stored in memory, and the size of each variable will differ depending on its data type.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> num &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>As you might know, variables get stored in memory, and the size of each variable will differ depending on its data type.&lt;/p>
 &lt;p>For instance, an integer variable like &lt;code>num&lt;/code> declared above is 4 bytes long on my Mac, but the size could vary depending on the machine.&lt;/p>
 &lt;p>You can always check the size of a particular data type by using the &lt;code>sizeof()&lt;/code> operator.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c" data-lang="c">printf(&lt;span style="color:#e6db74">&amp;#34;%lu&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, &lt;span style="color:#66d9ef">sizeof&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span>));
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>output: 4&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>printf(&lt;span style="color:#e6db74">&amp;#34;%lu&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, &lt;span style="color:#66d9ef">sizeof&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span>));
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>output: 4&lt;/p>
 &lt;h2 id="the-address-of-operator-">The address-of operator (&amp;amp;)&lt;/h2>
 &lt;p>The address-of operator is just an operator we place before some variable name to get that variable’s address in memory. We print this address using the &lt;code>%p&lt;/code> format specifier to get the address in hexadecimal.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c" data-lang="c">&lt;span style="color:#66d9ef">int&lt;/span> num &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
-printf(&lt;span style="color:#e6db74">&amp;#34;%p&amp;#34;&lt;/span>, &lt;span style="color:#f92672">&amp;amp;&lt;/span>num);
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>output: &lt;em>0x7ffee7ea278c&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> num &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>printf(&lt;span style="color:#e6db74">&amp;#34;%p&amp;#34;&lt;/span>, &lt;span style="color:#f92672">&amp;amp;&lt;/span>num);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>output: &lt;em>0x7ffee7ea278c&lt;/em>&lt;/p>
 &lt;h2 id="the-concept-of-a-pointer">The concept of a pointer&lt;/h2>
 &lt;p>A pointer is just a variable that holds the address in memory of some other variable.&lt;/p>
 &lt;p>When declaring a pointer variable, we have to place a &lt;code>*&lt;/code> symbol just before the variable name.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c" data-lang="c">&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#f92672">*&lt;/span>pointer;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now that we declared our pointer variable let’s try assigning it the address of the variable &lt;code>num&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c" data-lang="c">pointer &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">&amp;amp;&lt;/span>num;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now &lt;code>pointer&lt;/code> will hold &lt;em>0x7ffee7ea278c&lt;/em>, the address in memory of the variable &lt;code>num&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#f92672">*&lt;/span>pointer;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now that we declared our pointer variable let’s try assigning it the address of the variable &lt;code>num&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>pointer &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">&amp;amp;&lt;/span>num;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now &lt;code>pointer&lt;/code> will hold &lt;em>0x7ffee7ea278c&lt;/em>, the address in memory of the variable &lt;code>num&lt;/code>.&lt;/p>
 &lt;p>You can also declare a pointer variable and assign it a value at the same line.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c" data-lang="c">&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#f92672">*&lt;/span>pointer &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">&amp;amp;&lt;/span>num;
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="dereferencing-a-pointer">Dereferencing a pointer&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#f92672">*&lt;/span>pointer &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">&amp;amp;&lt;/span>num;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="dereferencing-a-pointer">Dereferencing a pointer&lt;/h2>
 &lt;p>Dereferencing a pointer means accessing or manipulating data stored at an address in memory through a pointer variable.&lt;/p>
 &lt;p>Say we wanted to change the value of &lt;code>num&lt;/code> from 1 (the value we initialized it with) to 2.
 We could do something like this:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c" data-lang="c">num &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>But, what if we wanted to use the pointer we declared to change &lt;code>num&lt;/code>’s value?
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>num &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>But, what if we wanted to use the pointer we declared to change &lt;code>num&lt;/code>’s value?
 That’s when we use the &lt;em>dereference operator&lt;/em> (*)&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c" data-lang="c">&lt;span style="color:#f92672">*&lt;/span>pointer &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>;
-printf(&lt;span style="color:#e6db74">&amp;#34;%d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, num);
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>output: 2&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">*&lt;/span>pointer &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>printf(&lt;span style="color:#e6db74">&amp;#34;%d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, num);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>output: 2&lt;/p>
 &lt;hr>
 &lt;h2 id="use-example">Use Example&lt;/h2>
 &lt;p>Say we wanted to make a function that receives two numbers and swap them.
@@ -48,20 +48,22 @@ But with pointers, we can access some variable’s memory location and change it
 &lt;p>Third, we set the value pointed by &lt;code>b&lt;/code> to be equal to &lt;code>temp&lt;/code>.&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c" data-lang="c">&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">swap&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#f92672">*&lt;/span>a, &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#f92672">*&lt;/span>b)
-{
-&lt;span style="color:#66d9ef">int&lt;/span> temp &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">*&lt;/span>a;
-&lt;span style="color:#f92672">*&lt;/span>a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">*&lt;/span>b;
-&lt;span style="color:#f92672">*&lt;/span>b &lt;span style="color:#f92672">=&lt;/span> temp;
-}
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now, we can call the swap function on main and see if it works.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c" data-lang="c">&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> argc, &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>argv)
-{
-&lt;span style="color:#66d9ef">int&lt;/span> x &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
-&lt;span style="color:#66d9ef">int&lt;/span> y &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>;
-swap(&lt;span style="color:#f92672">&amp;amp;&lt;/span>x, &lt;span style="color:#f92672">&amp;amp;&lt;/span>y);
-printf(&lt;span style="color:#e6db74">&amp;#34;x: %i&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">y: %i&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, x, y);
-}
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>output:
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">swap&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#f92672">*&lt;/span>a, &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#f92672">*&lt;/span>b)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> temp &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">*&lt;/span>a;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">*&lt;/span>b;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>b &lt;span style="color:#f92672">=&lt;/span> temp;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now, we can call the swap function on main and see if it works.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> argc, &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>argv)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> x &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> y &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> swap(&lt;span style="color:#f92672">&amp;amp;&lt;/span>x, &lt;span style="color:#f92672">&amp;amp;&lt;/span>y);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;x: %i&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">y: %i&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, x, y);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>output:
 x: 2
 y: 1&lt;/p></description></item></channel></rss>
