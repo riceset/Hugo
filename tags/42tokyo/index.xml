@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>42Tokyo on riceset</title><link>https://riceset.com/tags/42tokyo/</link><description>Recent content in 42Tokyo on riceset</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© 2022 riceset</copyright><lastBuildDate>Sun, 17 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://riceset.com/tags/42tokyo/index.xml" rel="self" type="application/rss+xml"/><item><title>Born2beRoot</title><link>https://riceset.com/articles/born2beroot/</link><pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/born2beroot/</guid><description>
+&lt;p>Written by: 米野チアゴ (tkomeno) with help of 飯島康太 (kiijima) from 42Tokyo.&lt;/p>
+&lt;h3 id="how-a-virtual-machine-works">How a virtual machine works:&lt;/h3>
+&lt;p>Virtual Machines take advantage of a technology called &lt;strong>Virtualization&lt;/strong> which takes some portion of the hardware resources and gives it to the guest OS.&lt;/p>
+&lt;h3 id="why-debian">Why Debian?&lt;/h3>
+&lt;p>At first, Debian is easier to use than CentOS. We’ve also heard that CentOS will be discontinued so we thought Debian would be the smarter choice.&lt;/p>
+&lt;h3 id="some-of-the-differences-between-centos-and-debian">Some of the differences between CentOS and Debian&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CentOS&lt;/th>
+&lt;th>Debian&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Is supported by Red Hat&lt;/td>
+&lt;td>Is supported by individuals&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Does not have multiple architectures&lt;/td>
+&lt;td>Has multiple architectures&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Stable updates but that take a lot of time&lt;/td>
+&lt;td>Has a release cycle of 2 years&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Not that user-friendly&lt;/td>
+&lt;td>Is user-friendly&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Uses YUM as their package manager which has some limited packages&lt;/td>
+&lt;td>Uses apt as their package manager which has a vast amount of packages on their built-in repository&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="the-purpose-of-virtual-machines">The purpose of virtual machines&lt;/h3>
+&lt;p>The main purpose differentiates between personal use and enterprise use.&lt;/p>
+&lt;p>If you’re a regular user, you can use a virtual machine to try things out like a program or new versions of a certain OS. You can even use it as a quarantined OS as it is separated from the host OS by nature (in most cases)&lt;/p>
+&lt;p>If you’re a company that offers servers, for example, you can save up a lot of money by getting a mainframe-like computer and separating it virtually into many computers. In this way, you can save not only money but also energy and physical space.&lt;/p>
+&lt;h3 id="the-difference-between-aptitude-and-apt">The difference between aptitude and apt&lt;/h3>
+&lt;p>Aptitude is a high-level package manager compared to apt.&lt;/p>
+&lt;p>&lt;img src="https://riceset.com/aptget-aptitude.png" alt="aptget-aptitude">&lt;/p>
+&lt;h3 id="what-is-apparmor-in-short">What is AppArmor in short?&lt;/h3>
+&lt;p>AppArmor is a Linux security module that allows the system admin to restrict programs with per-program profiles. For example, restricting network access and rwx permissions.&lt;/p>
+&lt;h2 id="simple-setup">Simple Setup&lt;/h2>
+&lt;h3 id="checking-ufw-status">Checking UFW status:&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ systemctl status ufw
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="checking-ssh-status">Checking SSH status:&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ systemctl status ssh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="checking-the-user-groups">Checking the user groups:&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ groups USERNAME
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="checking-all-of-the-groups">Checking all of the groups:&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">$&lt;/span> &lt;span style="color:#a6e22e">cat&lt;/span> &lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">etc&lt;/span>&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">groups&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="checking-the-user">Checking the user:&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">$&lt;/span> &lt;span style="color:#a6e22e">cat&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">d&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">f1&lt;/span> &lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">etc&lt;/span>&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">passwd&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="adding-user">Adding user:&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo adduser USERNAME
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="adding-groups">Adding groups:&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">$&lt;/span> &lt;span style="color:#a6e22e">sudo&lt;/span> &lt;span style="color:#a6e22e">groupadd&lt;/span> &lt;span style="color:#a6e22e">GROUPNAME&lt;/span> &lt;span style="color:#a6e22e">USERNAME&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="adding-a-user-to-a-group">Adding a user to a group:&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">$&lt;/span> &lt;span style="color:#a6e22e">sudo&lt;/span> &lt;span style="color:#a6e22e">usermod&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">aG&lt;/span> &lt;span style="color:#a6e22e">GROUPNAME&lt;/span> &lt;span style="color:#a6e22e">cut&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">d&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="hostname-and-partition">Hostname and &lt;strong>partition&lt;/strong>&lt;/h2>
+&lt;h3 id="changing-the-hostname">Changing the hostname:&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">$&lt;/span> &lt;span style="color:#a6e22e">sudo&lt;/span> &lt;span style="color:#a6e22e">hostnamectl&lt;/span> &lt;span style="color:#a6e22e">set&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">hostname&lt;/span> &lt;span style="color:#a6e22e">HOSTNAME&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="change-etchosts-file">Change /etc/hosts file:&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">$&lt;/span> &lt;span style="color:#a6e22e">sudo&lt;/span> &lt;span style="color:#a6e22e">vim&lt;/span> &lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">etc&lt;/span>&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">hosts&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="change-old_hostname-with-new_hostname">Change old_hostname with new_hostname:&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">127.0.0.1&lt;/span> &lt;span style="color:#a6e22e">localhost&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">127.0.0.1&lt;/span> &lt;span style="color:#a6e22e">NEW_HOSTNAME&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="what-is-lvm">What is LVM?&lt;/h3>
+&lt;p>The official name is Logical Volume management multiple partitioned logical volumes to be treated as one.&lt;/p>
+&lt;h3 id="checking-expired-passwords">Checking expired passwords:&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">sudo&lt;/span> &lt;span style="color:#a6e22e">chage&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">l&lt;/span> &lt;span style="color:#a6e22e">USERNAME&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="checking-the-detail-of-the-password">Checking the detail of the password:&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">sudo&lt;/span> &lt;span style="color:#a6e22e">vim&lt;/span> &lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">etc&lt;/span>&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">pam&lt;/span>.&lt;span style="color:#a6e22e">d&lt;/span>&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">common&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">password&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="checking-cron">Checking cron:&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">sudo&lt;/span> &lt;span style="color:#a6e22e">crontab&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">u&lt;/span> &lt;span style="color:#a6e22e">root&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">e&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
