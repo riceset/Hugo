@@ -1,10 +1,10 @@
 ---
-title: "Born2beRoot"
+title: "Born2beRoot Project"
 date:   2022-07-17
 tags: [42Tokyo]
 ---
 
-Written by: 米野チアゴ (tkomeno) with help of 飯島康太 (kiijima) from 42Tokyo.
+Written by: 米野チアゴ (tkomeno) with the help of 飯島康太 (kiijima) from 42Tokyo.
 
 ### How a virtual machine works:
 
@@ -74,7 +74,7 @@ $ cat /etc/groups
 $ cat -d: -f1 /etc/passwd
 ```
 
-### Adding user:
+### Adding a user:
 
 ```bash
 $ sudo adduser USERNAME
@@ -100,13 +100,13 @@ $ sudo usermod -aG GROUPNAME cut -d
 $ sudo hostnamectl set-hostname HOSTNAME
 ```
 
-### Change /etc/hosts file:
+### Changing the /etc/hosts file:
 
 ```jsx
 $ sudo vim /etc/hosts
 ```
 
-### Change old_hostname with new_hostname:
+### Changing the old_hostname with the new_hostname:
 
 ```jsx
 127.0.0.1       localhost
@@ -123,13 +123,13 @@ The official name is Logical Volume management multiple partitioned logical volu
 sudo chage -l USERNAME
 ```
 
-### Checking the detail of the password:
+### Checking the details of the password:
 
 ```jsx
 sudo vim /etc/pam.d/common-password
 ```
 
-### Checking cron:
+### Checking cron information:
 
 ```jsx
 sudo crontab -u root -e
