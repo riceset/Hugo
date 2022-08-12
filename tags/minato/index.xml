@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Minato on riceset</title><link>https://riceset.com/tags/minato/</link><description>Recent content in Minato on riceset</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© 2022 riceset</copyright><lastBuildDate>Fri, 12 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://riceset.com/tags/minato/index.xml" rel="self" type="application/rss+xml"/><item><title>Minato test</title><link>https://riceset.com/articles/minato/</link><pubDate>Fri, 12 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/minato/</guid><description>
+&lt;p>hello!!!!!!!&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">void&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;Hello World!&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
