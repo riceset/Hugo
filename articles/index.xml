@@ -2,7 +2,8 @@
 &lt;p>written by: 米野チアゴ (tkomeno)&lt;/p>
 &lt;h2 id="what-is-a-process-id">What is a process ID?&lt;/h2>
 &lt;p>A process ID a.k.a. &lt;em>&lt;strong>PID&lt;/strong>&lt;/em> is literally what the name says, it is a number to uniquely identify a running process. You can print your program’s &lt;em>&lt;strong>PID&lt;/strong>&lt;/em> in C using the &lt;em>&lt;strong>getpid()&lt;/strong>&lt;/em> function included on the header file &lt;em>&lt;strong>unistd.h&lt;/strong>&lt;/em>.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">void&lt;/span>) {
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">void&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (&lt;span style="color:#ae81ff">1&lt;/span>)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;PID: %d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, getpid());
@@ -12,7 +13,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>&lt;strong>output: “&lt;/strong>&lt;/em> PID: 12345 ”&lt;/p>
 &lt;p>&lt;em>&lt;strong>note:&lt;/strong>&lt;/em> “12345” is a PID for an arbitrary process.&lt;/p>
 &lt;h2 id="what-is-a-signal">What is a signal?&lt;/h2>
-&lt;p>A signal is a one-way message to inform that something important happened sent by a process to a process, the kernel to the process, or a process to itself. Some examples of signals are &lt;em>&lt;strong>SIGINT&lt;/strong>&lt;/em> and &lt;em>&lt;strong>SIGSTOP&lt;/strong>&lt;/em> mapped to “ctrl-C” and “ctrl-z” respectively on &lt;strong>Unix-like Operating Systems.&lt;/strong>&lt;/p>
+&lt;p>A signal is a one-way message to inform that something important happened sent by a process to a process, the kernel to the process, or a process to itself. Some examples of signals are &lt;em>&lt;strong>SIGINT&lt;/strong>&lt;/em> and &lt;em>&lt;strong>SIGSTOP&lt;/strong>&lt;/em> mapped to “ctrl-C” and “ctrl-Z” respectively on &lt;strong>Unix-like Operating Systems.&lt;/strong>&lt;/p>
 &lt;h2 id="sending-signals">Sending signals:&lt;/h2>
 &lt;p>You can send a signal with the command &lt;em>&lt;strong>kill&lt;/strong>&lt;/em> through the command line specifying as the first parameter the signal you want to send, and as the second parameter the PID of the process you want to send it to.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>kill -INT &lt;span style="color:#ae81ff">12345&lt;/span>
@@ -27,7 +28,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;sigint&amp;#39;s signal number is %d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, signal_number);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The function above will be run when &lt;em>&lt;strong>SIGINT&lt;/strong>&lt;/em> (when the user presses &lt;em>&lt;strong>ctrl-c&lt;/strong>&lt;/em> or uses the kill program/function to send a signal) is sent. It will simply print the signal number for &lt;em>&lt;strong>SIGINT&lt;/strong>&lt;/em> based&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The function above will be run when &lt;em>&lt;strong>SIGINT&lt;/strong>&lt;/em> (when the user presses &lt;em>&lt;strong>ctrl-C&lt;/strong>&lt;/em> or uses the kill program/function to send a signal) is sent. It will simply print the signal number for &lt;em>&lt;strong>SIGINT&lt;/strong>&lt;/em> based&lt;/p>
 &lt;p>on the table shown on the manual page for &lt;em>&lt;strong>signal&lt;/strong>&lt;/em>. To see it, just run:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>man signal
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>By the way, there are some pre-existing functions that you can pass to &lt;em>&lt;strong>signal()&lt;/strong>&lt;/em> such as &lt;em>&lt;strong>SIG_IGN&lt;/strong>&lt;/em> (to ignore a signal) and &lt;em>&lt;strong>SIG_DFL&lt;/strong>&lt;/em> (for default handling of a certain signal).&lt;/p>
