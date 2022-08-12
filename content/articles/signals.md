@@ -11,7 +11,8 @@ written by: 米野チアゴ (tkomeno)
 A process ID a.k.a. ***PID*** is literally what the name says, it is a number to uniquely identify a running process. You can print your program’s ***PID*** in C using the ***getpid()*** function included on the header file ***unistd.h***.
 
 ```c
-int main(void) {
+int main(void)
+{
 	while (1)
 	{
 		printf("PID: %d\n", getpid());
@@ -26,7 +27,7 @@ int main(void) {
 
 ## What is a signal?
 
-A signal is a one-way message to inform that something important happened sent by a process to a process, the kernel to the process, or a process to itself. Some examples of signals are ***SIGINT*** and ***SIGSTOP*** mapped to “ctrl-C” and “ctrl-z” respectively on **Unix-like Operating Systems.**
+A signal is a one-way message to inform that something important happened sent by a process to a process, the kernel to the process, or a process to itself. Some examples of signals are ***SIGINT*** and ***SIGSTOP*** mapped to “ctrl-C” and “ctrl-Z” respectively on **Unix-like Operating Systems.**
 
 ## Sending signals:
 
@@ -61,7 +62,7 @@ void sigint_handler(int signal_number)
 }
 ```
 
-The function above will be run when ***SIGINT*** (when the user presses ***ctrl-c*** or uses the kill program/function to send a signal) is sent. It will simply print the signal number for ***SIGINT*** based
+The function above will be run when ***SIGINT*** (when the user presses ***ctrl-C*** or uses the kill program/function to send a signal) is sent. It will simply print the signal number for ***SIGINT*** based
 
  on the table shown on the manual page for ***signal***. To see it, just run:
 
