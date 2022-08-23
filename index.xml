@@ -1,5 +1,56 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>riceset</title><link>https://riceset.com/</link><description>Recent content on riceset</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© 2022 riceset</copyright><lastBuildDate>Fri, 12 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://riceset.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Understanding signals in Linux</title><link>https://riceset.com/articles/signals/</link><pubDate>Fri, 12 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/signals/</guid><description>
-&lt;p>written by: 米野チアゴ (tkomeno)&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>riceset</title><link>https://riceset.com/</link><description>Recent content on riceset</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© 2022 riceset</copyright><lastBuildDate>Tue, 23 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://riceset.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Understanding the stack data structure</title><link>https://riceset.com/articles/understanding-the-stack-data-structure/</link><pubDate>Tue, 23 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/understanding-the-stack-data-structure/</guid><description>
+&lt;p>&lt;strong>Stack i&lt;/strong>s an ADT (Abstract Data Structure) which follows the LIFO (Last In First Out) order. It might be easier to understand this concept using an actual stack of books.&lt;/p>
+&lt;p>When working with stacks, you can use mainly two operations. &lt;code>push()&lt;/code> to add an element to the top of a stack. and &lt;code>pop()&lt;/code> to literally pop out or remove an element of a stack. As it is considered an ADT (Abstract Data Structure) you can implement it in many ways with other basic data structures such as arrays or linked lists. Let’s try implementing it using an array first.&lt;/p>
+&lt;h2 id="implementing-push">Implementing &lt;code>push()&lt;/code>:&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">push&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> element)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> stack[depth] &lt;span style="color:#f92672">=&lt;/span> element;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> depth&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>in which, &lt;code>element&lt;/code> is the value (an integer in this case) you want to put on the top of the stack and &lt;code>depth&lt;/code> is the size of the stack. I defined the stack and the depth as global variables with the following default values:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#define MAX_DEPTH 256
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span> stack[MAX_DEPTH];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> depth &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can also add some error handling such as returning when the stack’s depth has reached the &lt;code>MAX_DEPTH&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">push&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> element)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (depth &lt;span style="color:#f92672">==&lt;/span> MAX_DEPTH)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> ;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> stack[depth] &lt;span style="color:#f92672">=&lt;/span> element;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> depth&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="implementing-pop">Implementing &lt;code>pop()&lt;/code>:&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">pop&lt;/span>(&lt;span style="color:#66d9ef">void&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> depth&lt;span style="color:#f92672">--&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> (stack[depth]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Simple as that.&lt;/p>
+&lt;p>Like &lt;code>push()&lt;/code>, you can also add some error handling to this function such as exiting out from the program when the stack is empty (in other words, when the depth is 0).&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">pop&lt;/span>(&lt;span style="color:#66d9ef">void&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (depth &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> exit(&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> depth&lt;span style="color:#f92672">--&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> (stack[depth]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="using-it">Using it:&lt;/h2>
+&lt;p>From the &lt;code>main()&lt;/code> function, let’s try pushing some elements into our stack and then, printing the whole stack out.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">void&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> push(&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> push(&lt;span style="color:#ae81ff">2&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> push(&lt;span style="color:#ae81ff">3&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>; i&lt;span style="color:#f92672">++&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%d &amp;#34;&lt;/span>, stack[i]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> (&lt;span style="color:#ae81ff">0&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>&lt;strong>output:&lt;/strong>&lt;/em> 3 2 1&lt;/p>
+&lt;p>&lt;em>&lt;strong>note:&lt;/strong>&lt;/em> The output will be printed in reverse order.&lt;/p>
+&lt;p>You can also try popping out an element from the stack simply by calling &lt;em>&lt;strong>pop()&lt;/strong>&lt;/em>.&lt;/p></description></item><item><title>Understanding signals in Linux</title><link>https://riceset.com/articles/signals/</link><pubDate>Fri, 12 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/signals/</guid><description>
 &lt;h2 id="what-is-a-process-id">What is a process ID?&lt;/h2>
 &lt;p>A process ID a.k.a. &lt;em>&lt;strong>PID&lt;/strong>&lt;/em> is literally what the name says, it is a number to uniquely identify a running process. You can print your program’s &lt;em>&lt;strong>PID&lt;/strong>&lt;/em> in C using the &lt;em>&lt;strong>getpid()&lt;/strong>&lt;/em> function included on the header file &lt;em>&lt;strong>unistd.h&lt;/strong>&lt;/em>.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">void&lt;/span>)
@@ -35,7 +86,6 @@
 &lt;p>Usage:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>signal(SIGINT, SIG_IGN);
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Born2beRoot Project</title><link>https://riceset.com/articles/born2beroot/</link><pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/born2beroot/</guid><description>
-&lt;p>Written by: 米野チアゴ (tkomeno) with the help of 飯島康太 (kiijima) from 42Tokyo.&lt;/p>
 &lt;h3 id="how-a-virtual-machine-works">How a virtual machine works:&lt;/h3>
 &lt;p>Virtual Machines take advantage of a technology called &lt;strong>Virtualization&lt;/strong> which takes some portion of the hardware resources and gives it to the guest OS.&lt;/p>
 &lt;h3 id="why-debian">Why Debian?&lt;/h3>
