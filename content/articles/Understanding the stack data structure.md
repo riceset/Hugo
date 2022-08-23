@@ -65,7 +65,7 @@ int pop(void)
 
 ---
 
-## Using it:
+## Usage:
 
 From the `main()` function, let’s try pushing some elements into our stack and then, printing the whole stack out.
 
