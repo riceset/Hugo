@@ -1,6 +1,7 @@
 ---
 title:  "Introduction to pointers in C"
 date:   2021-06-09
+author: tkomeno
 tags: [C]
 ---
 

@@ -1,10 +1,9 @@
 ---
 title: "Born2beRoot Project"
 date:   2022-07-17
+author: tkomeno & kiijima
 tags: [42Tokyo]
 ---
-
-Written by: 米野チアゴ (tkomeno) with the help of 飯島康太 (kiijima) from 42Tokyo.
 
 ### How a virtual machine works:
 

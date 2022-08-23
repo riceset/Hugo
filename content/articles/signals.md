@@ -1,10 +1,9 @@
 ---
 title: "Understanding signals in Linux"
+author: tkomeno
 date:   2022-08-12
-tags: [42Tokyo, C, Linux, UNIX]
+tags: [C, Linux, UNIX]
 ---
-
-written by: 米野チアゴ (tkomeno)
 
 ## What is a process ID?
 
