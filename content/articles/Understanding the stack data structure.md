@@ -5,11 +5,11 @@ date:   2022-08-23
 tags: [C]
 ---
 
-**Stack i**s an ADT (Abstract Data Structure) which follows the LIFO (Last In First Out) order. It might be easier to understand this concept using an actual stack of books.
+**Stack i**s an ADT (Abstract Data Structure) which follows the LIFO (Last In First Out) order. It might be easier to understand this concept by imagining an actual stack of books.
 
 When working with stacks, you can use mainly two operations. `push()` to add an element to the top of a stack. and `pop()` to literally pop out or remove an element of a stack. As it is considered an ADT (Abstract Data Structure) you can implement it in many ways with other basic data structures such as arrays or linked lists. Let’s try implementing it using an array first.
 
-## Implementing `push()`:
+## Implementing push():
 
 ```c
 void push(int element)
@@ -39,7 +39,7 @@ void push(int element)
 }
 ```
 
-## Implementing `pop()`:
+## Implementing pop():
 
 ```c
 int pop(void)
