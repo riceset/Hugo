@@ -12,7 +12,7 @@ paginate = 5
   defaultTheme = "light"
 
   # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 3
+  showMenuItems = 2
 
   # Show reading time in minutes for posts
   showReadingTime = false
@@ -36,8 +36,8 @@ paginate = 5
     writtenBy = "Written by "
     readMore = "Read more"
     readOtherPosts = "Suggested"
-    newerPosts = "Newer articles"
-    olderPosts = "Older articles"
+    newerPosts = "Newer"
+    olderPosts = "Older"
     minuteReadingTime = "min read"
     dateFormatSingle = "2006-01-02"
     dateFormatList = "2006-01-02"
@@ -50,22 +50,16 @@ paginate = 5
     # path = "/riceset.svg"
     # alt = "riceset"
 
-    [languages.en.menu]
-      [[languages.en.menu.main]]
-        identifier = "twitter"
-        name = "Twitter"
-        url = "https://twitter.com/riceset"
-        weight = 1
       [[languages.en.menu.main]]
         identifier = "github"
         name = "GitHub"
         url = "https://github.com/riceset"
-        weight = 2
+        weight = 1
       [[languages.en.menu.main]]
         identifier = "rss"
         name = "RSS"
         url = "/index.xml"
-        weight = 3
+        weight = 2
 
 # Tags
 [taxonomies]
