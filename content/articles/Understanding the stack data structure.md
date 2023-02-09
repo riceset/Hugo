@@ -1,6 +1,6 @@
 ---
 title: "Understanding the stack data structure"
-author: tkomeno
+author: Thiago Komeno
 date:   2022-08-23
 tags: [C]
 ---

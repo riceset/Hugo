@@ -1,6 +1,6 @@
 ---
 title: "Understanding signals in Linux"
-author: tkomeno
+author: Thiago Komeno
 date:   2022-08-12
 tags: [C, Linux, UNIX]
 ---
