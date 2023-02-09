@@ -328,15 +328,7 @@ You can play it &lt;code>n&lt;/code> times with &lt;code>n@q&lt;/code> with &lt;
 &lt;p>Use &lt;code>:!&lt;/code> to run a Shell command.
 e.g. &lt;code>:! ls&lt;/code> to run &lt;code>ls&lt;/code>.&lt;/p>
 &lt;h2 id="heading">%&lt;/h2>
-&lt;p>&lt;code>%&lt;/code> Jump to the matching parenthesis, brackets, etc.&lt;/p>
-&lt;hr>
-&lt;h3 id="-referenced">✨ Referenced&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://www.youtube.com/playlist?list=PL3cu45aM3C2DJVGfCjSBB1yD9YkC7q27-">Vim Tutorial by Mental Outlaw&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.youtube.com/playlist?list=PL8tzorAO7s0jy7DQ3Q0FwF3BnXGQnDirs">Vim Meetups by thoughtbot&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://stackoverflow.com/questions/12495442/what-do-the-f-and-t-commands-do-in-vim">What do the f and t commands do in Vim? answered by Michael Kristofik&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.youtube.com/watch?v=d8XtNXutVto">OFFICIAL Vimtutor Commentary by Luke Smith&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>How to enable image preview on Ranger using Kitty</title><link>https://riceset.com/articles/how-to-enable-image-preview-on-ranger-using-kitty/</link><pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/how-to-enable-image-preview-on-ranger-using-kitty/</guid><description>
+&lt;p>&lt;code>%&lt;/code> Jump to the matching parenthesis, brackets, etc.&lt;/p></description></item><item><title>How to enable image preview on Ranger using Kitty</title><link>https://riceset.com/articles/how-to-enable-image-preview-on-ranger-using-kitty/</link><pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/how-to-enable-image-preview-on-ranger-using-kitty/</guid><description>
 &lt;p>&lt;img src="https://riceset.com/ranger_img_demo.png" alt="demo">&lt;/p>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>First, create a config file for Ranger in &lt;code>~/.config/ranger&lt;/code> called &lt;code>rc.conf&lt;/code>&lt;/p>
