@@ -73,8 +73,7 @@ time_t s_to_ms(time_t s)
 ```
 
 $$
-1692041923s
-1692041923s \times 1000 = 1692041923000ms
+41923s \times 1000 = 41923000ms
 $$
 
 Now, let’s convert the microsecond part to miliseconds (discarding the decimal part).
@@ -93,7 +92,7 @@ $$
 Summing the seconds and microseconds now converted to miliseconds we get:
 
 $$
-1692041923000ms + 126ms = 1692041923126ms
+41923000ms + 126ms = 41923126ms
 $$
 
 Now, to get the current time you just subtract the `gettimeofday()` call from the start time that would be the value you saved when calling it for the first time. That would be the code for the conversion made:
