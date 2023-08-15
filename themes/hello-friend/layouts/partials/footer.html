@@ -1,4 +1,5 @@
 <footer class="footer">
+  {{ partial "add-mathjax-to-page.html" . }}
   <div class="footer__inner">
     {{ if $.Site.Copyright }}
       <div class="copyright copyright--user">{{ $.Site.Copyright | safeHTML }}</div>
