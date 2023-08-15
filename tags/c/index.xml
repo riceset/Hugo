@@ -45,8 +45,7 @@ $$&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> (s &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">1000&lt;/span>);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>$$
-1692041923s
-1692041923s \times 1000 = 1692041923000ms
+41923s \times 1000 = 41923000ms
 $$&lt;/p>
 &lt;p>Now, let’s convert the microsecond part to miliseconds (discarding the decimal part).&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">time_t&lt;/span> &lt;span style="color:#a6e22e">us_to_ms&lt;/span>(&lt;span style="color:#66d9ef">time_t&lt;/span> us)
@@ -58,7 +57,7 @@ $$&lt;/p>
 $$&lt;/p>
 &lt;p>Summing the seconds and microseconds now converted to miliseconds we get:&lt;/p>
 &lt;p>$$
-1692041923000ms + 126ms = 1692041923126ms
+41923000ms + 126ms = 41923126ms
 $$&lt;/p>
 &lt;p>Now, to get the current time you just subtract the &lt;code>gettimeofday()&lt;/code> call from the start time that would be the value you saved when calling it for the first time. That would be the code for the conversion made:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">get_current_time&lt;/span>(&lt;span style="color:#66d9ef">time_t&lt;/span> &lt;span style="color:#f92672">*&lt;/span>s, &lt;span style="color:#66d9ef">time_t&lt;/span> &lt;span style="color:#f92672">*&lt;/span>us)
