@@ -1,6 +1,12 @@
-# 🧐 Philosophers
+---
+title:  "An approach to solving the dining philosophers problem"
+date:   2021-06-09
+author: Thiago Komeno
+tags: [C]
+---
 
-[Philosophers.pdf](https://res.craft.do/user/full/a56c5213-5c17-64c0-d902-b9958ea11cb4/doc/9BCB3C86-9D37-4BE9-863E-5303AA81C84B/30F76231-2B97-424C-8302-F9F6CB530A9F_2/SBq2mpMyINcnOMyxxfWeyV2Dy8jOMGQ99ME4xUiHgqgz/Philosophers.pdf)
+![Philosophers](https://github.com/riceset/riceset.com/assets/48802655/7680f2d8-9c3d-471b-88fe-89e49c2cdf89)
+
 
 ## 👀 Overview
 
