@@ -10,17 +10,17 @@ tags: [C]
 ## 👀 Overview
 The **Dining Philosophers Problem** was formulated in 1965 by Edsger Dijkstra. It involves dealing with concurrent programming, synchronization issues, threads, deadlocks, and race conditions.
 
-### The Problem
+#### The Problem
 
 There are one or more philosophers sitting around a table, with a large bowl of spaghetti placed in the middle. In order for a philosopher to eat, they need to use both their left and right forks simultaneously. There are as many forks as there are philosophers. Additionally, the philosophers cannot communicate with each other.
 
-### The routine
+#### The routine
 
 Each philosopher successively eats, sleeps and thinks.
 
 *“When a philosopher has finished eating, they start sleeping. Once awake they think again.”*
 
-### Arguments to the program (argv)
+#### Arguments to the program (argv)
 
 - `number_of_philosophers`
 - `time_to_die`
@@ -28,7 +28,7 @@ Each philosopher successively eats, sleeps and thinks.
 - `time_to_sleep`
 - `number_of_times_each_philo_must_eat`
 
-### Expected output
+#### Expected output
 
 ```other
 timestamp_in_ms X has taken a fork
@@ -127,7 +127,7 @@ void alloc_forks(t_table *table)
 
 allocating the desired amount of bytes. (size of a mutex in bytes times the number of philosophers that is the number of forks, in other words, mutexes).
 
-### Initializing the mutexes
+#### Initializing the mutexes
 
 after allocating memory to the created mutexes, we will have to initialize them:
 
@@ -148,7 +148,7 @@ void init_forks(t_table *table)
 
 That's it for allocating and initializing mutexes :)
 
-## Dealing with the philosopher data structure
+## 💭 Dealing with the philosopher data structure
 
 That's the definition for the philosopher data structure:
 
@@ -183,7 +183,7 @@ void alloc_philos(t_table *table)
 
 First, we allocate the pointers that will point to each philosopher, then using these pointers that were allocated, we allocate the actual memory for each philosopher.
 
-### Initializing the philosophers
+#### Initializing the philosophers
 
 ```c
 static void init_philos(t_table *table)
@@ -212,7 +212,7 @@ So when `i` is 0, that means, the first philosopher will have the ID `i` + 1 tha
 
 The `times_ate` gets an initial value of 0 and we are assigning a pointer to `table` to have a reference inside each thread created later.
 
-### Assigning forks
+#### Assigning forks
 
 The current philosopher's left fork will be `i`. So for example, when $$i = 0$$ the philosopher's ID will be 1 so their left fork will be 0 and their right fork gotta be 1.
 
@@ -258,13 +258,13 @@ So the first philosopher's left fork will be 0, and the right fork will be 1, wh
 
 As the program wants the output in miliseconds and the function `gettimeofday()` gives us values in seconds and microseconds, we have to convert both to miliseconds and sum them up.
 
-### remembering that
+#### remembering that
 
 $$
 1s = 1000ms
 $$
 
-### and that
+#### and that
 
 $$
 1μs = \frac{1}{1000}
@@ -276,7 +276,7 @@ $$
 
 Now with all the values in miliseconds, we can sum them up to get the current time in miliseconds.
 
-## Example:
+#### Example:
 
 Let’s try converting the following value that is given in seconds to miliseconds.
 
@@ -336,6 +336,6 @@ int main(void)
 
 ## 🚀 References
 
-### My repository
+#### My repository
 
 [GitHub - riceset/philosophers](https://github.com/riceset/philosophers)
