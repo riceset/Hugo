@@ -190,7 +190,7 @@ unsigned forks[2];
 
 ***note***: The keyword `unsigned` is an alternative way of writing `unsigned int`.
 
-As I declared my table as a regular variable into main(), I won't need to allocate memory for it.
+As I declared my table as a regular variable into `main()`, I won't need to allocate memory for it.
 
 We will just need to allocate memory for the mutexes.
 
@@ -284,7 +284,7 @@ Now let's break down this function.
 
 First, we need to assign an ID to each philosopher and it need to begin at 1. As we are indexing using `i` that usually gets initialized at 0, we need to add 1 to it to get the actual id.
 
-So when `i` is 0, that means, the first philosopher will have the ID i + 1 that is 1.
+So when `i` is 0, that means, the first philosopher will have the ID `i` + 1 that is 1.
 
 The `times_ate` gets an initial value of 0 and we are assigning a pointer to `table` to have a reference inside each thread created later.
 
