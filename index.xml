@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>riceset</title><link>https://riceset.com/</link><description>Recent content on riceset</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© 2023 riceset</copyright><lastBuildDate>Tue, 23 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://riceset.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Understanding the stack data structure</title><link>https://riceset.com/articles/understanding-the-stack-data-structure/</link><pubDate>Tue, 23 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/understanding-the-stack-data-structure/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>riceset</title><link>https://riceset.com/</link><description>Recent content on riceset</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2023 riceset</copyright><lastBuildDate>Tue, 23 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://riceset.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Understanding the stack data structure</title><link>https://riceset.com/articles/understanding-the-stack-data-structure/</link><pubDate>Tue, 23 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/understanding-the-stack-data-structure/</guid><description>
 &lt;p>&lt;strong>Stack&lt;/strong> is an ADT (Abstract Data Structure) which follows the LIFO (Last In First Out) order. It might be easier to understand this concept by imagining an actual stack of books.&lt;/p>
 &lt;p>When working with stacks, you can use mainly two operations. &lt;code>push()&lt;/code> to add an element to the top of a stack and &lt;code>pop()&lt;/code> to literally pop out or remove an element of a stack. As it is considered an ADT (Abstract Data Structure) you can implement it in many ways with other basic data structures such as arrays or linked lists. Let’s try implementing it using an array first.&lt;/p>
 &lt;h2 id="implementing-push">Implementing push():&lt;/h2>
@@ -420,4 +420,217 @@ But with pointers, we can access some variable’s memory location and change it
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>output:
 x: 2
-y: 1&lt;/p></description></item></channel></rss>
+y: 1&lt;/p></description></item><item><title/><link>https://riceset.com/articles/philosophers/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/philosophers/</guid><description>
+&lt;h1 id="-philosophers">🧐 Philosophers&lt;/h1>
+&lt;p>&lt;a href="https://res.craft.do/user/full/a56c5213-5c17-64c0-d902-b9958ea11cb4/doc/9BCB3C86-9D37-4BE9-863E-5303AA81C84B/30F76231-2B97-424C-8302-F9F6CB530A9F_2/SBq2mpMyINcnOMyxxfWeyV2Dy8jOMGQ99ME4xUiHgqgz/Philosophers.pdf">Philosophers.pdf&lt;/a>&lt;/p>
+&lt;h2 id="-overview">👀 Overview&lt;/h2>
+&lt;h3 id="the-actions">The Actions&lt;/h3>
+&lt;ul>
+&lt;li>Eat&lt;/li>
+&lt;li>Sleep&lt;/li>
+&lt;li>Think&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>“When a philosopher has finished eating, they start sleeping. Once awake they think again.”&lt;/em>&lt;/p>
+&lt;h3 id="arguments">Arguments&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>number_of_philosophers&lt;/code>&lt;/li>
+&lt;li>&lt;code>time_to_die&lt;/code>&lt;/li>
+&lt;li>&lt;code>time_to_eat&lt;/code>&lt;/li>
+&lt;li>&lt;code>time_to_sleep&lt;/code>&lt;/li>
+&lt;li>&lt;code>number_of_times_each_philosopher_must_eat&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="expected-output">Expected output&lt;/h3>
+&lt;pre tabindex="0">&lt;code class="language-other" data-lang="other">timestamp_in_ms X has taken a fork
+timestamp_in_ms X is eating
+timestamp_in_ms X is sleeping
+timestamp_in_ms X is thinking
+timestamp_in_ms X died
+&lt;/code>&lt;/pre>&lt;p>in which &lt;code>X&lt;/code> is the philosopher ID.&lt;/p>
+&lt;p>&lt;em>&lt;strong>Note&lt;/strong>&lt;/em>: The message announcing the death of a philosopher should be displayed in no more than &lt;em>&lt;strong>::10 ms::&lt;/strong>&lt;/em> after the actual death.&lt;/p>
+&lt;h2 id="calculating-the-time-stamps">Calculating the time stamps&lt;/h2>
+&lt;p>As the program wants the output in miliseconds and the function &lt;code>gettimeofday()&lt;/code> gives us values in seconds and microseconds, we have to convert both to miliseconds and sum them up.&lt;/p>
+&lt;h3 id="remembering-that">remembering that&lt;/h3>
+&lt;p>$$
+1s = 1000ms
+$$&lt;/p>
+&lt;p>$$
+1us = \frac{1}{1000} \[10pt]
+\therefore 1us = 0.001ms
+$$&lt;/p>
+&lt;p>Now with all the values in miliseconds, we can sum them up to get the current time in miliseconds.&lt;/p>
+&lt;h2 id="example">Example:&lt;/h2>
+&lt;p>Let’s try converting the following value that is given in seconds to miliseconds.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>time_t &lt;span style="color:#a6e22e">s_to_ms&lt;/span>(time_t s)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> (s &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">1000&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>$$
+1692041923s \[10pt]
+1692041923s \times 1000 = 1692041923000ms
+$$&lt;/p>
+&lt;p>Now, let’s convert the microsecond part to miliseconds (discarding the decimal part).&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>time_t &lt;span style="color:#a6e22e">us_to_ms&lt;/span>(time_t us)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> (us &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#ae81ff">1000&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>$$
+126500us \[10pt]
+\frac{126500}{1000}us = 126ms
+$$&lt;/p>
+&lt;p>Summing the seconds and microseconds now converted to miliseconds we get:&lt;/p>
+&lt;p>$$
+1692041923000ms + 126ms = 1692041923126ms
+$$&lt;/p>
+&lt;p>Now, to get the current time you just subtract the gettimeofday() call from the start time that would be the value you saved when calling it for the first time. That would be the code for the conversion made:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">get_current_time&lt;/span>(time_t &lt;span style="color:#f92672">*&lt;/span>s, time_t &lt;span style="color:#f92672">*&lt;/span>us)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> t_timeval tv;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> gettimeofday(&lt;span style="color:#f92672">&amp;amp;&lt;/span>tv, NULL);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>s &lt;span style="color:#f92672">=&lt;/span> tv.tv_sec;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>us &lt;span style="color:#f92672">=&lt;/span> tv.tv_usec;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">void&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> time_t s;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> time_t us;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> get_current_time(&lt;span style="color:#f92672">&amp;amp;&lt;/span>s, &lt;span style="color:#f92672">&amp;amp;&lt;/span>us);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;current_time_in_ms:%ld&amp;#34;&lt;/span>, s_to_ms(s) &lt;span style="color:#f92672">+&lt;/span> us_to_ms(us));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="table-the-main-data-structure">Table (the main data structure)&lt;/h2>
+&lt;p>In this project, we will be working with a main data structure in which will contain all the other ones, in the case of the philosophers project, as we will be dealing with threads, more specifically, one thread for each philosopher, we will have to find out how to put this table data structure inside each philosopher for accessing data from each thread.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">struct&lt;/span> &lt;span style="color:#a6e22e">s_table&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">time_t&lt;/span> &lt;span style="color:#a6e22e">start_time&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">t_args&lt;/span> &lt;span style="color:#a6e22e">args&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">t_philo&lt;/span> &lt;span style="color:#f92672">**&lt;/span>&lt;span style="color:#a6e22e">philos&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">pthread_mutex_t&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">forks&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>In which, the &lt;code>start_time&lt;/code> is initialized with the actual start time from the program (in miliseconds), &lt;code>args&lt;/code> are the command line arguments (a.k.a argv, argument vector), &lt;code>philos&lt;/code> is a double pointer but it might be easier to think about it as a pointer to an array of philosophers, and the &lt;code>forks&lt;/code> &amp;ldquo;array&amp;rdquo;.&lt;/p>
+&lt;p>By the way, I decided creating a new data structure just to store the command line arguments in which I called &lt;code>t_args&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">struct&lt;/span> &lt;span style="color:#a6e22e">s_args&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">unsigned&lt;/span> &lt;span style="color:#a6e22e">nb_philos&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">time_t&lt;/span> &lt;span style="color:#a6e22e">time_to_die&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">time_t&lt;/span> &lt;span style="color:#a6e22e">time_to_eat&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">time_t&lt;/span> &lt;span style="color:#a6e22e">time_to_sleep&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">unsigned&lt;/span> &lt;span style="color:#a6e22e">must_eat&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>And that&amp;rsquo;s how I initialized the values:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">init_args&lt;/span>(&lt;span style="color:#a6e22e">t_args&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">args&lt;/span>, &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">argc&lt;/span>, &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>&lt;span style="color:#a6e22e">argv&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">args&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">nb_philos&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">philo_atoi&lt;/span>(&lt;span style="color:#a6e22e">argv&lt;/span>[&lt;span style="color:#ae81ff">1&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">args&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">time_to_die&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">philo_atoi&lt;/span>(&lt;span style="color:#a6e22e">argv&lt;/span>[&lt;span style="color:#ae81ff">2&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">args&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">time_to_eat&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">philo_atoi&lt;/span>(&lt;span style="color:#a6e22e">argv&lt;/span>[&lt;span style="color:#ae81ff">3&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">args&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">time_to_sleep&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">philo_atoi&lt;/span>(&lt;span style="color:#a6e22e">argv&lt;/span>[&lt;span style="color:#ae81ff">4&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">argc&lt;/span> &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">6&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">args&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">must_eat&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">philo_atoi&lt;/span>(&lt;span style="color:#a6e22e">argv&lt;/span>[&lt;span style="color:#ae81ff">5&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">args&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">must_eat&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">MUST_EAT_NOT_SET&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>&lt;strong>note&lt;/strong>&lt;/em>: &lt;code>MUST_EAT_NOT_SET&lt;/code> is a macro I defined to -1.&lt;/p>
+&lt;p>And if you&amp;rsquo;re asking yourself why I didn&amp;rsquo;t typedef any of these structures, that&amp;rsquo;s because I &amp;ldquo;typedefed&amp;rdquo; all of them above their declaration in the header file.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">typedef&lt;/span> &lt;span style="color:#a6e22e">struct&lt;/span> &lt;span style="color:#a6e22e">s_table&lt;/span> &lt;span style="color:#a6e22e">t_table&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">typedef&lt;/span> &lt;span style="color:#a6e22e">struct&lt;/span> &lt;span style="color:#a6e22e">s_args&lt;/span> &lt;span style="color:#a6e22e">t_args&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">typedef&lt;/span> &lt;span style="color:#a6e22e">struct&lt;/span> &lt;span style="color:#a6e22e">s_philo&lt;/span> &lt;span style="color:#a6e22e">t_philo&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">typedef&lt;/span> &lt;span style="color:#a6e22e">struct&lt;/span> &lt;span style="color:#a6e22e">timeval&lt;/span> &lt;span style="color:#a6e22e">t_timeval&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="-forks">🍴 Forks&lt;/h2>
+&lt;p>In my table structure I&amp;rsquo;ve got a mutex pointer called forks in which it will point to a block of memory containing all the mutexes used in the program.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">pthread_mutex_t&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">forks&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then, on my data structure that represents a philosopher I have an array with 2 values. The index 0 of this array represents the philosopher&amp;rsquo;s left fork and the index 1 represents the right fork respectively.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">unsigned&lt;/span> &lt;span style="color:#a6e22e">forks&lt;/span>[&lt;span style="color:#ae81ff">2&lt;/span>];
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>&lt;strong>note&lt;/strong>&lt;/em>: The keyword &lt;code>unsigned&lt;/code> is an alternative way of writing &lt;code>unsigned int&lt;/code>.&lt;/p>
+&lt;p>As I declared my table as a regular variable into main(), I won&amp;rsquo;t need to allocate memory for it.&lt;/p>
+&lt;p>We will just need to allocate memory for the mutexes.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">alloc_forks&lt;/span>(&lt;span style="color:#a6e22e">t_table&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">table&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">table&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">forks&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">malloc&lt;/span>(&lt;span style="color:#a6e22e">sizeof&lt;/span>(&lt;span style="color:#a6e22e">pthread_mutex_t&lt;/span>) &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#a6e22e">table&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">args&lt;/span>.&lt;span style="color:#a6e22e">nb_philos&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>allocating the desired amount of bytes. (size of a mutex in bytes times the number of philosophers that is the number of forks, in other words, mutexes).&lt;/p>
+&lt;h3 id="initializing-the-mutexes">Initializing the mutexes&lt;/h3>
+&lt;p>after allocating memory to the created mutexes, we will have to initialize them:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">init_forks&lt;/span>(&lt;span style="color:#a6e22e">t_table&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">table&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">unsigned&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">alloc_forks&lt;/span>(&lt;span style="color:#a6e22e">table&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (&lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#a6e22e">table&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">args&lt;/span>.&lt;span style="color:#a6e22e">nb_philos&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">pthread_mutex_init&lt;/span>(&lt;span style="color:#f92672">&amp;amp;&lt;/span>&lt;span style="color:#a6e22e">table&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">forks&lt;/span>[&lt;span style="color:#a6e22e">i&lt;/span>], &lt;span style="color:#a6e22e">NULL&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>That&amp;rsquo;s it for allocating and initializing mutexes :)&lt;/p>
+&lt;h2 id="dealing-with-the-philosopher-data-structure">Dealing with the philosopher data structure&lt;/h2>
+&lt;p>That&amp;rsquo;s the definition for the philosopher data structure:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">struct&lt;/span> &lt;span style="color:#a6e22e">s_philo&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">pthread_t&lt;/span> &lt;span style="color:#a6e22e">thread&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">unsigned&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">unsigned&lt;/span> &lt;span style="color:#a6e22e">times_ate&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">unsigned&lt;/span> &lt;span style="color:#a6e22e">forks&lt;/span>[&lt;span style="color:#ae81ff">2&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">time_t&lt;/span> &lt;span style="color:#a6e22e">last_meal&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">t_table&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">table&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Before doing anything else, we need to of course, allocate memory for the philosophers data structure.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">alloc_philos&lt;/span>(&lt;span style="color:#a6e22e">t_table&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">table&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">unsigned&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">table&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">philos&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">malloc&lt;/span>(&lt;span style="color:#a6e22e">sizeof&lt;/span>(&lt;span style="color:#a6e22e">t_philo&lt;/span> &lt;span style="color:#f92672">*&lt;/span>) &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#a6e22e">table&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">args&lt;/span>.&lt;span style="color:#a6e22e">nb_philos&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (&lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#a6e22e">table&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">args&lt;/span>.&lt;span style="color:#a6e22e">nb_philos&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">table&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">philos&lt;/span>[&lt;span style="color:#a6e22e">i&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">malloc&lt;/span>(&lt;span style="color:#a6e22e">sizeof&lt;/span>(&lt;span style="color:#a6e22e">t_philo&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>First, we allocate the pointers that will point to each philosopher, then using these pointers that were allocated, we allocate the actual memory for each philosopher.&lt;/p>
+&lt;h3 id="initializing-the-philosophers">Initializing the philosophers&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">init_philos&lt;/span>(&lt;span style="color:#a6e22e">t_table&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">table&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">unsigned&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">alloc_philos&lt;/span>(&lt;span style="color:#a6e22e">table&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (&lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#a6e22e">table&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">args&lt;/span>.&lt;span style="color:#a6e22e">nb_philos&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">table&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">philos&lt;/span>[&lt;span style="color:#a6e22e">i&lt;/span>]&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">id&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">table&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">philos&lt;/span>[&lt;span style="color:#a6e22e">i&lt;/span>]&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">times_ate&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">table&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">philos&lt;/span>[&lt;span style="color:#a6e22e">i&lt;/span>]&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">table&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">table&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">table&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">philos&lt;/span>[&lt;span style="color:#a6e22e">i&lt;/span>]&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">forks&lt;/span>[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">table&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">philos&lt;/span>[&lt;span style="color:#a6e22e">i&lt;/span>]&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">forks&lt;/span>[&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#a6e22e">table&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">args&lt;/span>.&lt;span style="color:#a6e22e">nb_philos&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now let&amp;rsquo;s break down this function.&lt;/p>
+&lt;p>First, we need to assign an ID to each philosopher and it need to begin at 1. As we are indexing using &lt;code>i&lt;/code> that usually gets initialized at 0, we need to add 1 to it to get the actual id.&lt;/p>
+&lt;p>So when &lt;code>i&lt;/code> is 0, that means, the first philosopher will have the ID $$i + 1$$ that is 1.&lt;/p>
+&lt;p>The &lt;code>times_ate&lt;/code> gets an initial value of 0 and we are assigning a pointer to &lt;code>table&lt;/code> to have a reference inside each thread created later.&lt;/p>
+&lt;h3 id="assigning-forks">Assigning forks&lt;/h3>
+&lt;p>The current philosopher&amp;rsquo;s left fork will be &lt;code>i&lt;/code>. So for example, when $$i = 0$$, the philosopher&amp;rsquo;s ID will be 1 so their left fork will be 0 and their right fork gotta be 1.&lt;/p>
+&lt;p>To get to the value of 1 we need to index it using the following formula:&lt;/p>
+&lt;p>$$
+(i + 1) \mod n
+$$&lt;/p>
+&lt;p>So imagine we have 2 philosophers ($$n = 2$$), the first philosopher&amp;rsquo;s right fork will represent the following index:&lt;/p>
+&lt;p>$$
+(0 + 1) \mod 2 \[10pt]
+= 1 \mod 2 \[10pt]
+= 1 \[10pt]
+$$&lt;/p>
+&lt;p>The second philosopher will have:&lt;/p>
+&lt;p>$$
+(1 + 1) \mod 2 \[10pt]
+= 2 \mod 2 \[10pt]
+= 0 \[10pt]
+$$&lt;/p>
+&lt;p>So the first philosopher&amp;rsquo;s left fork will be 0, and the right fork will be 1, while the second philosopher&amp;rsquo;s left fork will be 1 and the right fork will be 0 again. We just succeeded in simulating a round table with forks in between each philosopher.&lt;/p>
+&lt;p>&lt;img src="https://res.craft.do/user/preview/a56c5213-5c17-64c0-d902-b9958ea11cb4/doc/9BCB3C86-9D37-4BE9-863E-5303AA81C84B/4DE81475-B9BB-4B1F-AC51-8AFD3C416B8A_1/4aMSLV7rtyUkDXHAUXORo5u5POCWDIyqsbGsLMoZV4kz/Drawing.jpg" alt="Drawing">&lt;/p>
+&lt;h2 id="-references">🚀 References&lt;/h2>
+&lt;h3 id="my-repository">My repository&lt;/h3>
+&lt;p>&lt;a href="https://github.com/riceset/philosophers">GitHub - riceset/philosophers: In this project, you will learn the basics of threading a process. You will see how to create threads and you will discover mutexes.&lt;/a>&lt;/p></description></item></channel></rss>
