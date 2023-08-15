@@ -1,6 +1,6 @@
 ---
 title:  "An approach to solving the dining philosophers problem"
-date:   2023-08-16
+date:   2023-08-15
 author: Thiago Komeno
 tags: [C]
 ---
