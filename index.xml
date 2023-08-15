@@ -14,7 +14,7 @@
 &lt;li>&lt;code>time_to_die&lt;/code>&lt;/li>
 &lt;li>&lt;code>time_to_eat&lt;/code>&lt;/li>
 &lt;li>&lt;code>time_to_sleep&lt;/code>&lt;/li>
-&lt;li>&lt;code>number_of_times_each_philosopher_must_eat&lt;/code>&lt;/li>
+&lt;li>&lt;code>number_of_times_each_philo_must_eat&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h3 id="expected-output">Expected output&lt;/h3>
 &lt;pre tabindex="0">&lt;code class="language-other" data-lang="other">timestamp_in_ms X has taken a fork
