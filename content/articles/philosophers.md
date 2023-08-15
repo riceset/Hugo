@@ -51,7 +51,7 @@ $$
 $$
 
 $$
-1us = \frac{1}{1000} \\[10pt]
+1us = \frac{1}{1000}
 \therefore 1us = 0.001ms
 $$
 
@@ -69,7 +69,7 @@ time_t s_to_ms(time_t s)
 ```
 
 $$
-1692041923s \\[10pt]
+1692041923s
 1692041923s \times 1000 = 1692041923000ms
 $$
 
@@ -83,7 +83,7 @@ time_t us_to_ms(time_t us)
 ```
 
 $$
-126500us \\[10pt]
+126500us
 \frac{126500}{1000}us = 126ms
 $$
 
@@ -165,7 +165,7 @@ static void init_args(t_args *args, int argc, char **argv)
 
 And if you're asking yourself why I didn't typedef any of these structures, that's because I "typedefed" all of them above their declaration in the header file.
 
-```javascript
+```c
 typedef struct s_table t_table;
 typedef struct s_args t_args;
 typedef struct s_philo t_philo;
@@ -176,13 +176,13 @@ typedef struct timeval t_timeval;
 
 In my table structure I've got a mutex pointer called forks in which it will point to a block of memory containing all the mutexes used in the program.
 
-```javascript
+```c
 pthread_mutex_t *forks;
 ```
 
 Then, on my data structure that represents a philosopher I have an array with 2 values. The index 0 of this array represents the philosopher's left fork and the index 1 represents the right fork respectively.
 
-```javascript
+```c
 unsigned forks[2];
 ```
 
@@ -192,7 +192,7 @@ As I declared my table as a regular variable into main(), I won't need to alloca
 
 We will just need to allocate memory for the mutexes.
 
-```javascript
+```c
 void alloc_forks(t_table *table)
 {
   table->forks = malloc(sizeof(pthread_mutex_t) * table->args.nb_philos);
@@ -205,7 +205,7 @@ allocating the desired amount of bytes. (size of a mutex in bytes times the numb
 
 after allocating memory to the created mutexes, we will have to initialize them:
 
-```javascript
+```c
 void init_forks(t_table *table)
 {
 	unsigned i;
@@ -226,7 +226,7 @@ That's it for allocating and initializing mutexes :)
 
 That's the definition for the philosopher data structure:
 
-```javascript
+```c
 struct s_philo
 {
 	pthread_t thread;
@@ -240,7 +240,7 @@ struct s_philo
 
 Before doing anything else, we need to of course, allocate memory for the philosophers data structure.
 
-```javascript
+```c
 void alloc_philos(t_table *table)
 {
 	unsigned i;
@@ -259,7 +259,7 @@ First, we allocate the pointers that will point to each philosopher, then using 
 
 ### Initializing the philosophers
 
-```javascript
+```c
 static void init_philos(t_table *table)
 {
 	unsigned i;
@@ -282,7 +282,7 @@ Now let's break down this function.
 
 First, we need to assign an ID to each philosopher and it need to begin at 1. As we are indexing using `i` that usually gets initialized at 0, we need to add 1 to it to get the actual id.
 
-So when `i` is 0, that means, the first philosopher will have the ID $$i + 1$$ that is 1.
+So when `i` is 0, that means, the first philosopher will have the ID i + 1 that is 1.
 
 The `times_ate` gets an initial value of 0 and we are assigning a pointer to `table` to have a reference inside each thread created later.
 
@@ -296,20 +296,20 @@ $$
 (i + 1) \mod n
 $$
 
-So imagine we have 2 philosophers ($$n = 2$$), the first philosopher's right fork will represent the following index:
+So imagine we have 2 philosophers (n = 2), the first philosopher's right fork will represent the following index:
 
 $$
-(0 + 1) \mod 2 \\[10pt]
-= 1 \mod 2 \\[10pt]
-= 1 \\[10pt]
+(0 + 1) \mod 2
+= 1 \mod 2
+= 1
 $$
 
 The second philosopher will have:
 
 $$
-(1 + 1) \mod 2 \\[10pt]
-= 2 \mod 2 \\[10pt]
-= 0 \\[10pt]
+(1 + 1) \mod 2
+= 2 \mod 2
+= 0
 $$
 
 So the first philosopher's left fork will be 0, and the right fork will be 1, while the second philosopher's left fork will be 1 and the right fork will be 0 again. We just succeeded in simulating a round table with forks in between each philosopher.
