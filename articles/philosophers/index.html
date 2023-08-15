@@ -17,6 +17,7 @@ timestamp_in_ms X died
 1s = 1000ms
 $$</p><p>$$
 1us = \frac{1}{1000}
+$$</p><p>$$
 \therefore 1us = 0.001ms
 $$</p><p>Now with all the values in miliseconds, we can sum them up to get the current time in miliseconds.</p><h2 id=example>Example:</h2><p>Let’s try converting the following value that is given in seconds to miliseconds.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span>time_t <span style=color:#a6e22e>s_to_ms</span>(time_t s)
 </span></span><span style=display:flex><span>{
@@ -140,12 +141,16 @@ $$</p><p>Now, to get the current time you just subtract the gettimeofday() call 
 </span></span></code></pre></div><p>Now let&rsquo;s break down this function.</p><p>First, we need to assign an ID to each philosopher and it need to begin at 1. As we are indexing using <code>i</code> that usually gets initialized at 0, we need to add 1 to it to get the actual id.</p><p>So when <code>i</code> is 0, that means, the first philosopher will have the ID i + 1 that is 1.</p><p>The <code>times_ate</code> gets an initial value of 0 and we are assigning a pointer to <code>table</code> to have a reference inside each thread created later.</p><h3 id=assigning-forks>Assigning forks</h3><p>The current philosopher&rsquo;s left fork will be <code>i</code>. So for example, when $$i = 0$$, the philosopher&rsquo;s ID will be 1 so their left fork will be 0 and their right fork gotta be 1.</p><p>To get to the value of 1 we need to index it using the following formula:</p><p>$$
 (i + 1) \mod n
 $$</p><p>So imagine we have 2 philosophers (n = 2), the first philosopher&rsquo;s right fork will represent the following index:</p><p>$$
-(0 + 1) \mod 2 \newline
-= 1 \mod 2 \newline
+(0 + 1) \mod 2
+$$</p><p>$$
+= 1 \mod 2
+$$</p><p>$$
 = 1
 $$</p><p>The second philosopher will have:</p><p>$$
-(1 + 1) \mod 2 \
-= 2 \mod 2 \
+(1 + 1) \mod 2
+$$</p><p>$$
+= 2 \mod 2
+$$</p><p>$$
 = 0
 $$</p><p>So the first philosopher&rsquo;s left fork will be 0, and the right fork will be 1, while the second philosopher&rsquo;s left fork will be 1 and the right fork will be 0 again. We just succeeded in simulating a round table with forks in between each philosopher.</p><p><img src=https://res.craft.do/user/preview/a56c5213-5c17-64c0-d902-b9958ea11cb4/doc/9BCB3C86-9D37-4BE9-863E-5303AA81C84B/4DE81475-B9BB-4B1F-AC51-8AFD3C416B8A_1/4aMSLV7rtyUkDXHAUXORo5u5POCWDIyqsbGsLMoZV4kz/Drawing.jpg alt=Drawing></p><h2 id=-references>🚀 References</h2><h3 id=my-repository>My repository</h3><p><a href=https://github.com/riceset/philosophers>GitHub - riceset/philosophers: In this project, you will learn the basics of threading a process. You will see how to create threads and you will discover mutexes.</a></p></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Suggested</span><hr></div><div class=pagination__buttons><span class="button previous"><a href=https://riceset.com/articles/understanding-the-stack-data-structure/><span class=button__icon>←</span>
 <span class=button__text>Understanding the stack data structure</span></a></span>

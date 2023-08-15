@@ -84,6 +84,8 @@ timestamp_in_ms X died
 $$&lt;/p>
 &lt;p>$$
 1us = \frac{1}{1000}
+$$&lt;/p>
+&lt;p>$$
 \therefore 1us = 0.001ms
 $$&lt;/p>
 &lt;p>Now with all the values in miliseconds, we can sum them up to get the current time in miliseconds.&lt;/p>
@@ -248,14 +250,22 @@ $$&lt;/p>
 $$&lt;/p>
 &lt;p>So imagine we have 2 philosophers (n = 2), the first philosopher&amp;rsquo;s right fork will represent the following index:&lt;/p>
 &lt;p>$$
-(0 + 1) \mod 2 \newline
-= 1 \mod 2 \newline
+(0 + 1) \mod 2
+$$&lt;/p>
+&lt;p>$$
+= 1 \mod 2
+$$&lt;/p>
+&lt;p>$$
 = 1
 $$&lt;/p>
 &lt;p>The second philosopher will have:&lt;/p>
 &lt;p>$$
-(1 + 1) \mod 2 \
-= 2 \mod 2 \
+(1 + 1) \mod 2
+$$&lt;/p>
+&lt;p>$$
+= 2 \mod 2
+$$&lt;/p>
+&lt;p>$$
 = 0
 $$&lt;/p>
 &lt;p>So the first philosopher&amp;rsquo;s left fork will be 0, and the right fork will be 1, while the second philosopher&amp;rsquo;s left fork will be 1 and the right fork will be 0 again. We just succeeded in simulating a round table with forks in between each philosopher.&lt;/p>
