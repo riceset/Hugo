@@ -32,10 +32,10 @@ timestamp_in_ms X died
 $$&lt;/p>
 &lt;h3 id="and-that">and that&lt;/h3>
 &lt;p>$$
-1 \textmu s = \frac{1}{1000}
+1μs = \frac{1}{1000}
 $$&lt;/p>
 &lt;p>$$
-\therefore 1 \textmu s = 0.001ms
+\therefore 1μs = 0.001ms
 $$&lt;/p>
 &lt;p>Now with all the values in miliseconds, we can sum them up to get the current time in miliseconds.&lt;/p>
 &lt;h2 id="example">Example:&lt;/h2>
@@ -53,7 +53,7 @@ $$&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> (us &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#ae81ff">1000&lt;/span>);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>$$
-\frac{126500}{1000} \textmu s = 126ms
+\frac{126500}{1000}μs = 126ms
 $$&lt;/p>
 &lt;p>Summing the seconds and microseconds now converted to miliseconds we get:&lt;/p>
 &lt;p>$$
