@@ -7,7 +7,7 @@ tags: [C]
 
 ![Philosopher](https://github.com/riceset/riceset.com/assets/48802655/05d327a7-c706-4ea5-b484-0b54477163fc)
 
-## Overview
+## 👀 Overview
 The **Dining Philosophers Problem** was formulated in 1965 by Edsger Dijkstra. It involves dealing with concurrent programming, synchronization issues, threads, deadlocks, and race conditions.
 
 ### The Problem
@@ -20,7 +20,7 @@ Each philosopher successively eats, sleeps and thinks.
 
 *“When a philosopher has finished eating, they start sleeping. Once awake they think again.”*
 
-### Arguments
+### Arguments to the program (argv)
 
 - `number_of_philosophers`
 - `time_to_die`
@@ -42,86 +42,7 @@ in which `X` is the philosopher ID.
 
 ***Note***: The message announcing the death of a philosopher should be displayed in no more than ***10 ms*** after the actual death.
 
-## Calculating the time stamps
-
-As the program wants the output in miliseconds and the function `gettimeofday()` gives us values in seconds and microseconds, we have to convert both to miliseconds and sum them up.
-
-### remembering that
-
-$$
-1s = 1000ms
-$$
-
-### and that
-
-$$
-1μs = \frac{1}{1000}
-$$
-
-$$
-\therefore 1μs = 0.001ms
-$$
-
-Now with all the values in miliseconds, we can sum them up to get the current time in miliseconds.
-
-## Example:
-
-Let’s try converting the following value that is given in seconds to miliseconds.
-
-```c
-time_t s_to_ms(time_t s)
-{
-	return (s * 1000);
-}
-```
-
-$$
-41923s \times 1000 = 41923000ms
-$$
-
-Now, let’s convert the microsecond part to miliseconds (discarding the decimal part).
-
-```c
-time_t us_to_ms(time_t us)
-{
-	return (us / 1000);
-}
-```
-
-$$
-\frac{126500}{1000}μs = 126ms
-$$
-
-Summing the seconds and microseconds now converted to miliseconds we get:
-
-$$
-41923000ms + 126ms = 41923126ms
-$$
-
-Now, to get the current time you just subtract the `gettimeofday()` call from the start time that would be the value you saved when calling it for the first time. That would be the code for the conversion made:
-
-```c
-void get_current_time(time_t *s, time_t *us)
-{
-	t_timeval tv;
-
-	gettimeofday(&tv, NULL);
-	*s = tv.tv_sec;
-	*us = tv.tv_usec;
-}
-
-int main(void)
-{
-	time_t s;
-	time_t us;
-
-	get_current_time(&s, &us);
-
-	printf("current_time_in_ms:%ld", s_to_ms(s) + us_to_ms(us));
-}
-```
-
-## Table (the main data structure)
+## 🎲 Table
 
 In this project, we will be working with a main data structure in which will contain all the other ones, in the case of the philosophers project, as we will be dealing with threads, more specifically, one thread for each philosopher, we will have to find out how to put this table data structure inside each philosopher for accessing data from each thread.
 
@@ -333,8 +254,88 @@ So the first philosopher's left fork will be 0, and the right fork will be 1, wh
 
 ![Drawing](https://res.craft.do/user/preview/a56c5213-5c17-64c0-d902-b9958ea11cb4/doc/9BCB3C86-9D37-4BE9-863E-5303AA81C84B/4DE81475-B9BB-4B1F-AC51-8AFD3C416B8A_1/4aMSLV7rtyUkDXHAUXORo5u5POCWDIyqsbGsLMoZV4kz/Drawing.jpg)
 
+## ⏳ Calculating the time stamps
+
+As the program wants the output in miliseconds and the function `gettimeofday()` gives us values in seconds and microseconds, we have to convert both to miliseconds and sum them up.
+
+### remembering that
+
+$$
+1s = 1000ms
+$$
+
+### and that
+
+$$
+1μs = \frac{1}{1000}
+$$
+
+$$
+\therefore 1μs = 0.001ms
+$$
+
+Now with all the values in miliseconds, we can sum them up to get the current time in miliseconds.
+
+## Example:
+
+Let’s try converting the following value that is given in seconds to miliseconds.
+
+```c
+time_t s_to_ms(time_t s)
+{
+	return (s * 1000);
+}
+```
+
+$$
+41923s \times 1000 = 41923000ms
+$$
+
+Now, let’s convert the microsecond part to miliseconds (discarding the decimal part).
+
+```c
+time_t us_to_ms(time_t us)
+{
+	return (us / 1000);
+}
+```
+
+$$
+\frac{126500}{1000}μs = 126ms
+$$
+
+Summing the seconds and microseconds now converted to miliseconds we get:
+
+$$
+41923000ms + 126ms = 41923126ms
+$$
+
+Now, to get the current time you just subtract the `gettimeofday()` call from the start time that would be the value you saved when calling it for the first time. That would be the code for the conversion made:
+
+```c
+void get_current_time(time_t *s, time_t *us)
+{
+	t_timeval tv;
+
+	gettimeofday(&tv, NULL);
+	*s = tv.tv_sec;
+	*us = tv.tv_usec;
+}
+
+int main(void)
+{
+	time_t s;
+	time_t us;
+
+	get_current_time(&s, &us);
+
+	printf("current_time_in_ms:%ld", s_to_ms(s) + us_to_ms(us));
+}
+```
+
+
 ## 🚀 References
 
 ### My repository
 
-[GitHub - riceset/philosophers: In this project, you will learn the basics of threading a process. You will see how to create threads and you will discover mutexes.](https://github.com/riceset/philosophers)
+[GitHub - riceset/philosophers](https://github.com/riceset/philosophers)
