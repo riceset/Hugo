@@ -82,7 +82,7 @@ timestamp_in_ms X died
 &lt;p>$$
 1s = 1000ms
 $$&lt;/p>
-&lt;h3 id="and">and&lt;/h3>
+&lt;h3 id="and-that">and that&lt;/h3>
 &lt;p>$$
 1us = \frac{1}{1000}
 $$&lt;/p>
@@ -92,7 +92,7 @@ $$&lt;/p>
 &lt;p>Now with all the values in miliseconds, we can sum them up to get the current time in miliseconds.&lt;/p>
 &lt;h2 id="example">Example:&lt;/h2>
 &lt;p>Let’s try converting the following value that is given in seconds to miliseconds.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>time_t &lt;span style="color:#a6e22e">s_to_ms&lt;/span>(time_t s)
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">time_t&lt;/span> &lt;span style="color:#a6e22e">s_to_ms&lt;/span>(&lt;span style="color:#66d9ef">time_t&lt;/span> s)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> (s &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">1000&lt;/span>);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
@@ -101,7 +101,7 @@ $$&lt;/p>
 1692041923s \times 1000 = 1692041923000ms
 $$&lt;/p>
 &lt;p>Now, let’s convert the microsecond part to miliseconds (discarding the decimal part).&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>time_t &lt;span style="color:#a6e22e">us_to_ms&lt;/span>(time_t us)
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">time_t&lt;/span> &lt;span style="color:#a6e22e">us_to_ms&lt;/span>(&lt;span style="color:#66d9ef">time_t&lt;/span> us)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> (us &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#ae81ff">1000&lt;/span>);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
@@ -114,54 +114,54 @@ $$&lt;/p>
 1692041923000ms + 126ms = 1692041923126ms
 $$&lt;/p>
 &lt;p>Now, to get the current time you just subtract the gettimeofday() call from the start time that would be the value you saved when calling it for the first time. That would be the code for the conversion made:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">get_current_time&lt;/span>(time_t &lt;span style="color:#f92672">*&lt;/span>s, time_t &lt;span style="color:#f92672">*&lt;/span>us)
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">get_current_time&lt;/span>(&lt;span style="color:#66d9ef">time_t&lt;/span> &lt;span style="color:#f92672">*&lt;/span>s, &lt;span style="color:#66d9ef">time_t&lt;/span> &lt;span style="color:#f92672">*&lt;/span>us)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> t_timeval tv;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> gettimeofday(&lt;span style="color:#f92672">&amp;amp;&lt;/span>tv, NULL);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">gettimeofday&lt;/span>(&lt;span style="color:#f92672">&amp;amp;&lt;/span>tv, NULL);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>s &lt;span style="color:#f92672">=&lt;/span> tv.tv_sec;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>us &lt;span style="color:#f92672">=&lt;/span> tv.tv_usec;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">void&lt;/span>)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> time_t s;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> time_t us;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">time_t&lt;/span> s;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">time_t&lt;/span> us;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> get_current_time(&lt;span style="color:#f92672">&amp;amp;&lt;/span>s, &lt;span style="color:#f92672">&amp;amp;&lt;/span>us);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">get_current_time&lt;/span>(&lt;span style="color:#f92672">&amp;amp;&lt;/span>s, &lt;span style="color:#f92672">&amp;amp;&lt;/span>us);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;current_time_in_ms:%ld&amp;#34;&lt;/span>, s_to_ms(s) &lt;span style="color:#f92672">+&lt;/span> us_to_ms(us));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;current_time_in_ms:%ld&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">s_to_ms&lt;/span>(s) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">us_to_ms&lt;/span>(us));
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="table-the-main-data-structure">Table (the main data structure)&lt;/h2>
 &lt;p>In this project, we will be working with a main data structure in which will contain all the other ones, in the case of the philosophers project, as we will be dealing with threads, more specifically, one thread for each philosopher, we will have to find out how to put this table data structure inside each philosopher for accessing data from each thread.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">struct&lt;/span> &lt;span style="color:#a6e22e">s_table&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> s_table
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">time_t&lt;/span> &lt;span style="color:#a6e22e">start_time&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">t_args&lt;/span> &lt;span style="color:#a6e22e">args&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">t_philo&lt;/span> &lt;span style="color:#f92672">**&lt;/span>&lt;span style="color:#a6e22e">philos&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">pthread_mutex_t&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">forks&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">time_t&lt;/span> start_time;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> t_args args;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> t_philo &lt;span style="color:#f92672">**&lt;/span>philos;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">pthread_mutex_t&lt;/span> &lt;span style="color:#f92672">*&lt;/span>forks;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>In which, the &lt;code>start_time&lt;/code> is initialized with the actual start time from the program (in miliseconds), &lt;code>args&lt;/code> are the command line arguments (a.k.a argv, argument vector), &lt;code>philos&lt;/code> is a double pointer but it might be easier to think about it as a pointer to an array of philosophers, and the &lt;code>forks&lt;/code> &amp;ldquo;array&amp;rdquo;.&lt;/p>
 &lt;p>By the way, I decided creating a new data structure just to store the command line arguments in which I called &lt;code>t_args&lt;/code>.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">struct&lt;/span> &lt;span style="color:#a6e22e">s_args&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> s_args
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">unsigned&lt;/span> &lt;span style="color:#a6e22e">nb_philos&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">time_t&lt;/span> &lt;span style="color:#a6e22e">time_to_die&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">time_t&lt;/span> &lt;span style="color:#a6e22e">time_to_eat&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">time_t&lt;/span> &lt;span style="color:#a6e22e">time_to_sleep&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">unsigned&lt;/span> &lt;span style="color:#a6e22e">must_eat&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> nb_philos;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">time_t&lt;/span> time_to_die;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">time_t&lt;/span> time_to_eat;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">time_t&lt;/span> time_to_sleep;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> must_eat;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>And that&amp;rsquo;s how I initialized the values:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">init_args&lt;/span>(&lt;span style="color:#a6e22e">t_args&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">args&lt;/span>, &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">argc&lt;/span>, &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>&lt;span style="color:#a6e22e">argv&lt;/span>)
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">init_args&lt;/span>(t_args &lt;span style="color:#f92672">*&lt;/span>args, &lt;span style="color:#66d9ef">int&lt;/span> argc, &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>argv)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">args&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">nb_philos&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">philo_atoi&lt;/span>(&lt;span style="color:#a6e22e">argv&lt;/span>[&lt;span style="color:#ae81ff">1&lt;/span>]);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">args&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">time_to_die&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">philo_atoi&lt;/span>(&lt;span style="color:#a6e22e">argv&lt;/span>[&lt;span style="color:#ae81ff">2&lt;/span>]);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">args&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">time_to_eat&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">philo_atoi&lt;/span>(&lt;span style="color:#a6e22e">argv&lt;/span>[&lt;span style="color:#ae81ff">3&lt;/span>]);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">args&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">time_to_sleep&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">philo_atoi&lt;/span>(&lt;span style="color:#a6e22e">argv&lt;/span>[&lt;span style="color:#ae81ff">4&lt;/span>]);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">argc&lt;/span> &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">6&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">args&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">must_eat&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">philo_atoi&lt;/span>(&lt;span style="color:#a6e22e">argv&lt;/span>[&lt;span style="color:#ae81ff">5&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> args&lt;span style="color:#f92672">-&amp;gt;&lt;/span>nb_philos &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">philo_atoi&lt;/span>(argv[&lt;span style="color:#ae81ff">1&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> args&lt;span style="color:#f92672">-&amp;gt;&lt;/span>time_to_die &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">philo_atoi&lt;/span>(argv[&lt;span style="color:#ae81ff">2&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> args&lt;span style="color:#f92672">-&amp;gt;&lt;/span>time_to_eat &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">philo_atoi&lt;/span>(argv[&lt;span style="color:#ae81ff">3&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> args&lt;span style="color:#f92672">-&amp;gt;&lt;/span>time_to_sleep &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">philo_atoi&lt;/span>(argv[&lt;span style="color:#ae81ff">4&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (argc &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">6&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> args&lt;span style="color:#f92672">-&amp;gt;&lt;/span>must_eat &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">philo_atoi&lt;/span>(argv[&lt;span style="color:#ae81ff">5&lt;/span>]);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">args&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">must_eat&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">MUST_EAT_NOT_SET&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> args&lt;span style="color:#f92672">-&amp;gt;&lt;/span>must_eat &lt;span style="color:#f92672">=&lt;/span> MUST_EAT_NOT_SET;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>&lt;strong>note&lt;/strong>&lt;/em>: &lt;code>MUST_EAT_NOT_SET&lt;/code> is a macro I defined to -1.&lt;/p>
 &lt;p>And if you&amp;rsquo;re asking yourself why I didn&amp;rsquo;t typedef any of these structures, that&amp;rsquo;s because I &amp;ldquo;typedefed&amp;rdquo; all of them above their declaration in the header file.&lt;/p>
