@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>riceset</title><link>https://riceset.com/</link><description>Recent content on riceset</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2023 riceset</copyright><lastBuildDate>Tue, 15 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://riceset.com/index.xml" rel="self" type="application/rss+xml"/><item><title>An approach to solving the dining philosophers problem</title><link>https://riceset.com/articles/philosophers/</link><pubDate>Tue, 15 Aug 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/philosophers/</guid><description>
 &lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/05d327a7-c706-4ea5-b484-0b54477163fc" alt="Philosopher">&lt;/p>
-&lt;h2 id="overview">Overview&lt;/h2>
+&lt;h2 id="-overview">👀 Overview&lt;/h2>
 &lt;p>The &lt;strong>Dining Philosophers Problem&lt;/strong> was formulated in 1965 by Edsger Dijkstra. It involves dealing with concurrent programming, synchronization issues, threads, deadlocks, and race conditions.&lt;/p>
 &lt;h3 id="the-problem">The Problem&lt;/h3>
 &lt;p>There are one or more philosophers sitting around a table, with a large bowl of spaghetti placed in the middle. In order for a philosopher to eat, they need to use both their left and right forks simultaneously. There are as many forks as there are philosophers. Additionally, the philosophers cannot communicate with each other.&lt;/p>
 &lt;h3 id="the-routine">The routine&lt;/h3>
 &lt;p>Each philosopher successively eats, sleeps and thinks.&lt;/p>
 &lt;p>&lt;em>“When a philosopher has finished eating, they start sleeping. Once awake they think again.”&lt;/em>&lt;/p>
-&lt;h3 id="arguments">Arguments&lt;/h3>
+&lt;h3 id="arguments-to-the-program-argv">Arguments to the program (argv)&lt;/h3>
 &lt;ul>
 &lt;li>&lt;code>number_of_philosophers&lt;/code>&lt;/li>
 &lt;li>&lt;code>time_to_die&lt;/code>&lt;/li>
@@ -23,61 +23,7 @@ timestamp_in_ms X is thinking
 timestamp_in_ms X died
 &lt;/code>&lt;/pre>&lt;p>in which &lt;code>X&lt;/code> is the philosopher ID.&lt;/p>
 &lt;p>&lt;em>&lt;strong>Note&lt;/strong>&lt;/em>: The message announcing the death of a philosopher should be displayed in no more than &lt;em>&lt;strong>10 ms&lt;/strong>&lt;/em> after the actual death.&lt;/p>
-&lt;h2 id="calculating-the-time-stamps">Calculating the time stamps&lt;/h2>
-&lt;p>As the program wants the output in miliseconds and the function &lt;code>gettimeofday()&lt;/code> gives us values in seconds and microseconds, we have to convert both to miliseconds and sum them up.&lt;/p>
-&lt;h3 id="remembering-that">remembering that&lt;/h3>
-&lt;p>$$
-1s = 1000ms
-$$&lt;/p>
-&lt;h3 id="and-that">and that&lt;/h3>
-&lt;p>$$
-1μs = \frac{1}{1000}
-$$&lt;/p>
-&lt;p>$$
-\therefore 1μs = 0.001ms
-$$&lt;/p>
-&lt;p>Now with all the values in miliseconds, we can sum them up to get the current time in miliseconds.&lt;/p>
-&lt;h2 id="example">Example:&lt;/h2>
-&lt;p>Let’s try converting the following value that is given in seconds to miliseconds.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">time_t&lt;/span> &lt;span style="color:#a6e22e">s_to_ms&lt;/span>(&lt;span style="color:#66d9ef">time_t&lt;/span> s)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> (s &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">1000&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>$$
-41923s \times 1000 = 41923000ms
-$$&lt;/p>
-&lt;p>Now, let’s convert the microsecond part to miliseconds (discarding the decimal part).&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">time_t&lt;/span> &lt;span style="color:#a6e22e">us_to_ms&lt;/span>(&lt;span style="color:#66d9ef">time_t&lt;/span> us)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> (us &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#ae81ff">1000&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>$$
-\frac{126500}{1000}μs = 126ms
-$$&lt;/p>
-&lt;p>Summing the seconds and microseconds now converted to miliseconds we get:&lt;/p>
-&lt;p>$$
-41923000ms + 126ms = 41923126ms
-$$&lt;/p>
-&lt;p>Now, to get the current time you just subtract the &lt;code>gettimeofday()&lt;/code> call from the start time that would be the value you saved when calling it for the first time. That would be the code for the conversion made:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">get_current_time&lt;/span>(&lt;span style="color:#66d9ef">time_t&lt;/span> &lt;span style="color:#f92672">*&lt;/span>s, &lt;span style="color:#66d9ef">time_t&lt;/span> &lt;span style="color:#f92672">*&lt;/span>us)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> t_timeval tv;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">gettimeofday&lt;/span>(&lt;span style="color:#f92672">&amp;amp;&lt;/span>tv, NULL);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>s &lt;span style="color:#f92672">=&lt;/span> tv.tv_sec;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>us &lt;span style="color:#f92672">=&lt;/span> tv.tv_usec;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">void&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">time_t&lt;/span> s;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">time_t&lt;/span> us;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">get_current_time&lt;/span>(&lt;span style="color:#f92672">&amp;amp;&lt;/span>s, &lt;span style="color:#f92672">&amp;amp;&lt;/span>us);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;current_time_in_ms:%ld&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">s_to_ms&lt;/span>(s) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">us_to_ms&lt;/span>(us));
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="table-the-main-data-structure">Table (the main data structure)&lt;/h2>
+&lt;h2 id="-table">🎲 Table&lt;/h2>
 &lt;p>In this project, we will be working with a main data structure in which will contain all the other ones, in the case of the philosophers project, as we will be dealing with threads, more specifically, one thread for each philosopher, we will have to find out how to put this table data structure inside each philosopher for accessing data from each thread.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> s_table
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
@@ -216,9 +162,63 @@ $$&lt;/p>
 $$&lt;/p>
 &lt;p>So the first philosopher&amp;rsquo;s left fork will be 0, and the right fork will be 1, while the second philosopher&amp;rsquo;s left fork will be 1 and the right fork will be 0 again. We just succeeded in simulating a round table with forks in between each philosopher.&lt;/p>
 &lt;p>&lt;img src="https://res.craft.do/user/preview/a56c5213-5c17-64c0-d902-b9958ea11cb4/doc/9BCB3C86-9D37-4BE9-863E-5303AA81C84B/4DE81475-B9BB-4B1F-AC51-8AFD3C416B8A_1/4aMSLV7rtyUkDXHAUXORo5u5POCWDIyqsbGsLMoZV4kz/Drawing.jpg" alt="Drawing">&lt;/p>
-&lt;h2 id="-references">🚀 References&lt;/h2>
+&lt;h2 id="-calculating-the-time-stamps">⏳ Calculating the time stamps&lt;/h2>
+&lt;p>As the program wants the output in miliseconds and the function &lt;code>gettimeofday()&lt;/code> gives us values in seconds and microseconds, we have to convert both to miliseconds and sum them up.&lt;/p>
+&lt;h3 id="remembering-that">remembering that&lt;/h3>
+&lt;p>$$
+1s = 1000ms
+$$&lt;/p>
+&lt;h3 id="and-that">and that&lt;/h3>
+&lt;p>$$
+1μs = \frac{1}{1000}
+$$&lt;/p>
+&lt;p>$$
+\therefore 1μs = 0.001ms
+$$&lt;/p>
+&lt;p>Now with all the values in miliseconds, we can sum them up to get the current time in miliseconds.&lt;/p>
+&lt;h2 id="example">Example:&lt;/h2>
+&lt;p>Let’s try converting the following value that is given in seconds to miliseconds.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">time_t&lt;/span> &lt;span style="color:#a6e22e">s_to_ms&lt;/span>(&lt;span style="color:#66d9ef">time_t&lt;/span> s)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> (s &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">1000&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>$$
+41923s \times 1000 = 41923000ms
+$$&lt;/p>
+&lt;p>Now, let’s convert the microsecond part to miliseconds (discarding the decimal part).&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">time_t&lt;/span> &lt;span style="color:#a6e22e">us_to_ms&lt;/span>(&lt;span style="color:#66d9ef">time_t&lt;/span> us)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> (us &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#ae81ff">1000&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>$$
+\frac{126500}{1000}μs = 126ms
+$$&lt;/p>
+&lt;p>Summing the seconds and microseconds now converted to miliseconds we get:&lt;/p>
+&lt;p>$$
+41923000ms + 126ms = 41923126ms
+$$&lt;/p>
+&lt;p>Now, to get the current time you just subtract the &lt;code>gettimeofday()&lt;/code> call from the start time that would be the value you saved when calling it for the first time. That would be the code for the conversion made:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">get_current_time&lt;/span>(&lt;span style="color:#66d9ef">time_t&lt;/span> &lt;span style="color:#f92672">*&lt;/span>s, &lt;span style="color:#66d9ef">time_t&lt;/span> &lt;span style="color:#f92672">*&lt;/span>us)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> t_timeval tv;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">gettimeofday&lt;/span>(&lt;span style="color:#f92672">&amp;amp;&lt;/span>tv, NULL);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>s &lt;span style="color:#f92672">=&lt;/span> tv.tv_sec;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span>us &lt;span style="color:#f92672">=&lt;/span> tv.tv_usec;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">void&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">time_t&lt;/span> s;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">time_t&lt;/span> us;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">get_current_time&lt;/span>(&lt;span style="color:#f92672">&amp;amp;&lt;/span>s, &lt;span style="color:#f92672">&amp;amp;&lt;/span>us);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;current_time_in_ms:%ld&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">s_to_ms&lt;/span>(s) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">us_to_ms&lt;/span>(us));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="-references">🚀 References&lt;/h2>
 &lt;h3 id="my-repository">My repository&lt;/h3>
-&lt;p>&lt;a href="https://github.com/riceset/philosophers">GitHub - riceset/philosophers: In this project, you will learn the basics of threading a process. You will see how to create threads and you will discover mutexes.&lt;/a>&lt;/p></description></item><item><title>Understanding the stack data structure</title><link>https://riceset.com/articles/understanding-the-stack-data-structure/</link><pubDate>Tue, 23 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/understanding-the-stack-data-structure/</guid><description>
+&lt;p>&lt;a href="https://github.com/riceset/philosophers">GitHub - riceset/philosophers&lt;/a>&lt;/p></description></item><item><title>Understanding the stack data structure</title><link>https://riceset.com/articles/understanding-the-stack-data-structure/</link><pubDate>Tue, 23 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/understanding-the-stack-data-structure/</guid><description>
 &lt;p>&lt;strong>Stack&lt;/strong> is an ADT (Abstract Data Structure) which follows the LIFO (Last In First Out) order. It might be easier to understand this concept by imagining an actual stack of books.&lt;/p>
 &lt;p>When working with stacks, you can use mainly two operations. &lt;code>push()&lt;/code> to add an element to the top of a stack and &lt;code>pop()&lt;/code> to literally pop out or remove an element of a stack. As it is considered an ADT (Abstract Data Structure) you can implement it in many ways with other basic data structures such as arrays or linked lists. Let’s try implementing it using an array first.&lt;/p>
 &lt;h2 id="implementing-push">Implementing push():&lt;/h2>
