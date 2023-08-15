@@ -88,6 +88,9 @@ time_t us_to_ms(time_t us)
 
 $$
 126500us
+$$
+
+$$
 \frac{126500}{1000}us = 126ms
 $$
 
