@@ -49,7 +49,7 @@ $$
 1s = 1000ms
 $$
 
-### and
+### and that
 
 $$
 1us = \frac{1}{1000}
@@ -65,7 +65,7 @@ Now with all the values in miliseconds, we can sum them up to get the current ti
 
 Let’s try converting the following value that is given in seconds to miliseconds.
 
-```cpp
+```c
 time_t s_to_ms(time_t s)
 {
 	return (s * 1000);
@@ -79,7 +79,7 @@ $$
 
 Now, let’s convert the microsecond part to miliseconds (discarding the decimal part).
 
-```cpp
+```c
 time_t us_to_ms(time_t us)
 {
 	return (us / 1000);
@@ -99,7 +99,7 @@ $$
 
 Now, to get the current time you just subtract the gettimeofday() call from the start time that would be the value you saved when calling it for the first time. That would be the code for the conversion made:
 
-```cpp
+```c
 void get_current_time(time_t *s, time_t *us)
 {
 	t_timeval tv;
@@ -124,7 +124,7 @@ int main(void)
 
 In this project, we will be working with a main data structure in which will contain all the other ones, in the case of the philosophers project, as we will be dealing with threads, more specifically, one thread for each philosopher, we will have to find out how to put this table data structure inside each philosopher for accessing data from each thread.
 
-```javascript
+```c
 struct s_table
 {
 	time_t start_time;
@@ -138,7 +138,7 @@ In which, the `start_time` is initialized with the actual start time from the pr
 
 By the way, I decided creating a new data structure just to store the command line arguments in which I called `t_args`.
 
-```javascript
+```c
 struct s_args
 {
 	unsigned nb_philos;
@@ -151,7 +151,7 @@ struct s_args
 
 And that's how I initialized the values:
 
-```javascript
+```c
 static void init_args(t_args *args, int argc, char **argv)
 {
 	args->nb_philos = philo_atoi(argv[1]);
