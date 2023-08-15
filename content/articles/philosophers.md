@@ -52,11 +52,11 @@ $$
 ### and that
 
 $$
-1us = \frac{1}{1000}
+1 \textmu s = \frac{1}{1000}
 $$
 
 $$
-\therefore 1us = 0.001ms
+\therefore 1 \textmu s = 0.001ms
 $$
 
 Now with all the values in miliseconds, we can sum them up to get the current time in miliseconds.
@@ -86,7 +86,7 @@ time_t us_to_ms(time_t us)
 ```
 
 $$
-\frac{126500}{1000}us = 126ms
+\frac{126500}{1000} \textmu s = 126ms
 $$
 
 Summing the seconds and microseconds now converted to miliseconds we get:
