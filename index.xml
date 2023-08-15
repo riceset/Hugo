@@ -2,12 +2,12 @@
 &lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/05d327a7-c706-4ea5-b484-0b54477163fc" alt="Philosopher">&lt;/p>
 &lt;h2 id="-overview">👀 Overview&lt;/h2>
 &lt;p>The &lt;strong>Dining Philosophers Problem&lt;/strong> was formulated in 1965 by Edsger Dijkstra. It involves dealing with concurrent programming, synchronization issues, threads, deadlocks, and race conditions.&lt;/p>
-&lt;h3 id="the-problem">The Problem&lt;/h3>
+&lt;h4 id="the-problem">The Problem&lt;/h4>
 &lt;p>There are one or more philosophers sitting around a table, with a large bowl of spaghetti placed in the middle. In order for a philosopher to eat, they need to use both their left and right forks simultaneously. There are as many forks as there are philosophers. Additionally, the philosophers cannot communicate with each other.&lt;/p>
-&lt;h3 id="the-routine">The routine&lt;/h3>
+&lt;h4 id="the-routine">The routine&lt;/h4>
 &lt;p>Each philosopher successively eats, sleeps and thinks.&lt;/p>
 &lt;p>&lt;em>“When a philosopher has finished eating, they start sleeping. Once awake they think again.”&lt;/em>&lt;/p>
-&lt;h3 id="arguments-to-the-program-argv">Arguments to the program (argv)&lt;/h3>
+&lt;h4 id="arguments-to-the-program-argv">Arguments to the program (argv)&lt;/h4>
 &lt;ul>
 &lt;li>&lt;code>number_of_philosophers&lt;/code>&lt;/li>
 &lt;li>&lt;code>time_to_die&lt;/code>&lt;/li>
@@ -15,7 +15,7 @@
 &lt;li>&lt;code>time_to_sleep&lt;/code>&lt;/li>
 &lt;li>&lt;code>number_of_times_each_philo_must_eat&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;h3 id="expected-output">Expected output&lt;/h3>
+&lt;h4 id="expected-output">Expected output&lt;/h4>
 &lt;pre tabindex="0">&lt;code class="language-other" data-lang="other">timestamp_in_ms X has taken a fork
 timestamp_in_ms X is eating
 timestamp_in_ms X is sleeping
@@ -73,7 +73,7 @@ timestamp_in_ms X died
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> table&lt;span style="color:#f92672">-&amp;gt;&lt;/span>forks &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">malloc&lt;/span>(&lt;span style="color:#66d9ef">sizeof&lt;/span>(&lt;span style="color:#66d9ef">pthread_mutex_t&lt;/span>) &lt;span style="color:#f92672">*&lt;/span> table&lt;span style="color:#f92672">-&amp;gt;&lt;/span>args.nb_philos);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>allocating the desired amount of bytes. (size of a mutex in bytes times the number of philosophers that is the number of forks, in other words, mutexes).&lt;/p>
-&lt;h3 id="initializing-the-mutexes">Initializing the mutexes&lt;/h3>
+&lt;h4 id="initializing-the-mutexes">Initializing the mutexes&lt;/h4>
 &lt;p>after allocating memory to the created mutexes, we will have to initialize them:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">init_forks&lt;/span>(t_table &lt;span style="color:#f92672">*&lt;/span>table)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
@@ -88,7 +88,7 @@ timestamp_in_ms X died
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>That&amp;rsquo;s it for allocating and initializing mutexes :)&lt;/p>
-&lt;h2 id="dealing-with-the-philosopher-data-structure">Dealing with the philosopher data structure&lt;/h2>
+&lt;h2 id="-dealing-with-the-philosopher-data-structure">💭 Dealing with the philosopher data structure&lt;/h2>
 &lt;p>That&amp;rsquo;s the definition for the philosopher data structure:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> s_philo
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
@@ -113,7 +113,7 @@ timestamp_in_ms X died
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>First, we allocate the pointers that will point to each philosopher, then using these pointers that were allocated, we allocate the actual memory for each philosopher.&lt;/p>
-&lt;h3 id="initializing-the-philosophers">Initializing the philosophers&lt;/h3>
+&lt;h4 id="initializing-the-philosophers">Initializing the philosophers&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">init_philos&lt;/span>(t_table &lt;span style="color:#f92672">*&lt;/span>table)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> i;
@@ -134,7 +134,7 @@ timestamp_in_ms X died
 &lt;p>First, we need to assign an ID to each philosopher and it need to begin at 1. As we are indexing using &lt;code>i&lt;/code> that usually gets initialized at 0, we need to add 1 to it to get the actual id.&lt;/p>
 &lt;p>So when &lt;code>i&lt;/code> is 0, that means, the first philosopher will have the ID &lt;code>i&lt;/code> + 1 that is 1.&lt;/p>
 &lt;p>The &lt;code>times_ate&lt;/code> gets an initial value of 0 and we are assigning a pointer to &lt;code>table&lt;/code> to have a reference inside each thread created later.&lt;/p>
-&lt;h3 id="assigning-forks">Assigning forks&lt;/h3>
+&lt;h4 id="assigning-forks">Assigning forks&lt;/h4>
 &lt;p>The current philosopher&amp;rsquo;s left fork will be &lt;code>i&lt;/code>. So for example, when $$i = 0$$ the philosopher&amp;rsquo;s ID will be 1 so their left fork will be 0 and their right fork gotta be 1.&lt;/p>
 &lt;p>To get to the value of 1 we need to index it using the following formula:&lt;/p>
 &lt;p>$$
@@ -164,11 +164,11 @@ $$&lt;/p>
 &lt;p>&lt;img src="https://res.craft.do/user/preview/a56c5213-5c17-64c0-d902-b9958ea11cb4/doc/9BCB3C86-9D37-4BE9-863E-5303AA81C84B/4DE81475-B9BB-4B1F-AC51-8AFD3C416B8A_1/4aMSLV7rtyUkDXHAUXORo5u5POCWDIyqsbGsLMoZV4kz/Drawing.jpg" alt="Drawing">&lt;/p>
 &lt;h2 id="-calculating-the-time-stamps">⏳ Calculating the time stamps&lt;/h2>
 &lt;p>As the program wants the output in miliseconds and the function &lt;code>gettimeofday()&lt;/code> gives us values in seconds and microseconds, we have to convert both to miliseconds and sum them up.&lt;/p>
-&lt;h3 id="remembering-that">remembering that&lt;/h3>
+&lt;h4 id="remembering-that">remembering that&lt;/h4>
 &lt;p>$$
 1s = 1000ms
 $$&lt;/p>
-&lt;h3 id="and-that">and that&lt;/h3>
+&lt;h4 id="and-that">and that&lt;/h4>
 &lt;p>$$
 1μs = \frac{1}{1000}
 $$&lt;/p>
@@ -176,7 +176,7 @@ $$&lt;/p>
 \therefore 1μs = 0.001ms
 $$&lt;/p>
 &lt;p>Now with all the values in miliseconds, we can sum them up to get the current time in miliseconds.&lt;/p>
-&lt;h2 id="example">Example:&lt;/h2>
+&lt;h4 id="example">Example:&lt;/h4>
 &lt;p>Let’s try converting the following value that is given in seconds to miliseconds.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">time_t&lt;/span> &lt;span style="color:#a6e22e">s_to_ms&lt;/span>(&lt;span style="color:#66d9ef">time_t&lt;/span> s)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
@@ -217,7 +217,7 @@ $$&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;current_time_in_ms:%ld&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">s_to_ms&lt;/span>(s) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">us_to_ms&lt;/span>(us));
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="-references">🚀 References&lt;/h2>
-&lt;h3 id="my-repository">My repository&lt;/h3>
+&lt;h4 id="my-repository">My repository&lt;/h4>
 &lt;p>&lt;a href="https://github.com/riceset/philosophers">GitHub - riceset/philosophers&lt;/a>&lt;/p></description></item><item><title>Understanding the stack data structure</title><link>https://riceset.com/articles/understanding-the-stack-data-structure/</link><pubDate>Tue, 23 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/understanding-the-stack-data-structure/</guid><description>
 &lt;p>&lt;strong>Stack&lt;/strong> is an ADT (Abstract Data Structure) which follows the LIFO (Last In First Out) order. It might be easier to understand this concept by imagining an actual stack of books.&lt;/p>
 &lt;p>When working with stacks, you can use mainly two operations. &lt;code>push()&lt;/code> to add an element to the top of a stack and &lt;code>pop()&lt;/code> to literally pop out or remove an element of a stack. As it is considered an ADT (Abstract Data Structure) you can implement it in many ways with other basic data structures such as arrays or linked lists. Let’s try implementing it using an array first.&lt;/p>
