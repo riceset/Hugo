@@ -37,7 +37,7 @@ timestamp_in_ms X died
 
 in which `X` is the philosopher ID.
 
-***Note***: The message announcing the death of a philosopher should be displayed in no more than ***::10 ms::*** after the actual death.
+***Note***: The message announcing the death of a philosopher should be displayed in no more than ***10 ms*** after the actual death.
 
 ## Calculating the time stamps
 
@@ -295,7 +295,7 @@ The `times_ate` gets an initial value of 0 and we are assigning a pointer to `ta
 
 ### Assigning forks
 
-The current philosopher's left fork will be `i`. So for example, when $$i = 0$$, the philosopher's ID will be 1 so their left fork will be 0 and their right fork gotta be 1.
+The current philosopher's left fork will be `i`. So for example, when $$i = 0$$ the philosopher's ID will be 1 so their left fork will be 0 and their right fork gotta be 1.
 
 To get to the value of 1 we need to index it using the following formula:
 
