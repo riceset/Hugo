@@ -112,7 +112,7 @@ $$</p><p>$$
 $$</p><p>So the first philosopher&rsquo;s left fork will be 0, and the right fork will be 1, while the second philosopher&rsquo;s left fork will be 1 and the right fork will be 0 again. We just succeeded in simulating a round table with forks in between each philosopher.</p><p><img src=https://res.craft.do/user/preview/a56c5213-5c17-64c0-d902-b9958ea11cb4/doc/9BCB3C86-9D37-4BE9-863E-5303AA81C84B/4DE81475-B9BB-4B1F-AC51-8AFD3C416B8A_1/4aMSLV7rtyUkDXHAUXORo5u5POCWDIyqsbGsLMoZV4kz/Drawing.jpg alt=Drawing></p><h2 id=-calculating-the-time-stamps>⏳ Calculating the time stamps</h2><p>As the program wants the output in miliseconds and the function <code>gettimeofday()</code> gives us values in seconds and microseconds, we have to convert both to miliseconds and sum them up.</p><h4 id=remembering-that>remembering that</h4><p>$$
 1s = 1000ms
 $$</p><h4 id=and-that>and that</h4><p>$$
-1μs = \frac{1}{1000}
+1μs = \frac{1}{1000}ms
 $$</p><p>$$
 \therefore 1μs = 0.001ms
 $$</p><p>Now with all the values in miliseconds, we can sum them up to get the current time in miliseconds.</p><h4 id=example>Example:</h4><p>Let’s try converting the following value that is given in seconds to miliseconds.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#66d9ef>time_t</span> <span style=color:#a6e22e>s_to_ms</span>(<span style=color:#66d9ef>time_t</span> s)
