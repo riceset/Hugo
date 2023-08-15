@@ -107,6 +107,8 @@ $$&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>$$
 126500us
+$$&lt;/p>
+&lt;p>$$
 \frac{126500}{1000}us = 126ms
 $$&lt;/p>
 &lt;p>Summing the seconds and microseconds now converted to miliseconds we get:&lt;/p>
