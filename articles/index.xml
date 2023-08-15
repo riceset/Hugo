@@ -121,7 +121,7 @@ $$&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then, on my data structure that represents a philosopher I have an array with 2 values. The index 0 of this array represents the philosopher&amp;rsquo;s left fork and the index 1 represents the right fork respectively.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">unsigned&lt;/span> forks[&lt;span style="color:#ae81ff">2&lt;/span>];
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>&lt;strong>note&lt;/strong>&lt;/em>: The keyword &lt;code>unsigned&lt;/code> is an alternative way of writing &lt;code>unsigned int&lt;/code>.&lt;/p>
-&lt;p>As I declared my table as a regular variable into main(), I won&amp;rsquo;t need to allocate memory for it.&lt;/p>
+&lt;p>As I declared my table as a regular variable into &lt;code>main()&lt;/code>, I won&amp;rsquo;t need to allocate memory for it.&lt;/p>
 &lt;p>We will just need to allocate memory for the mutexes.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">alloc_forks&lt;/span>(t_table &lt;span style="color:#f92672">*&lt;/span>table)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
@@ -187,7 +187,7 @@ $$&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now let&amp;rsquo;s break down this function.&lt;/p>
 &lt;p>First, we need to assign an ID to each philosopher and it need to begin at 1. As we are indexing using &lt;code>i&lt;/code> that usually gets initialized at 0, we need to add 1 to it to get the actual id.&lt;/p>
-&lt;p>So when &lt;code>i&lt;/code> is 0, that means, the first philosopher will have the ID i + 1 that is 1.&lt;/p>
+&lt;p>So when &lt;code>i&lt;/code> is 0, that means, the first philosopher will have the ID &lt;code>i&lt;/code> + 1 that is 1.&lt;/p>
 &lt;p>The &lt;code>times_ate&lt;/code> gets an initial value of 0 and we are assigning a pointer to &lt;code>table&lt;/code> to have a reference inside each thread created later.&lt;/p>
 &lt;h3 id="assigning-forks">Assigning forks&lt;/h3>
 &lt;p>The current philosopher&amp;rsquo;s left fork will be &lt;code>i&lt;/code>. So for example, when $$i = 0$$ the philosopher&amp;rsquo;s ID will be 1 so their left fork will be 0 and their right fork gotta be 1.&lt;/p>
