@@ -87,10 +87,6 @@ time_t us_to_ms(time_t us)
 ```
 
 $$
-126500us
-$$
-
-$$
 \frac{126500}{1000}us = 126ms
 $$
 
@@ -100,7 +96,7 @@ $$
 1692041923000ms + 126ms = 1692041923126ms
 $$
 
-Now, to get the current time you just subtract the gettimeofday() call from the start time that would be the value you saved when calling it for the first time. That would be the code for the conversion made:
+Now, to get the current time you just subtract the `gettimeofday()` call from the start time that would be the value you saved when calling it for the first time. That would be the code for the conversion made:
 
 ```c
 void get_current_time(time_t *s, time_t *us)
