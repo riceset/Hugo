@@ -51,8 +51,8 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>&lt;strong>output:&lt;/strong>&lt;/em> 3 2 1&lt;/p>
 &lt;p>&lt;em>&lt;strong>note:&lt;/strong>&lt;/em> The output will be printed in reverse order.&lt;/p>
 &lt;p>You can also try popping out an element from the stack simply by calling &lt;em>&lt;strong>pop()&lt;/strong>&lt;/em>.&lt;/p></description></item><item><title>An approach to solving the dining philosophers problem</title><link>https://riceset.com/articles/philosophers/</link><pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/philosophers/</guid><description>
-&lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/7680f2d8-9c3d-471b-88fe-89e49c2cdf89" alt="Philosophers">&lt;/p>
-&lt;h2 id="-overview">👀 Overview&lt;/h2>
+&lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/05d327a7-c706-4ea5-b484-0b54477163fc" alt="Philosopher">&lt;/p>
+&lt;h2 id="overview">Overview&lt;/h2>
 &lt;h3 id="the-actions">The Actions&lt;/h3>
 &lt;ul>
 &lt;li>Eat&lt;/li>
@@ -82,6 +82,7 @@ timestamp_in_ms X died
 &lt;p>$$
 1s = 1000ms
 $$&lt;/p>
+&lt;h3 id="and">and&lt;/h3>
 &lt;p>$$
 1us = \frac{1}{1000}
 $$&lt;/p>
