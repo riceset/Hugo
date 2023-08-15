@@ -52,6 +52,9 @@ $$
 
 $$
 1us = \frac{1}{1000}
+$$
+
+$$
 \therefore 1us = 0.001ms
 $$
 
@@ -299,16 +302,28 @@ $$
 So imagine we have 2 philosophers (n = 2), the first philosopher's right fork will represent the following index:
 
 $$
-(0 + 1) \mod 2 \newline
-= 1 \mod 2 \newline
+(0 + 1) \mod 2
+$$
+
+$$
+= 1 \mod 2
+$$
+
+$$
 = 1
 $$
 
 The second philosopher will have:
 
 $$
-(1 + 1) \mod 2 \\
-= 2 \mod 2 \\
+(1 + 1) \mod 2
+$$
+
+$$
+= 2 \mod 2
+$$
+
+$$
 = 0
 $$
 
