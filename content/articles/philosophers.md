@@ -5,10 +5,9 @@ author: Thiago Komeno
 tags: [C]
 ---
 
-![Philosophers](https://github.com/riceset/riceset.com/assets/48802655/7680f2d8-9c3d-471b-88fe-89e49c2cdf89)
+![Philosopher](https://github.com/riceset/riceset.com/assets/48802655/05d327a7-c706-4ea5-b484-0b54477163fc)
 
-
-## 👀 Overview
+## Overview
 
 ### The Actions
 
@@ -49,6 +48,8 @@ As the program wants the output in miliseconds and the function `gettimeofday()`
 $$
 1s = 1000ms
 $$
+
+### and
 
 $$
 1us = \frac{1}{1000}
