@@ -8,12 +8,15 @@ tags: [C]
 ![Philosopher](https://github.com/riceset/riceset.com/assets/48802655/05d327a7-c706-4ea5-b484-0b54477163fc)
 
 ## Overview
+The **Dining Philosophers Problem** was formulated in 1965 by Edsger Dijkstra. It involves dealing with concurrent programming, synchronization issues, threads, deadlocks, and race conditions.
 
-### The Actions
+### The Problem
 
-- Eat
-- Sleep
-- Think
+There are one or more philosophers sitting around a table, with a large bowl of spaghetti placed in the middle. In order for a philosopher to eat, they need to use both their left and right forks simultaneously. There are as many forks as there are philosophers. Additionally, the philosophers cannot communicate with each other.
+
+### The routine
+
+Each philosopher successively eats, sleeps and thinks.
 
 *“When a philosopher has finished eating, they start sleeping. Once awake they think again.”*
 
