@@ -5,7 +5,7 @@ author: Thiago Komeno
 tags: [C]
 ---
 
-![Philosopher](https://github.com/riceset/riceset.com/assets/48802655/05d327a7-c706-4ea5-b484-0b54477163fc)
+![dining philosophers problem with an spaghetti in t](https://github.com/riceset/riceset.com/assets/48802655/e8451859-e44c-4103-96aa-244fc01e8b0f)
 
 ## 👀 Overview
 The **Dining Philosophers Problem** is a computer science problem formulated in 1965 by [Edsger Dijkstra](https://en.wikipedia.org/wiki/Edsger_W._Dijkstra). It involves dealing with concurrent programming, synchronization issues, threads, deadlocks, and race conditions.
