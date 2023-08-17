@@ -43,7 +43,7 @@ timestamp_in_ms X died
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> must_eat;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>And that&amp;rsquo;s how I initialized the values:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">init_args&lt;/span>(t_args &lt;span style="color:#f92672">*&lt;/span>args, &lt;span style="color:#66d9ef">int&lt;/span> argc, &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>argv)
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">init_args&lt;/span>(t_args &lt;span style="color:#f92672">*&lt;/span>args, &lt;span style="color:#66d9ef">int&lt;/span> argc, &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">**&lt;/span>argv)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> args&lt;span style="color:#f92672">-&amp;gt;&lt;/span>nb_philos &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">philo_atoi&lt;/span>(argv[&lt;span style="color:#ae81ff">1&lt;/span>]);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> args&lt;span style="color:#f92672">-&amp;gt;&lt;/span>time_to_die &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">philo_atoi&lt;/span>(argv[&lt;span style="color:#ae81ff">2&lt;/span>]);
@@ -114,7 +114,7 @@ timestamp_in_ms X died
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>First, we allocate the pointers that will point to each philosopher, then using these pointers that were allocated, we allocate the actual memory for each philosopher.&lt;/p>
 &lt;h4 id="initializing-the-philosophers">Initializing the philosophers&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">init_philos&lt;/span>(t_table &lt;span style="color:#f92672">*&lt;/span>table)
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">init_philos&lt;/span>(t_table &lt;span style="color:#f92672">*&lt;/span>table)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> i;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
