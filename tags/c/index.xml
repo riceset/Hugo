@@ -9,7 +9,7 @@
 &lt;p>&lt;em>“When a philosopher has finished eating, they start sleeping. Once awake they think again.”&lt;/em>&lt;/p>
 &lt;h4 id="arguments-to-the-program-argv">Arguments to the program (argv)&lt;/h4>
 &lt;ul>
-&lt;li>`number_of_philos&lt;/li>
+&lt;li>&lt;code>number_of_philos&lt;/code>&lt;/li>
 &lt;li>&lt;code>time_to_die&lt;/code>&lt;/li>
 &lt;li>&lt;code>time_to_eat&lt;/code>&lt;/li>
 &lt;li>&lt;code>time_to_sleep&lt;/code>&lt;/li>
