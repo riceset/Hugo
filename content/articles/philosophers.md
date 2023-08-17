@@ -2,7 +2,7 @@
 title:  "An approach to solving the dining philosophers problem"
 date:   2023-08-15
 author: Thiago Komeno
-cover = images/philosophers.jpg
+cover = "images/philosophers.jpg"
 tags: [C]
 ---
 
