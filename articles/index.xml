@@ -306,6 +306,7 @@ $$&lt;/p>
 &lt;p>Usage:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">signal&lt;/span>(SIGINT, SIG_IGN);
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Introduction to Vim</title><link>https://riceset.com/articles/introduction-to-vim/</link><pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/introduction-to-vim/</guid><description>
+&lt;img src="https://riceset.com/images/vim.jpeg"/>
 &lt;p>&lt;img src="https://user-images.githubusercontent.com/48802655/152667513-3df23c18-887d-409b-a644-d631ad7c8cd0.jpg" alt="vim">&lt;/p>
 &lt;p>Vim is one of the most powerful text editors you can think of. In this article, I will introduce you some basic and useful Vim commands.&lt;/p>
 &lt;h2 id="vim-modes">Vim modes&lt;/h2>
