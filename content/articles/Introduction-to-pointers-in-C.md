@@ -3,7 +3,7 @@ title:  "Introduction to pointers in C"
 date:   2021-06-09
 author: Thiago Komeno
 cover: "images/pointers.jpg"
-description = "When we declare a variable in C, we generally do something like this..."
+description: "When we declare a variable in C, we generally do something like this..."
 tags: [C]
 ---
 
