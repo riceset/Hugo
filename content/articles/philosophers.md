@@ -1,10 +1,11 @@
----
++++
 title:  "An approach to solving the dining philosophers problem"
-date:   2023-08-15
-author: Thiago Komeno
+date:   "2023-08-15"
+author: "Thiago Komeno"
 cover = "images/philosophers.jpg"
+description = "The Dining Philosophers Problem is a computer science problem formulated in 1965 by Edsger Dijkstra. It involves dealing with concurrent programming, synchronization issues, threads, deadlocks, and race conditions."
 tags: [C]
----
++++
 
 ![philo](https://github.com/riceset/riceset.com/assets/48802655/ce539555-067a-4bfe-8200-9929a7b12b82)
 
