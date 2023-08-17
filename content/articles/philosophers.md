@@ -74,7 +74,7 @@ struct s_args
 And that's how I initialized the values:
 
 ```c
-static void init_args(t_args *args, int argc, char **argv)
+void init_args(t_args *args, int argc, char **argv)
 {
 	args->nb_philos = philo_atoi(argv[1]);
 	args->time_to_die = philo_atoi(argv[2]);
@@ -186,7 +186,7 @@ First, we allocate the pointers that will point to each philosopher, then using 
 #### Initializing the philosophers
 
 ```c
-static void init_philos(t_table *table)
+void init_philos(t_table *table)
 {
 	unsigned i;
 
