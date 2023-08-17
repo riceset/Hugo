@@ -549,6 +549,7 @@ You can play it &lt;code>n&lt;/code> times with &lt;code>n@q&lt;/code> with &lt;
 e.g. &lt;code>:! ls&lt;/code> to run &lt;code>ls&lt;/code>.&lt;/p>
 &lt;h2 id="heading">%&lt;/h2>
 &lt;p>&lt;code>%&lt;/code> Jump to the matching parenthesis, brackets, etc.&lt;/p></description></item><item><title>How to enable image preview on Ranger using Kitty</title><link>https://riceset.com/articles/how-to-enable-image-preview-on-ranger-using-kitty/</link><pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/how-to-enable-image-preview-on-ranger-using-kitty/</guid><description>
+&lt;img src="https://riceset.com/images/kitty.jpg"/>
 &lt;p>&lt;img src="https://riceset.com/ranger_img_demo.png" alt="demo">&lt;/p>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>First, create a config file for Ranger in &lt;code>~/.config/ranger&lt;/code> called &lt;code>rc.conf&lt;/code>&lt;/p>
