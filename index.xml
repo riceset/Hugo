@@ -216,7 +216,59 @@ $$&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;current_time_in_ms:%ld&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">s_to_ms&lt;/span>(s) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">us_to_ms&lt;/span>(us));
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="-references">🚀 References&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="-working-with-threads">🧵 Working with threads&lt;/h2>
+&lt;h4 id="creating-threads">Creating threads&lt;/h4>
+&lt;p>So first, we will create the threads that will represent each philosopher.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">create_philos&lt;/span>(t_table &lt;span style="color:#f92672">*&lt;/span>table)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> i;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (i &lt;span style="color:#f92672">&amp;lt;&lt;/span> table&lt;span style="color:#f92672">-&amp;gt;&lt;/span>args.nb_philos)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">pthread_create&lt;/span>(&lt;span style="color:#f92672">&amp;amp;&lt;/span>table&lt;span style="color:#f92672">-&amp;gt;&lt;/span>philos[i]&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#66d9ef">thread&lt;/span>, NULL, &lt;span style="color:#f92672">&amp;amp;&lt;/span>routine, table&lt;span style="color:#f92672">-&amp;gt;&lt;/span>philos[i]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> i&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here, we are basically looping through all the philosophers, creating a thread for each philosophers and storing it in &lt;code>table-&amp;gt;philos[i]-&amp;gt;thread&lt;/code> Then we are passing to the routine function pointer the current philosopher being created as a parameter (&lt;code>table-&amp;gt;philos[i]&lt;/code>).&lt;/p>
+&lt;p>Here is the &lt;code>pthread_create()&lt;/code> function prototype for reference:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">pthread_create&lt;/span>(&lt;span style="color:#66d9ef">pthread_t&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#66d9ef">thread&lt;/span>, &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">pthread_attr_t&lt;/span> &lt;span style="color:#f92672">*&lt;/span>attr,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#f92672">*&lt;/span>(&lt;span style="color:#f92672">*&lt;/span>start_routine)(&lt;span style="color:#66d9ef">void&lt;/span>&lt;span style="color:#f92672">*&lt;/span>), &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#f92672">*&lt;/span>arg);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>As you can see above, the routine function requires the parameter and return value&amp;rsquo;s type to be a &lt;strong>void pointer&lt;/strong>.&lt;/p>
+&lt;h4 id="joining-threads">Joining threads&lt;/h4>
+&lt;p>After creating our threads, we will need to join them into &lt;code>main()&lt;/code>again. That way we will be able to see what each thread printed for example without taking the risk of &lt;code>main()&lt;/code> returning before.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">join_philos&lt;/span>(t_table &lt;span style="color:#f92672">*&lt;/span>table)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">unsigned&lt;/span> i;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (i &lt;span style="color:#f92672">&amp;lt;&lt;/span> table&lt;span style="color:#f92672">-&amp;gt;&lt;/span>args.nb_philos)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">pthread_join&lt;/span>(table&lt;span style="color:#f92672">-&amp;gt;&lt;/span>philos[i]&lt;span style="color:#f92672">-&amp;gt;&lt;/span>&lt;span style="color:#66d9ef">thread&lt;/span>, NULL);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> i&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>I will call these two functions in a new function I will call &lt;code>init_simulation()&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">init_simulation&lt;/span>(t_table &lt;span style="color:#f92672">*&lt;/span>table)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">create_philos&lt;/span>(table);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">join_philos&lt;/span>(table);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="-the-routine">🚶‍♂️ The routine&lt;/h2>
+&lt;p>When we create a thread, the thread will start running a routine that is basically a function with a pre-determinate argument and a pre-determinate return value.&lt;/p>
+&lt;p>Here&amp;rsquo;s a basic example of a routine function:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">routine&lt;/span>(&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#f92672">*&lt;/span>arg)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> t_philo &lt;span style="color:#f92672">*&lt;/span>philo;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> philo &lt;span style="color:#f92672">=&lt;/span> (t_philo &lt;span style="color:#f92672">*&lt;/span>)arg;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Hello! I am philo %u!&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, philo&lt;span style="color:#f92672">-&amp;gt;&lt;/span>id);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> (NULL);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>As we passed the &amp;ldquo;current philosopher&amp;rdquo; when creating the thread for this philosopher, the parameter &lt;code>arg&lt;/code> will be replaced with a pointer to the current philosopher.&lt;/p>
+&lt;p>But as &lt;code>pthread_create()&lt;/code> doesn&amp;rsquo;t know what variable type we will pass to it, that&amp;rsquo;s why it&amp;rsquo;s declared as a &lt;strong>void pointer&lt;/strong> so we need to cast this value to our desired variable type (&lt;code>t_philo&lt;/code> in this case).&lt;/p>
+&lt;h2 id="-references">🚀 References&lt;/h2>
 &lt;h4 id="my-repository">My repository&lt;/h4>
 &lt;p>&lt;a href="https://github.com/riceset/philosophers">GitHub - riceset/philosophers&lt;/a>&lt;/p></description></item><item><title>Understanding the stack data structure</title><link>https://riceset.com/articles/understanding-the-stack-data-structure/</link><pubDate>Tue, 23 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/understanding-the-stack-data-structure/</guid><description>
 &lt;img src="https://riceset.com/images/stacks.jpg"/>
