@@ -333,6 +333,86 @@ int main(void)
 }
 ```
 
+## 🧵 Working with threads
+
+#### Creating threads
+
+So first, we will create the threads that will represent each philosopher.
+
+```c
+void create_philos(t_table *table)
+{
+	unsigned i;
+
+	i = 0;
+	while (i < table->args.nb_philos)
+	{
+		pthread_create(&table->philos[i]->thread, NULL, &routine, table->philos[i]);
+		i++;
+	}
+}
+```
+
+Here, we are basically looping through all the philosophers, creating a thread for each philosophers and storing it in `table->philos[i]->thread` Then we are passing to the routine function pointer the current philosopher being created as a parameter (`table->philos[i]`).
+
+Here is the `pthread_create()` function prototype for reference:
+
+```c
+int pthread_create(pthread_t *thread, const pthread_attr_t *attr,
+                   void *(*start_routine)(void*), void *arg);
+```
+
+As you can see above, the routine function requires the parameter and return value's type to be a **void pointer**.
+
+#### Joining threads
+
+After creating our threads, we will need to join them into `main()`again. That way we will be able to see what each thread printed for example without taking the risk of `main()` returning before.
+
+```c
+void join_philos(t_table *table)
+{
+	unsigned i;
+
+	i = 0;
+	while (i < table->args.nb_philos)
+	{
+		pthread_join(table->philos[i]->thread, NULL);
+		i++;
+	}
+}
+```
+
+I will call these two functions in a new function I will call `init_simulation()`
+
+```c
+void init_simulation(t_table *table)
+{
+	create_philos(table);
+	join_philos(table);
+}
+```
+
+## 🚶‍♂️ The routine
+
+When we create a thread, the thread will start running a routine that is basically a function with a pre-determinate argument and a pre-determinate return value.
+
+Here's a basic example of a routine function:
+
+```c
+void *routine(void *arg)
+{
+	t_philo *philo;
+
+	philo = (t_philo *)arg;
+
+	printf("Hello! I am philo %u!\n", philo->id);
+	return (NULL);
+}
+```
+
+As we passed the "current philosopher" when creating the thread for this philosopher, the parameter `arg` will be replaced with a pointer to the current philosopher.
+
+But as `pthread_create()` doesn't know what variable type we will pass to it, that's why it's declared as a **void pointer** so we need to cast this value to our desired variable type (`t_philo` in this case).
 
 ## 🚀 References
 
