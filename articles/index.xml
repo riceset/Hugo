@@ -219,6 +219,7 @@ $$&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="-references">🚀 References&lt;/h2>
 &lt;h4 id="my-repository">My repository&lt;/h4>
 &lt;p>&lt;a href="https://github.com/riceset/philosophers">GitHub - riceset/philosophers&lt;/a>&lt;/p></description></item><item><title>Understanding the stack data structure</title><link>https://riceset.com/articles/understanding-the-stack-data-structure/</link><pubDate>Tue, 23 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/understanding-the-stack-data-structure/</guid><description>
+&lt;img src="https://riceset.com/images/stack.jpg"/>
 &lt;p>&lt;strong>Stack&lt;/strong> is an ADT (Abstract Data Structure) which follows the LIFO (Last In First Out) order. It might be easier to understand this concept by imagining an actual stack of books.&lt;/p>
 &lt;p>When working with stacks, you can use mainly two operations. &lt;code>push()&lt;/code> to add an element to the top of a stack and &lt;code>pop()&lt;/code> to literally pop out or remove an element of a stack. As it is considered an ADT (Abstract Data Structure) you can implement it in many ways with other basic data structures such as arrays or linked lists. Let’s try implementing it using an array first.&lt;/p>
 &lt;h2 id="implementing-push">Implementing push():&lt;/h2>
