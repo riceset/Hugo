@@ -573,6 +573,7 @@ e.g. &lt;code>:! ls&lt;/code> to run &lt;code>ls&lt;/code>.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>with the path to where Python is located. In my case it was:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/Users/riceset/.asdf/shims/python
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now, save the file and everything should be working.&lt;/p></description></item><item><title>Introduction to pointers in C</title><link>https://riceset.com/articles/introduction-to-pointers-in-c/</link><pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/introduction-to-pointers-in-c/</guid><description>
+&lt;img src="https://riceset.com/images/pointers.jpg"/>
 &lt;p>When we declare a variable in C, we generally do something like this:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> num &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>As you might know, variables get stored in memory, and the size of each variable will differ depending on its data type.&lt;/p>
