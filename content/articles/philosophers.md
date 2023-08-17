@@ -22,7 +22,7 @@ Each philosopher successively eats, sleeps and thinks.
 
 #### Arguments to the program (argv)
 
-- `number_of_philos
+- `number_of_philos`
 - `time_to_die`
 - `time_to_eat`
 - `time_to_sleep`
