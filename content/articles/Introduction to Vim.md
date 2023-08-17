@@ -2,6 +2,8 @@
 title: "Introduction to Vim"
 date: 2022-02-06
 author: Thiago Komeno
+cover: "images/vim.jpeg"
+description: "Vim is one of the most powerful text editors you can think of. In this article, I will introduce you some basic and useful Vim commands."
 tags: [Vim]
 ---
 ![vim](https://user-images.githubusercontent.com/48802655/152667513-3df23c18-887d-409b-a644-d631ad7c8cd0.jpg)
