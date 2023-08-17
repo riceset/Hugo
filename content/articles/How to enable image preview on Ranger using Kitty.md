@@ -2,6 +2,8 @@
 title: "How to enable image preview on Ranger using Kitty"
 date:   2021-08-09
 author: Thiago Komeno
+cover: "images/kitty.jpg"
+description: "First, create a config file for Ranger in ~/.config/ranger called rc.conf..."
 tags: [Ranger, Kitty]
 ---
 
