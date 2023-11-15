@@ -1,6 +1,6 @@
 ---
 title: "Understanding the stack data structure"
-author: Thiago Komeno
+author: Komeno
 date:   2022-08-23
 cover: "images/stacks.jpg"
 description: "Stack is an ADT (Abstract Data Structure) which follows the LIFO (Last In First Out) order. It might be easier to understand this concept by imagining an actual stack of books."
