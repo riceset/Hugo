@@ -1,0 +1,77 @@
+<!doctype html><html lang=en><head><title>Getting started with SwiftUI (Stanford CS193p) ::
+riceset
+</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="This struct behaves like a view (the struct conforms to the View protocol) The View protocol requires you to have the body variable (of type &amp;lsquo;some View&amp;rsquo;)
+struct ContentView: View { var body: some View { } } The block (curly brackets) after the variable declaration represents a function (closure) and the value it returns gets assigned to the variable body. As long as it is a view (VStack, Text, Image, etc) it is ok to assign it."><meta name=keywords content><meta name=robots content="noodp"><link rel=canonical href=https://riceset.com/articles/getting-started-with-swiftui-stanford-cs193p/><link rel=stylesheet href=https://riceset.com/assets/style.css><link rel=stylesheet href=https://riceset.com/style.css><link rel=apple-touch-icon-precomposed sizes=144x144 href=https://riceset.com/img/apple-touch-icon-144-precomposed.png><link rel="shortcut icon" href=https://riceset.com/img/favicon.png><link href=https://riceset.com/assets/fonts/Inter-Italic.woff2 rel=preload type=font/woff2 as=font crossorigin><link href=https://riceset.com/assets/fonts/Inter-Regular.woff2 rel=preload type=font/woff2 as=font crossorigin><link href=https://riceset.com/assets/fonts/Inter-Medium.woff2 rel=preload type=font/woff2 as=font crossorigin><link href=https://riceset.com/assets/fonts/Inter-MediumItalic.woff2 rel=preload type=font/woff2 as=font crossorigin><link href=https://riceset.com/assets/fonts/Inter-Bold.woff2 rel=preload type=font/woff2 as=font crossorigin><link href=https://riceset.com/assets/fonts/Inter-BoldItalic.woff2 rel=preload type=font/woff2 as=font crossorigin><meta name=twitter:card content="summary"><meta name=twitter:title content="Getting started with SwiftUI (Stanford CS193p)"><meta name=twitter:description content="This struct behaves like a view (the struct conforms to the View protocol) The View protocol requires you to have the body variable (of type some View)"><meta property="og:title" content="Getting started with SwiftUI (Stanford CS193p)"><meta property="og:description" content="This struct behaves like a view (the struct conforms to the View protocol) The View protocol requires you to have the body variable (of type some View)"><meta property="og:type" content="article"><meta property="og:url" content="https://riceset.com/articles/getting-started-with-swiftui-stanford-cs193p/"><meta property="article:section" content="articles"><meta property="article:published_time" content="2023-12-10T00:00:00+00:00"><meta property="article:modified_time" content="2023-12-10T00:00:00+00:00"></head><body><div class=container><header class=header><span class=header__inner><a href=https://riceset.com/ class=logo style=text-decoration:none><span class=logo__mark><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44"><path fill="none" d="M15 8l14.729 14.382L15 35.367"/></svg></span><span class=logo__text>riceset</span>
+<span class=logo__cursor></span>
+</a><span class=header__right><nav class=menu><ul class="menu__inner menu__inner--desktop"><li><a href=https://github.com/riceset>GitHub</a></li><li><a href=/index.xml>RSS</a></li></ul><ul class="menu__inner menu__inner--mobile"><li><a href=https://github.com/riceset>GitHub</a></li><li><a href=/index.xml>RSS</a></li></ul></nav><span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></span><span class=theme-toggle><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 41c10.4934.0 19-8.5066 19-19C41 11.5066 32.4934 3 22 3 11.5066 3 3 11.5066 3 22s8.5066 19 19 19zM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22z"/></svg></span></span></span></header><div class=content><div class=post><h1 class=post-title>Getting started with SwiftUI (Stanford CS193p)</h1><div class=post-meta><span class=post-date>2023-12-10
+</span><span class=post-author>— Written by Komeno</span></div><span class=post-tags><a href=https://riceset.com/tags/swift/>#Swift</a>&nbsp;</span><div class=post-content><p>This struct behaves like a view (the struct conforms to the <code>View</code> protocol)
+The <code>View</code> protocol requires you to have the body variable (of type &lsquo;some View&rsquo;)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>ContentView</span>: View {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> body: some View {
+</span></span><span style=display:flex><span>	
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>The block (curly brackets) after the variable declaration represents a function (closure) and the value it returns gets assigned to the variable <code>body</code>. As long as it is a view (<code>VStack</code>, <code>Text</code>, <code>Image</code>, etc) it is ok to assign it. (note: writing the keyword <code>return</code> here is optional!)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>ContentView</span>: View {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> body: some View {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> Text(<span style=color:#e6db74>&#34;Hello World!&#34;</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=shapes>Shapes</h3><h4 id=roundedrectangle>RoundedRectangle()</h4><p>We can return the <code>RoundedRectangle()</code> view specifying its <code>cornerRadius</code> and calling modifier functions like <code>.padding()</code> (can receive an optional argument like <code>.horizontal</code>) and <code>.stroke()</code> (contrary to <code>.fill()</code>) to outline a shape (can receive an optional argument like <code>lineWidth: 3</code>).</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>ContentView</span>: View {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> body: some View {
+</span></span><span style=display:flex><span>		RoundedRectangle(cornerRadius: <span style=color:#ae81ff>20</span>)
+</span></span><span style=display:flex><span>			.stroke()
+</span></span><span style=display:flex><span>			.padding()
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>ContentView</span>: View {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> body: some View {
+</span></span><span style=display:flex><span>		RoundedRectangle(cornerRadius: <span style=color:#ae81ff>20</span>)
+</span></span><span style=display:flex><span>			.stroke(lineWidth: <span style=color:#ae81ff>3</span>)
+</span></span><span style=display:flex><span>			.padding(.horizontal)
+</span></span><span style=display:flex><span>			.foregroundColor(.red)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Tip: You can write just <code>.red</code> instead of <code>Color.red</code> when defining the foreground color.</p><h3 id=view-combiners>View Combiners</h3><h4 id=the-zstack>The ZStack()</h4><p>The <code>ZStack()</code> receives a closure as a parameter. (this closure is called a <strong>View Builder</strong>)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>ContentView</span>: View {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> body: some View {
+</span></span><span style=display:flex><span>		ZStack(content: {})
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>The <strong>View Builder</strong> allows us to list all the views we want to combine and turns it into another view. You also don&rsquo;t need to write <code>return</code> inside the <strong>View Builder</strong>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span>    <span style=color:#66d9ef>var</span> body: some View {
+</span></span><span style=display:flex><span>        ZStack(content: {
+</span></span><span style=display:flex><span>            RoundedRectangle(cornerRadius: <span style=color:#ae81ff>20</span>)
+</span></span><span style=display:flex><span>                .stroke()
+</span></span><span style=display:flex><span>                .padding()
+</span></span><span style=display:flex><span>            Text(<span style=color:#e6db74>&#34;Hello World!&#34;</span>)
+</span></span><span style=display:flex><span>        })
+</span></span><span style=display:flex><span>    }
+</span></span></code></pre></div><h4 id=modifying-the-view-combiner>Modifying the View Combiner</h4><p>Applying a modifier function to a view combiner will apply the properties to all the view within it.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span>    <span style=color:#66d9ef>var</span> body: some View {
+</span></span><span style=display:flex><span>        ZStack(content: {
+</span></span><span style=display:flex><span>            RoundedRectangle(cornerRadius: <span style=color:#ae81ff>20</span>)
+</span></span><span style=display:flex><span>                .stroke()
+</span></span><span style=display:flex><span>            Text(<span style=color:#e6db74>&#34;Hello World!&#34;</span>)
+</span></span><span style=display:flex><span>        })
+</span></span><span style=display:flex><span>        .padding()
+</span></span><span style=display:flex><span>        .foregroundColor(.red)
+</span></span><span style=display:flex><span>    }
+</span></span></code></pre></div><p>Preview:</p><p>![[images/スクリーンショット 2023-12-10 20.21.35.png]]</p><h4 id=setting-the-alignment>Setting the alignment</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span>    <span style=color:#66d9ef>var</span> body: some View {
+</span></span><span style=display:flex><span>        ZStack(alignment: .top, content: {
+</span></span><span style=display:flex><span>            RoundedRectangle(cornerRadius: <span style=color:#ae81ff>20</span>)
+</span></span><span style=display:flex><span>                .stroke()
+</span></span><span style=display:flex><span>            Text(<span style=color:#e6db74>&#34;Hello World!&#34;</span>)
+</span></span><span style=display:flex><span>        })
+</span></span><span style=display:flex><span>        .padding()
+</span></span><span style=display:flex><span>        .foregroundColor(.red)
+</span></span><span style=display:flex><span>    }
+</span></span></code></pre></div><p>Preview:</p><p>![[images/スクリーンショット 2023-12-10 20.17.06.png]]</p><h4 id=simplifying-the-code>Simplifying the code</h4><p>When the last argument of a function is also a function you can simplify the code like this:</p><p>This code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span>    <span style=color:#66d9ef>var</span> body: some View {
+</span></span><span style=display:flex><span>        ZStack(content: {
+</span></span><span style=display:flex><span>        })
+</span></span><span style=display:flex><span>    }
+</span></span></code></pre></div><p>becomes:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span>    <span style=color:#66d9ef>var</span> body: some View {
+</span></span><span style=display:flex><span>        ZStack() {
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span></code></pre></div><p>You can also remove the parenthesis from the ZStack</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span>    <span style=color:#66d9ef>var</span> body: some View {
+</span></span><span style=display:flex><span>        ZStack {
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span></code></pre></div></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Other Posts</span><hr></div><div class=pagination__buttons><span class="button next"><a href=https://riceset.com/articles/philosophers/><span class=button__text>Previous</span>
+<span class=button__icon>→</span></a></span></div></div></div></div><footer class=footer><script type=text/javascript src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><div class=footer__inner><div class="copyright copyright--user">© 2023 riceset</div></div></footer><script src=https://riceset.com/assets/main.js></script><script src=https://riceset.com/assets/prism.js></script></div></body></html>

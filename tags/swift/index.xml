@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Swift on riceset</title><link>https://riceset.com/tags/swift/</link><description>Recent content in Swift on riceset</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2023 riceset</copyright><lastBuildDate>Sun, 10 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://riceset.com/tags/swift/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting started with SwiftUI (Stanford CS193p)</title><link>https://riceset.com/articles/getting-started-with-swiftui-stanford-cs193p/</link><pubDate>Sun, 10 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/getting-started-with-swiftui-stanford-cs193p/</guid><description>
+&lt;p>This struct behaves like a view (the struct conforms to the &lt;code>View&lt;/code> protocol)
+The &lt;code>View&lt;/code> protocol requires you to have the body variable (of type &amp;lsquo;some View&amp;rsquo;)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">ContentView&lt;/span>: View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> body: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The block (curly brackets) after the variable declaration represents a function (closure) and the value it returns gets assigned to the variable &lt;code>body&lt;/code>. As long as it is a view (&lt;code>VStack&lt;/code>, &lt;code>Text&lt;/code>, &lt;code>Image&lt;/code>, etc) it is ok to assign it. (note: writing the keyword &lt;code>return&lt;/code> here is optional!)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">ContentView&lt;/span>: View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> body: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> Text(&lt;span style="color:#e6db74">&amp;#34;Hello World!&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="shapes">Shapes&lt;/h3>
+&lt;h4 id="roundedrectangle">RoundedRectangle()&lt;/h4>
+&lt;p>We can return the &lt;code>RoundedRectangle()&lt;/code> view specifying its &lt;code>cornerRadius&lt;/code> and calling modifier functions like &lt;code>.padding()&lt;/code> (can receive an optional argument like &lt;code>.horizontal&lt;/code>) and &lt;code>.stroke()&lt;/code> (contrary to &lt;code>.fill()&lt;/code>) to outline a shape (can receive an optional argument like &lt;code>lineWidth: 3&lt;/code>).&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">ContentView&lt;/span>: View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> body: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> RoundedRectangle(cornerRadius: &lt;span style="color:#ae81ff">20&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .stroke()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .padding()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">ContentView&lt;/span>: View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> body: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> RoundedRectangle(cornerRadius: &lt;span style="color:#ae81ff">20&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .stroke(lineWidth: &lt;span style="color:#ae81ff">3&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .padding(.horizontal)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .foregroundColor(.red)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tip: You can write just &lt;code>.red&lt;/code> instead of &lt;code>Color.red&lt;/code> when defining the foreground color.&lt;/p>
+&lt;h3 id="view-combiners">View Combiners&lt;/h3>
+&lt;h4 id="the-zstack">The ZStack()&lt;/h4>
+&lt;p>The &lt;code>ZStack()&lt;/code> receives a closure as a parameter. (this closure is called a &lt;strong>View Builder&lt;/strong>)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">ContentView&lt;/span>: View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> body: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ZStack(content: {})
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The &lt;strong>View Builder&lt;/strong> allows us to list all the views we want to combine and turns it into another view. You also don&amp;rsquo;t need to write &lt;code>return&lt;/code> inside the &lt;strong>View Builder&lt;/strong>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#66d9ef">var&lt;/span> body: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        ZStack(content: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>            RoundedRectangle(cornerRadius: &lt;span style="color:#ae81ff">20&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>                .stroke()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>                .padding()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>            Text(&lt;span style="color:#e6db74">&amp;#34;Hello World!&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        })
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    }
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="modifying-the-view-combiner">Modifying the View Combiner&lt;/h4>
+&lt;p>Applying a modifier function to a view combiner will apply the properties to all the view within it.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#66d9ef">var&lt;/span> body: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        ZStack(content: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>            RoundedRectangle(cornerRadius: &lt;span style="color:#ae81ff">20&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>                .stroke()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>            Text(&lt;span style="color:#e6db74">&amp;#34;Hello World!&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        })
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        .padding()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        .foregroundColor(.red)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    }
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Preview:&lt;/p>
+&lt;p>![[images/スクリーンショット 2023-12-10 20.21.35.png]]&lt;/p>
+&lt;h4 id="setting-the-alignment">Setting the alignment&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#66d9ef">var&lt;/span> body: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        ZStack(alignment: .top, content: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>            RoundedRectangle(cornerRadius: &lt;span style="color:#ae81ff">20&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>                .stroke()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>            Text(&lt;span style="color:#e6db74">&amp;#34;Hello World!&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        })
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        .padding()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        .foregroundColor(.red)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    }
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Preview:&lt;/p>
+&lt;p>![[images/スクリーンショット 2023-12-10 20.17.06.png]]&lt;/p>
+&lt;h4 id="simplifying-the-code">Simplifying the code&lt;/h4>
+&lt;p>When the last argument of a function is also a function you can simplify the code like this:&lt;/p>
+&lt;p>This code:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#66d9ef">var&lt;/span> body: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        ZStack(content: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        })
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    }
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>becomes:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#66d9ef">var&lt;/span> body: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        ZStack() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    }
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can also remove the parenthesis from the ZStack&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>    &lt;span style="color:#66d9ef">var&lt;/span> body: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        ZStack {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    }
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
