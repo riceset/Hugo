@@ -101,7 +101,7 @@ Applying a modifier function to a view combiner will apply the properties to all
 
 Preview:
 
-<img width="534" alt="スクリーンショット 2023-12-10 20 21 35" src="https://github.com/riceset/riceset.com/assets/48802655/f41428fc-1eee-4bc6-8df7-e703cf253729">
+![screenshot1](https://github.com/riceset/riceset.com/assets/48802655/f41428fc-1eee-4bc6-8df7-e703cf253729)
 
 #### Setting the alignment
 
@@ -119,7 +119,7 @@ Preview:
 
 Preview:
 
-<img width="534" alt="スクリーンショット 2023-12-10 20 17 06" src="https://github.com/riceset/riceset.com/assets/48802655/57128e9e-ff35-47ca-9e30-9bafe4df10a8">
+![screenshot2](https://github.com/riceset/riceset.com/assets/48802655/57128e9e-ff35-47ca-9e30-9bafe4df10a8)
 
 #### Simplifying the code
 
