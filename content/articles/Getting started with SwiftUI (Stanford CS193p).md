@@ -151,3 +151,89 @@ You can also remove the parenthesis from the ZStack
         }
     }
 ```
+
+#### Encapsulating views
+
+To avoid redundancy, we can get our `ZStack` representing a card and turn it into a view itself.
+
+```swift
+struct CardView: View {
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 20)
+                .stroke()
+            Text("👻")
+        }
+    }
+}
+```
+
+And then call it form the `ContentView` in a `HStack` (horizontal stack):
+
+```swift
+struct ContentView: View {
+    var body: some View {
+        HStack {
+            CardView()
+            CardView()
+            CardView()
+            CardView()
+        }
+        .padding()
+        .foregroundColor(.red)
+    }
+}
+```
+
+![cardviewhstacked](https://github.com/riceset/riceset.com/assets/48802655/b10032d3-1385-4395-aa7b-af2e09d08c26)
+
+#### Creating local variables
+
+Instead of repetitively calling `RoundedRectangle()`, we can assign it to a variable (`rectangle` in this case) and use it instead to make our code look cleaner.
+
+```swift
+let rectangle = RoundedRectangle(cornerRadius: 20)
+rectangle
+	.fill()
+	.foregroundColor(.white)
+rectangle
+	.stroke(lineWidth: 3)
+Text("👻")
+	.font(.largeTitle)
+```
+
+#### Flipping the card using boolean values
+
+Here, we created a boolean variable called `isFaceUp` and initialized it to `true`. Then, using the `if` control flow structure, we can change what kind of view we would like to display (if it is the card with a white background and text or just a card filled in red.)
+
+```swift
+var isFaceUp = true
+```
+
+```swift
+if isFaceUp {
+	rectangle
+		.fill()
+		.foregroundColor(.white)
+	rectangle
+		.stroke(lineWidth: 3)
+	Text("👻")
+		.font(.largeTitle)
+} else {
+	rectangle
+		.fill()
+}
+```
+
+Passing `isFaceUp` as a parameter when calling `CardView`:
+
+```swift
+HStack {
+	CardView(isFaceUp: true)
+	CardView(isFaceUp: false)
+	CardView(isFaceUp: true)
+	CardView(isFaceUp: false)
+}
+```
+
+![flippedcards](https://github.com/riceset/riceset.com/assets/48802655/7a3d9c14-63ca-4e0e-8090-0a0d9b34f623)
