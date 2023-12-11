@@ -91,7 +91,64 @@ The &lt;code>View&lt;/code> protocol requires you to have the body variable (of 
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        ZStack {
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>        }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>    }
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>An approach to solving the dining philosophers problem</title><link>https://riceset.com/articles/philosophers/</link><pubDate>Tue, 15 Aug 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/philosophers/</guid><description>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="encapsulating-views">Encapsulating views&lt;/h4>
+&lt;p>To avoid redundancy, we can get our &lt;code>ZStack&lt;/code> representing a card and turn it into a view itself.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">CardView&lt;/span>: View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> body: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ZStack {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> RoundedRectangle(cornerRadius: &lt;span style="color:#ae81ff">20&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .stroke()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Text(&lt;span style="color:#e6db74">&amp;#34;👻&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>And then call it form the &lt;code>ContentView&lt;/code> in a &lt;code>HStack&lt;/code> (horizontal stack):&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">ContentView&lt;/span>: View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> body: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> HStack {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .padding()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .foregroundColor(.red)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/b10032d3-1385-4395-aa7b-af2e09d08c26" alt="cardviewhstacked">&lt;/p>
+&lt;h4 id="creating-local-variables">Creating local variables&lt;/h4>
+&lt;p>Instead of repetitively calling &lt;code>RoundedRectangle()&lt;/code>, we can assign it to a variable (&lt;code>rectangle&lt;/code> in this case) and use it instead to make our code look cleaner.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> rectangle = RoundedRectangle(cornerRadius: &lt;span style="color:#ae81ff">20&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rectangle
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .fill()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .foregroundColor(.white)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rectangle
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .stroke(lineWidth: &lt;span style="color:#ae81ff">3&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Text(&lt;span style="color:#e6db74">&amp;#34;👻&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .font(.largeTitle)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="flipping-the-card-using-boolean-values">Flipping the card using boolean values&lt;/h4>
+&lt;p>Here, we created a boolean variable called &lt;code>isFaceUp&lt;/code> and initialized it to &lt;code>true&lt;/code>. Then, using the &lt;code>if&lt;/code> control flow structure, we can change what kind of view we would like to display (if it is the card with a white background and text or just a card filled in red.)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> isFaceUp = &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> isFaceUp {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> rectangle
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .fill()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .foregroundColor(.white)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> rectangle
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .stroke(lineWidth: &lt;span style="color:#ae81ff">3&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Text(&lt;span style="color:#e6db74">&amp;#34;👻&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .font(.largeTitle)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>} &lt;span style="color:#66d9ef">else&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> rectangle
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .fill()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Passing &lt;code>isFaceUp&lt;/code> as a parameter when calling &lt;code>CardView&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>HStack {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView(isFaceUp: &lt;span style="color:#66d9ef">true&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView(isFaceUp: &lt;span style="color:#66d9ef">false&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView(isFaceUp: &lt;span style="color:#66d9ef">true&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView(isFaceUp: &lt;span style="color:#66d9ef">false&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/7a3d9c14-63ca-4e0e-8090-0a0d9b34f623" alt="flippedcards">&lt;/p></description></item><item><title>An approach to solving the dining philosophers problem</title><link>https://riceset.com/articles/philosophers/</link><pubDate>Tue, 15 Aug 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/philosophers/</guid><description>
 &lt;img src="https://riceset.com/images/philosophers.jpg"/>
 &lt;h2 id="-overview">👀 Overview&lt;/h2>
 &lt;p>The &lt;strong>Dining Philosophers Problem&lt;/strong> is a computer science problem formulated in 1965 by &lt;a href="https://en.wikipedia.org/wiki/Edsger_W._Dijkstra">Edsger Dijkstra&lt;/a>. It involves dealing with concurrent programming, synchronization issues, threads, deadlocks, and race conditions.&lt;/p>

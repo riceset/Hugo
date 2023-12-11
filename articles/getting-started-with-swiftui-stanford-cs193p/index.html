@@ -73,5 +73,53 @@ The <code>View</code> protocol requires you to have the body variable (of type &
 </span></span><span style=display:flex><span>        ZStack {
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>    }
-</span></span></code></pre></div></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Other Posts</span><hr></div><div class=pagination__buttons><span class="button next"><a href=https://riceset.com/articles/philosophers/><span class=button__text>Previous</span>
+</span></span></code></pre></div><h4 id=encapsulating-views>Encapsulating views</h4><p>To avoid redundancy, we can get our <code>ZStack</code> representing a card and turn it into a view itself.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>CardView</span>: View {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> body: some View {
+</span></span><span style=display:flex><span>        ZStack {
+</span></span><span style=display:flex><span>            RoundedRectangle(cornerRadius: <span style=color:#ae81ff>20</span>)
+</span></span><span style=display:flex><span>                .stroke()
+</span></span><span style=display:flex><span>            Text(<span style=color:#e6db74>&#34;👻&#34;</span>)
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>And then call it form the <code>ContentView</code> in a <code>HStack</code> (horizontal stack):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>ContentView</span>: View {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> body: some View {
+</span></span><span style=display:flex><span>        HStack {
+</span></span><span style=display:flex><span>            CardView()
+</span></span><span style=display:flex><span>            CardView()
+</span></span><span style=display:flex><span>            CardView()
+</span></span><span style=display:flex><span>            CardView()
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        .padding()
+</span></span><span style=display:flex><span>        .foregroundColor(.red)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><img src=https://github.com/riceset/riceset.com/assets/48802655/b10032d3-1385-4395-aa7b-af2e09d08c26 alt=cardviewhstacked></p><h4 id=creating-local-variables>Creating local variables</h4><p>Instead of repetitively calling <code>RoundedRectangle()</code>, we can assign it to a variable (<code>rectangle</code> in this case) and use it instead to make our code look cleaner.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span><span style=color:#66d9ef>let</span> rectangle = RoundedRectangle(cornerRadius: <span style=color:#ae81ff>20</span>)
+</span></span><span style=display:flex><span>rectangle
+</span></span><span style=display:flex><span>	.fill()
+</span></span><span style=display:flex><span>	.foregroundColor(.white)
+</span></span><span style=display:flex><span>rectangle
+</span></span><span style=display:flex><span>	.stroke(lineWidth: <span style=color:#ae81ff>3</span>)
+</span></span><span style=display:flex><span>Text(<span style=color:#e6db74>&#34;👻&#34;</span>)
+</span></span><span style=display:flex><span>	.font(.largeTitle)
+</span></span></code></pre></div><h4 id=flipping-the-card-using-boolean-values>Flipping the card using boolean values</h4><p>Here, we created a boolean variable called <code>isFaceUp</code> and initialized it to <code>true</code>. Then, using the <code>if</code> control flow structure, we can change what kind of view we would like to display (if it is the card with a white background and text or just a card filled in red.)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span><span style=color:#66d9ef>var</span> isFaceUp = <span style=color:#66d9ef>true</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span><span style=color:#66d9ef>if</span> isFaceUp {
+</span></span><span style=display:flex><span>	rectangle
+</span></span><span style=display:flex><span>		.fill()
+</span></span><span style=display:flex><span>		.foregroundColor(.white)
+</span></span><span style=display:flex><span>	rectangle
+</span></span><span style=display:flex><span>		.stroke(lineWidth: <span style=color:#ae81ff>3</span>)
+</span></span><span style=display:flex><span>	Text(<span style=color:#e6db74>&#34;👻&#34;</span>)
+</span></span><span style=display:flex><span>		.font(.largeTitle)
+</span></span><span style=display:flex><span>} <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>	rectangle
+</span></span><span style=display:flex><span>		.fill()
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Passing <code>isFaceUp</code> as a parameter when calling <code>CardView</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span>HStack {
+</span></span><span style=display:flex><span>	CardView(isFaceUp: <span style=color:#66d9ef>true</span>)
+</span></span><span style=display:flex><span>	CardView(isFaceUp: <span style=color:#66d9ef>false</span>)
+</span></span><span style=display:flex><span>	CardView(isFaceUp: <span style=color:#66d9ef>true</span>)
+</span></span><span style=display:flex><span>	CardView(isFaceUp: <span style=color:#66d9ef>false</span>)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><img src=https://github.com/riceset/riceset.com/assets/48802655/7a3d9c14-63ca-4e0e-8090-0a0d9b34f623 alt=flippedcards></p></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Other Posts</span><hr></div><div class=pagination__buttons><span class="button next"><a href=https://riceset.com/articles/philosophers/><span class=button__text>Previous</span>
 <span class=button__icon>→</span></a></span></div></div></div></div><footer class=footer><script type=text/javascript src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><div class=footer__inner><div class="copyright copyright--user">© 2023 riceset</div></div></footer><script src=https://riceset.com/assets/main.js></script><script src=https://riceset.com/assets/prism.js></script></div></body></html>
