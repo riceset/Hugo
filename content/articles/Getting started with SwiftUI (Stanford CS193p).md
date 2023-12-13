@@ -453,3 +453,60 @@ var remove: some View {
 }
 ```
 
+#### Grids
+
+We can use a `LazyVGrid` Instead of the `HStack` to order our cards into a grid. (When using a `LazyVGrid` we only have to specify the number of columns and all the rows are going to be created as necessary contrary to a `LazyHGrid`)
+
+```swift
+LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
+	ForEach(emojis[0..<emojiCount], id: \.self) { emoji in
+		CardView(content: emoji)
+	}
+}
+```
+
+where columns is an array of `GridItem()`
+
+#### Setting the aspect ratio for a card
+
+We can call `.aspectRatio()` on our `CardView` to set the aspect ratio like this:
+
+```swift
+CardView(content: emoji).aspectRatio(2/3, contentMode: .fit)
+```
+
+Sets the aspect ratio to 2 wide / 3 high.
+
+#### Using a scroll view
+
+We can wrap our `LazyVGrid` into a `ScrollView` to be able to scroll:
+
+```swift
+ScrollView {
+	LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
+		ForEach(emojis[0..<emojiCount], id: \.self) { emoji in
+			CardView(content: emoji).aspectRatio(2/3, contentMode: .fit)
+		}
+	}
+}
+```
+
+#### Working with an adaptive grid item
+
+We can set our array of grid items to just one `GridItem()` and make it adaptive setting the minimum width for the row.
+
+```swift
+GridItem(.adaptive(minimum: 80))
+```
+
+```swift
+ScrollView {
+	LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]) {
+		ForEach(emojis[0..<emojiCount], id: \.self) { emoji in
+			CardView(content: emoji).aspectRatio(2/3, contentMode: .fit)
+		}
+	}
+}
+```
+
+![adaptive](https://github.com/riceset/riceset.com/assets/48802655/28d56dc8-2843-44c1-9c55-286b7e2b397e)
