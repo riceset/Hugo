@@ -307,3 +307,149 @@ ForEach(emojis, id: \.self) { emoji in
 	CardView(content: emoji)
 }
 ```
+
+#### Working with ranges
+
+Imagine we have a really long array and only want to display emojis from a certain range. We can achieve this by using the indexing syntax.
+
+Example:
+
+```swift
+var emojis: [String] = ["🚗", "🚕", "🚙", "🚌", "🚎", "🏎️", "🚓", "🚑", "🚒", "🚐", "🚚", "🚛", "🚜", "🚲", "🛴", "🛵", "🏍️", "🛺", "🚔", "🚍", "🚘", "🚖", "🚡", "🚠", "🚟", "🚃", "🚞", "🚝", "🚄", "🚅"]
+
+0..<5 //Will exclude the 5
+0...5 //Will include the 5
+```
+
+Now, let's index `emojis` inside out `ForEach` to only the first 4 items:
+
+```swift
+ForEach(emojis[0..<4], id: \.self) { emoji in
+    CardView(content: emoji)
+}
+```
+
+#### Buttons
+
+Now we are going to add a button to add and remove cards. This is how we use a `Button` in Swift:
+
+```swift
+Button(action: {}, label: {})
+```
+
+We can now create a variable to keep track of how many items we want to display and set it as the range when iterating through  the `emojis` array:
+
+```swift
+@State var emojiCount = 4
+
+...
+
+ForEach(emojis[0..<emojiCount], id: \.self) { emoji in
+    CardView(content: emoji)
+}
+```
+
+Now, we can create 2 buttons and increment/decrement this variable (Inserting it into a horizontal stack and adding a `Spacer()` in between the 2 buttons.)
+
+```swift
+HStack {
+	Button(action: {
+		emojiCount += 1
+	}, label: {
+		Text("+")
+	})
+	Spacer()
+	Button(action: {
+		emojiCount -= 1
+	}, label: {
+		Text("-")
+	})
+}
+.padding()
+```
+
+Now, to clean up the code we can turn the block of code for creating the `Button` into a new variable of type `some View` and use it instead.
+
+```swift
+var add: some View {
+	Button(action: {
+		emojiCount += 1
+	}, label: {
+		Text("+")
+	})
+}
+var remove: some View {
+	Button(action: {
+		emojiCount -= 1
+	}, label: {
+		Text("-")
+	})
+}
+```
+
+And use it like this:
+
+```swift
+HStack {
+	add
+	Spacer()
+	remove
+}
+```
+
+##### Using SFSymbols for the buttons
+
+Syntax:
+
+```swift
+Image(systemName: "SYMBOLNAME")
+```
+
+Use case:
+
+```swift
+Button(action: {
+	emojiCount -= 1
+}, label: {
+	Image(systemName: "minus.circle")
+})
+```
+
+##### Syntactic sugar for simplifying the Button syntax
+
+```swift
+Button(action: {}, label: {})
+```
+
+Becomes:
+
+```swift
+Button {} label: {}
+```
+
+##### Adding limits for our ranges
+
+When incrementing/decrementing `emojiCount`, we have to be careful to not let it get to an invalid index inside our array (a value less than zero or upper to the array's number of elements.)
+
+```swift
+var add: some View {
+	Button {
+		if (emojiCount < emojis.count) {
+			emojiCount += 1
+		}
+	} label: {
+		...
+	}
+}
+
+var remove: some View {
+	Button {
+		if (emojiCount > 1) {
+			emojiCount -= 1
+		}
+	} label: {
+		...
+	}
+}
+```
+
