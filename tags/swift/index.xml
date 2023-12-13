@@ -288,4 +288,35 @@ The &lt;code>View&lt;/code> protocol requires you to have the body variable (of 
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="grids">Grids&lt;/h4>
+&lt;p>We can use a &lt;code>LazyVGrid&lt;/code> Instead of the &lt;code>HStack&lt;/code> to order our cards into a grid. (When using a &lt;code>LazyVGrid&lt;/code> we only have to specify the number of columns and all the rows are going to be created as necessary contrary to a &lt;code>LazyHGrid&lt;/code>)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ForEach(emojis[&lt;span style="color:#ae81ff">0.&lt;/span>.&amp;lt;emojiCount], id: &lt;span style="color:#960050;background-color:#1e0010">\&lt;/span>.&lt;span style="color:#66d9ef">self&lt;/span>) { emoji &lt;span style="color:#66d9ef">in&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView(content: emoji)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>where columns is an array of &lt;code>GridItem()&lt;/code>&lt;/p>
+&lt;h4 id="setting-the-aspect-ratio-for-a-card">Setting the aspect ratio for a card&lt;/h4>
+&lt;p>We can call &lt;code>.aspectRatio()&lt;/code> on our &lt;code>CardView&lt;/code> to set the aspect ratio like this:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>CardView(content: emoji).aspectRatio(&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>, contentMode: .fit)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Sets the aspect ratio to 2 wide / 3 high.&lt;/p>
+&lt;h4 id="using-a-scroll-view">Using a scroll view&lt;/h4>
+&lt;p>We can wrap our &lt;code>LazyVGrid&lt;/code> into a &lt;code>ScrollView&lt;/code> to be able to scroll:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>ScrollView {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ForEach(emojis[&lt;span style="color:#ae81ff">0.&lt;/span>.&amp;lt;emojiCount], id: &lt;span style="color:#960050;background-color:#1e0010">\&lt;/span>.&lt;span style="color:#66d9ef">self&lt;/span>) { emoji &lt;span style="color:#66d9ef">in&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView(content: emoji).aspectRatio(&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>, contentMode: .fit)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="working-with-an-adaptive-grid-item">Working with an adaptive grid item&lt;/h4>
+&lt;p>We can set our array of grid items to just one &lt;code>GridItem()&lt;/code> and make it adaptive setting the minimum width for the row.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>GridItem(.adaptive(minimum: &lt;span style="color:#ae81ff">80&lt;/span>))
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>ScrollView {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> LazyVGrid(columns: [GridItem(.adaptive(minimum: &lt;span style="color:#ae81ff">80&lt;/span>))]) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ForEach(emojis[&lt;span style="color:#ae81ff">0.&lt;/span>.&amp;lt;emojiCount], id: &lt;span style="color:#960050;background-color:#1e0010">\&lt;/span>.&lt;span style="color:#66d9ef">self&lt;/span>) { emoji &lt;span style="color:#66d9ef">in&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView(content: emoji).aspectRatio(&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>, contentMode: .fit)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/28d56dc8-2843-44c1-9c55-286b7e2b397e" alt="adaptive">&lt;/p></description></item></channel></rss>
