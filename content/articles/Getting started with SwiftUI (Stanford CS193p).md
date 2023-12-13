@@ -237,3 +237,73 @@ HStack {
 ```
 
 ![flippedcards](https://github.com/riceset/riceset.com/assets/48802655/7a3d9c14-63ca-4e0e-8090-0a0d9b34f623)
+
+#### View Mutability and @State
+
+If we try to add `.onTapGesture()` to our `ZStack` to change the value of a variable, we will get an error because all views are immutable. In this case, we want to change the value of `isFaceUp`, but as it is not possible we can add `@State` to it to turn it into a pointer to a boolean to somewhere in memory and whenever it changes the `body` view gets rebuilt.
+
+```swift
+@State var isFaceUp = true
+
+var body: some View {
+	ZStack {
+
+	}
+	.onTapGesture {
+        isFaceUp = !isFaceUp
+    }
+}
+```
+
+#### Using dynamic text
+
+We can create a new variable inside our `CardView` called content (representing the content for the `Text`) and pass the content dynamically from the `ContentView`:
+
+```swift
+struct CardView: View {
+	var content: String
+
+	var body: some View {
+		ZStack {
+			...
+			Text(content)
+			...
+		}
+	}
+}
+```
+
+Then from the `ContentView`, let's create an array of strings for the card contents and indexing from this array when passing the content to the `CardView`
+
+```swift
+struct ContentView: View {
+	var emojis: [String] = ["👻", "⛩️", "🔗", "🌹"]
+
+	var body: some View {
+		HStack {
+			CardView(content: emojis[0])
+			CardView(content: emojis[1])
+			CardView(content: emojis[2])
+			CardView(content: emojis[3])
+		}
+	}
+}
+```
+
+But, to write it in a less methodical way we can use a `ForEach` statement with `emoji` being a variable representing the current item from an iteration.
+
+```swift
+ForEach(emojis) { emoji in
+	CardView(content: emoji)
+}
+```
+
+But the code above will not work because to use a `ForEach` we need to make each item from our array conform to the `Identifiable` protocol meaning that each item must be unique and have an ID.
+
+To solve this problem, we can add `id` as a parameter to `ForEach` and set it to `\.self` meaning that the variable itself is going to be it's own ID.
+
+```swift
+ForEach(emojis, id: \.self) { emoji in
+	CardView(content: emoji)
+}
+```
