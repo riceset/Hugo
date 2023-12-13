@@ -196,4 +196,96 @@ The &lt;code>View&lt;/code> protocol requires you to have the body variable (of 
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>ForEach(emojis, id: &lt;span style="color:#960050;background-color:#1e0010">\&lt;/span>.&lt;span style="color:#66d9ef">self&lt;/span>) { emoji &lt;span style="color:#66d9ef">in&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView(content: emoji)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="working-with-ranges">Working with ranges&lt;/h4>
+&lt;p>Imagine we have a really long array and only want to display emojis from a certain range. We can achieve this by using the indexing syntax.&lt;/p>
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> emojis: [String] = [&lt;span style="color:#e6db74">&amp;#34;🚗&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚕&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚙&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚌&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚎&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🏎️&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚓&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚑&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚒&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚐&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚚&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚛&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚜&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚲&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🛴&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🛵&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🏍️&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🛺&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚔&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚍&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚘&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚖&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚡&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚠&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚟&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚃&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚞&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚝&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚄&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚅&amp;#34;&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">0.&lt;/span>.&amp;lt;&lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#75715e">//Will exclude the 5&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">0.&lt;/span>..&lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#75715e">//Will include the 5&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now, let&amp;rsquo;s index &lt;code>emojis&lt;/code> inside out &lt;code>ForEach&lt;/code> to only the first 4 items:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>ForEach(emojis[&lt;span style="color:#ae81ff">0.&lt;/span>.&amp;lt;&lt;span style="color:#ae81ff">4&lt;/span>], id: &lt;span style="color:#960050;background-color:#1e0010">\&lt;/span>.&lt;span style="color:#66d9ef">self&lt;/span>) { emoji &lt;span style="color:#66d9ef">in&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView(content: emoji)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="buttons">Buttons&lt;/h4>
+&lt;p>Now we are going to add a button to add and remove cards. This is how we use a &lt;code>Button&lt;/code> in Swift:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>Button(action: {}, label: {})
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We can now create a variable to keep track of how many items we want to display and set it as the range when iterating through the &lt;code>emojis&lt;/code> array:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>@State &lt;span style="color:#66d9ef">var&lt;/span> emojiCount = &lt;span style="color:#ae81ff">4&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ForEach(emojis[&lt;span style="color:#ae81ff">0.&lt;/span>.&amp;lt;emojiCount], id: &lt;span style="color:#960050;background-color:#1e0010">\&lt;/span>.&lt;span style="color:#66d9ef">self&lt;/span>) { emoji &lt;span style="color:#66d9ef">in&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView(content: emoji)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now, we can create 2 buttons and increment/decrement this variable (Inserting it into a horizontal stack and adding a &lt;code>Spacer()&lt;/code> in between the 2 buttons.)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>HStack {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Button(action: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> emojiCount &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }, label: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Text(&lt;span style="color:#e6db74">&amp;#34;+&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> })
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Spacer()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Button(action: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> emojiCount &lt;span style="color:#f92672">-=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }, label: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Text(&lt;span style="color:#e6db74">&amp;#34;-&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> })
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.padding()
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now, to clean up the code we can turn the block of code for creating the &lt;code>Button&lt;/code> into a new variable of type &lt;code>some View&lt;/code> and use it instead.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> add: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Button(action: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> emojiCount &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }, label: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Text(&lt;span style="color:#e6db74">&amp;#34;+&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> })
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> remove: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Button(action: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> emojiCount &lt;span style="color:#f92672">-=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }, label: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Text(&lt;span style="color:#e6db74">&amp;#34;-&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> })
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>And use it like this:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>HStack {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> add
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Spacer()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> remove
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="using-sfsymbols-for-the-buttons">Using SFSymbols for the buttons&lt;/h5>
+&lt;p>Syntax:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>Image(systemName: &lt;span style="color:#e6db74">&amp;#34;SYMBOLNAME&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Use case:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>Button(action: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> emojiCount &lt;span style="color:#f92672">-=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}, label: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Image(systemName: &lt;span style="color:#e6db74">&amp;#34;minus.circle&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>})
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="syntactic-sugar-for-simplifying-the-button-syntax">Syntactic sugar for simplifying the Button syntax&lt;/h5>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>Button(action: {}, label: {})
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Becomes:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>Button {} label: {}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="adding-limits-for-our-ranges">Adding limits for our ranges&lt;/h5>
+&lt;p>When incrementing/decrementing &lt;code>emojiCount&lt;/code>, we have to be careful to not let it get to an invalid index inside our array (a value less than zero or upper to the array&amp;rsquo;s number of elements.)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> add: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Button {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (emojiCount &lt;span style="color:#f92672">&amp;lt;&lt;/span> emojis.count) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> emojiCount &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } label: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> remove: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Button {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (emojiCount &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> emojiCount &lt;span style="color:#f92672">-=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } label: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
