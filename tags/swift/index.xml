@@ -148,4 +148,52 @@ The &lt;code>View&lt;/code> protocol requires you to have the body variable (of 
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView(isFaceUp: &lt;span style="color:#66d9ef">true&lt;/span>)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView(isFaceUp: &lt;span style="color:#66d9ef">false&lt;/span>)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/7a3d9c14-63ca-4e0e-8090-0a0d9b34f623" alt="flippedcards">&lt;/p></description></item></channel></rss>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/7a3d9c14-63ca-4e0e-8090-0a0d9b34f623" alt="flippedcards">&lt;/p>
+&lt;h4 id="view-mutability-and-state">View Mutability and @State&lt;/h4>
+&lt;p>If we try to add &lt;code>.onTapGesture()&lt;/code> to our &lt;code>ZStack&lt;/code> to change the value of a variable, we will get an error because all views are immutable. In this case, we want to change the value of &lt;code>isFaceUp&lt;/code>, but as it is not possible we can add &lt;code>@State&lt;/code> to it to turn it into a pointer to a boolean to somewhere in memory and whenever it changes the &lt;code>body&lt;/code> view gets rebuilt.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>@State &lt;span style="color:#66d9ef">var&lt;/span> isFaceUp = &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> body: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ZStack {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .onTapGesture {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> isFaceUp = &lt;span style="color:#f92672">!&lt;/span>isFaceUp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="using-dynamic-text">Using dynamic text&lt;/h4>
+&lt;p>We can create a new variable inside our &lt;code>CardView&lt;/code> called content (representing the content for the &lt;code>Text&lt;/code>) and pass the content dynamically from the &lt;code>ContentView&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">CardView&lt;/span>: View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> content: String
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> body: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ZStack {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Text(content)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then from the &lt;code>ContentView&lt;/code>, let&amp;rsquo;s create an array of strings for the card contents and indexing from this array when passing the content to the &lt;code>CardView&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">ContentView&lt;/span>: View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> emojis: [String] = [&lt;span style="color:#e6db74">&amp;#34;👻&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;⛩️&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🔗&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🌹&amp;#34;&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> body: some View {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> HStack {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView(content: emojis[&lt;span style="color:#ae81ff">0&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView(content: emojis[&lt;span style="color:#ae81ff">1&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView(content: emojis[&lt;span style="color:#ae81ff">2&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView(content: emojis[&lt;span style="color:#ae81ff">3&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>But, to write it in a less methodical way we can use a &lt;code>ForEach&lt;/code> statement with &lt;code>emoji&lt;/code> being a variable representing the current item from an iteration.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>ForEach(emojis) { emoji &lt;span style="color:#66d9ef">in&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView(content: emoji)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>But the code above will not work because to use a &lt;code>ForEach&lt;/code> we need to make each item from our array conform to the &lt;code>Identifiable&lt;/code> protocol meaning that each item must be unique and have an ID.&lt;/p>
+&lt;p>To solve this problem, we can add &lt;code>id&lt;/code> as a parameter to &lt;code>ForEach&lt;/code> and set it to &lt;code>\.self&lt;/code> meaning that the variable itself is going to be it&amp;rsquo;s own ID.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>ForEach(emojis, id: &lt;span style="color:#960050;background-color:#1e0010">\&lt;/span>.&lt;span style="color:#66d9ef">self&lt;/span>) { emoji &lt;span style="color:#66d9ef">in&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CardView(content: emoji)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

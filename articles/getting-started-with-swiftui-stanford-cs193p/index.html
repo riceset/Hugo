@@ -121,5 +121,44 @@ The <code>View</code> protocol requires you to have the body variable (of type &
 </span></span><span style=display:flex><span>	CardView(isFaceUp: <span style=color:#66d9ef>true</span>)
 </span></span><span style=display:flex><span>	CardView(isFaceUp: <span style=color:#66d9ef>false</span>)
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div><p><img src=https://github.com/riceset/riceset.com/assets/48802655/7a3d9c14-63ca-4e0e-8090-0a0d9b34f623 alt=flippedcards></p></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Other Posts</span><hr></div><div class=pagination__buttons><span class="button next"><a href=https://riceset.com/articles/philosophers/><span class=button__text>Previous</span>
+</span></span></code></pre></div><p><img src=https://github.com/riceset/riceset.com/assets/48802655/7a3d9c14-63ca-4e0e-8090-0a0d9b34f623 alt=flippedcards></p><h4 id=view-mutability-and-state>View Mutability and @State</h4><p>If we try to add <code>.onTapGesture()</code> to our <code>ZStack</code> to change the value of a variable, we will get an error because all views are immutable. In this case, we want to change the value of <code>isFaceUp</code>, but as it is not possible we can add <code>@State</code> to it to turn it into a pointer to a boolean to somewhere in memory and whenever it changes the <code>body</code> view gets rebuilt.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span>@State <span style=color:#66d9ef>var</span> isFaceUp = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> body: some View {
+</span></span><span style=display:flex><span>	ZStack {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	.onTapGesture {
+</span></span><span style=display:flex><span>        isFaceUp = <span style=color:#f92672>!</span>isFaceUp
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h4 id=using-dynamic-text>Using dynamic text</h4><p>We can create a new variable inside our <code>CardView</code> called content (representing the content for the <code>Text</code>) and pass the content dynamically from the <code>ContentView</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>CardView</span>: View {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> content: String
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> body: some View {
+</span></span><span style=display:flex><span>		ZStack {
+</span></span><span style=display:flex><span>			...
+</span></span><span style=display:flex><span>			Text(content)
+</span></span><span style=display:flex><span>			...
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Then from the <code>ContentView</code>, let&rsquo;s create an array of strings for the card contents and indexing from this array when passing the content to the <code>CardView</code></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>ContentView</span>: View {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> emojis: [String] = [<span style=color:#e6db74>&#34;👻&#34;</span>, <span style=color:#e6db74>&#34;⛩️&#34;</span>, <span style=color:#e6db74>&#34;🔗&#34;</span>, <span style=color:#e6db74>&#34;🌹&#34;</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> body: some View {
+</span></span><span style=display:flex><span>		HStack {
+</span></span><span style=display:flex><span>			CardView(content: emojis[<span style=color:#ae81ff>0</span>])
+</span></span><span style=display:flex><span>			CardView(content: emojis[<span style=color:#ae81ff>1</span>])
+</span></span><span style=display:flex><span>			CardView(content: emojis[<span style=color:#ae81ff>2</span>])
+</span></span><span style=display:flex><span>			CardView(content: emojis[<span style=color:#ae81ff>3</span>])
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>But, to write it in a less methodical way we can use a <code>ForEach</code> statement with <code>emoji</code> being a variable representing the current item from an iteration.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span>ForEach(emojis) { emoji <span style=color:#66d9ef>in</span>
+</span></span><span style=display:flex><span>	CardView(content: emoji)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>But the code above will not work because to use a <code>ForEach</code> we need to make each item from our array conform to the <code>Identifiable</code> protocol meaning that each item must be unique and have an ID.</p><p>To solve this problem, we can add <code>id</code> as a parameter to <code>ForEach</code> and set it to <code>\.self</code> meaning that the variable itself is going to be it&rsquo;s own ID.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-swift data-lang=swift><span style=display:flex><span>ForEach(emojis, id: <span style=color:#960050;background-color:#1e0010>\</span>.<span style=color:#66d9ef>self</span>) { emoji <span style=color:#66d9ef>in</span>
+</span></span><span style=display:flex><span>	CardView(content: emoji)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Other Posts</span><hr></div><div class=pagination__buttons><span class="button next"><a href=https://riceset.com/articles/philosophers/><span class=button__text>Previous</span>
 <span class=button__icon>→</span></a></span></div></div></div></div><footer class=footer><script type=text/javascript src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><div class=footer__inner><div class="copyright copyright--user">© 2023 riceset</div></div></footer><script src=https://riceset.com/assets/main.js></script><script src=https://riceset.com/assets/prism.js></script></div></body></html>
