@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Articles on riceset</title><link>https://riceset.com/articles/</link><description>Recent content in Articles on riceset</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2023 riceset</copyright><lastBuildDate>Sun, 10 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://riceset.com/articles/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting started with SwiftUI (Stanford CS193p)</title><link>https://riceset.com/articles/getting-started-with-swiftui-stanford-cs193p/</link><pubDate>Sun, 10 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/getting-started-with-swiftui-stanford-cs193p/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Articles on riceset</title><link>https://riceset.com/articles/</link><description>Recent content in Articles on riceset</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2023 riceset</copyright><lastBuildDate>Tue, 19 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://riceset.com/articles/index.xml" rel="self" type="application/rss+xml"/><item><title>Understanding MVVM on SwiftUI (Stanford CS193p)</title><link>https://riceset.com/articles/understanding-mvvm-on-swiftui-stanford-cs193p/</link><pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/understanding-mvvm-on-swiftui-stanford-cs193p/</guid><description>
+&lt;img src="https://riceset.com/images/mvvm.png"/>
+&lt;p>MVVM is a design paradigm that stands for stands for &lt;em>Model-View-ViewModel&lt;/em>.&lt;/p>
+&lt;h3 id="model">Model&lt;/h3>
+&lt;ul>
+&lt;li>It is completely UI independent (simple swift files)&lt;/li>
+&lt;li>Contains the &lt;strong>data&lt;/strong> + &lt;strong>logic&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h3 id="view">View&lt;/h3>
+&lt;ul>
+&lt;li>A reflection of the current state of the model&lt;/li>
+&lt;li>Declarative (the view is determined by what &lt;code>body&lt;/code> returns)&lt;/li>
+&lt;/ul>
+&lt;h3 id="viewmodel">ViewModel&lt;/h3>
+&lt;ul>
+&lt;li>Binds the View to the Model so that changes in the model cause the view to get rebuilt&lt;/li>
+&lt;li>Example: gets data from a SQL database and puts it into an array&lt;/li>
+&lt;li>It constantly looks for changes in the model and publishes &amp;rsquo;to everyone&amp;rsquo; that something has changed&lt;/li>
+&lt;li>Can modify the model&lt;/li>
+&lt;/ul></description></item><item><title>Getting started with SwiftUI (Stanford CS193p)</title><link>https://riceset.com/articles/getting-started-with-swiftui-stanford-cs193p/</link><pubDate>Sun, 10 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/getting-started-with-swiftui-stanford-cs193p/</guid><description>
 &lt;img src="https://riceset.com/images/swiftui-intro-cover.png"/>
 &lt;p>This struct behaves like a view (the struct conforms to the &lt;code>View&lt;/code> protocol)
 The &lt;code>View&lt;/code> protocol requires you to have the body variable (of type &amp;lsquo;some View&amp;rsquo;)&lt;/p>
