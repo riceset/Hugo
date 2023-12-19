@@ -1,5 +1,87 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Swift on riceset</title><link>https://riceset.com/tags/swift/</link><description>Recent content in Swift on riceset</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2023 riceset</copyright><lastBuildDate>Tue, 19 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://riceset.com/tags/swift/index.xml" rel="self" type="application/rss+xml"/><item><title>My Swift Guide: Personal Reference for Swift Programming Concepts</title><link>https://riceset.com/articles/my-swift-guide-personal-reference-for-swift-programming-concepts/</link><pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/my-swift-guide-personal-reference-for-swift-programming-concepts/</guid><description>
-&lt;img src="https://riceset.com/images/swift-guide.png"/></description></item><item><title>Understanding MVVM in SwiftUI (Stanford CS193p)</title><link>https://riceset.com/articles/understanding%5C-mvvm%5C-in%5C-swiftui%5C-%5Cstanford%5C-cs193p%5C/</link><pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/understanding%5C-mvvm%5C-in%5C-swiftui%5C-%5Cstanford%5C-cs193p%5C/</guid><description>
+&lt;img src="https://riceset.com/images/swift-guide.png"/>
+&lt;h3 id="functions">Functions&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">multiply&lt;/span>(operand: Int, by: Int) -&amp;gt; Int {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> operand &lt;span style="color:#f92672">*&lt;/span> by
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>multiply(operand: &lt;span style="color:#ae81ff">5&lt;/span>, by: &lt;span style="color:#ae81ff">6&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="using-external-and-internal-labels-to-improve-readability">Using external and internal labels to improve readability&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">multiply&lt;/span>(&lt;span style="color:#66d9ef">_&lt;/span> operand1: Int, by operand2: Int) -&amp;gt; Int {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> operand1 &lt;span style="color:#f92672">*&lt;/span> operand2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>multiply(&lt;span style="color:#ae81ff">5&lt;/span>, by: &lt;span style="color:#ae81ff">6&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="functions-with-function-parameters">Functions with function parameters&lt;/h4>
+&lt;p>You can make a function receive another function as a parameter (similar to function pointers in C)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">doSomething&lt;/span>(what: () -&amp;gt; Bool) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="functions-as-types">Functions as types&lt;/h4>
+&lt;p>We can declare variables of type &amp;lsquo;function&amp;rsquo; in Swift:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> foo: (Double) -&amp;gt; Double
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="structs-and-classes">Structs and Classes&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>struct&lt;/th>
+&lt;th>class&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Passed by&lt;/td>
+&lt;td>value&lt;/td>
+&lt;td>reference&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>gets copied&lt;/td>
+&lt;td>passed via pointers&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Optimization&lt;/td>
+&lt;td>copy on write&lt;/td>
+&lt;td>automatically reference counting&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>only gets copied when you modify it&lt;/td>
+&lt;td>Swift keeps track of how many pointers are pointing to a piece of memory on the heap and when it goes to 0 it frees this memory&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Paradigm&lt;/td>
+&lt;td>functional&lt;/td>
+&lt;td>object-oriented&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Inheritance&lt;/td>
+&lt;td>No&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Initialization&lt;/td>
+&lt;td>free init for (all variables)&lt;/td>
+&lt;td>free init (does not initialize variables)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Mutability&lt;/td>
+&lt;td>Explicitly stated (var and let)&lt;/td>
+&lt;td>Always mutable&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="generics">Generics&lt;/h3>
+&lt;p>These are data structures that we do not care about the type their values are (e.g. an array)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">Array&lt;/span>&amp;lt;Element&amp;gt; {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">append&lt;/span>(&lt;span style="color:#66d9ef">_&lt;/span> element: Element) { ... }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>In which &lt;code>Element&lt;/code> is a generic type.&lt;/p>
+&lt;h4 id="use">Use&lt;/h4>
+&lt;p>We define the array type on the declaration:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> a = Array&amp;lt;Int&amp;gt;()
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Understanding MVVM in SwiftUI (Stanford CS193p)</title><link>https://riceset.com/articles/understanding%5C-mvvm%5C-in%5C-swiftui%5C-%5Cstanford%5C-cs193p%5C/</link><pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/understanding%5C-mvvm%5C-in%5C-swiftui%5C-%5Cstanford%5C-cs193p%5C/</guid><description>
 &lt;img src="https://riceset.com/images/mvvm.png"/>
 &lt;p>MVVM is a design paradigm that stands for stands for &lt;em>Model-View-ViewModel&lt;/em>.&lt;/p>
 &lt;h3 id="model">Model&lt;/h3>
