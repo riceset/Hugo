@@ -1,38 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Articles on riceset</title><link>https://riceset.com/articles/</link><description>Recent content in Articles on riceset</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2023 riceset</copyright><lastBuildDate>Tue, 19 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://riceset.com/articles/index.xml" rel="self" type="application/rss+xml"/><item><title>Mastering Mandarin with Anki</title><link>https://riceset.com/articles/mastering-mandarin-chinese-with-anki/</link><pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/mastering-mandarin-chinese-with-anki/</guid><description>
-&lt;img src="https://riceset.com/images/anki-chinese.png"/>
-&lt;p>Mandarin Chinese (普通话) has always fascinated me and learning it has been a long-standing aspiration of mine. In this article, I&amp;rsquo;ll introduce you to several tools I use alongside Anki to create visually appealing flashcards for Mandarin Chinese.&lt;/p>
-&lt;h3 id="anki">Anki&lt;/h3>
-&lt;p>Anki is an open-source flashcard program that uses spaced repetition, a learning technique that increases intervals of time between reviews of previously learned material.&lt;/p>
-&lt;h3 id="pretiffy">Pretiffy&lt;/h3>
-&lt;p>Anki&amp;rsquo;s note types consist of two HTML files (one for the front and one for the back of the card) along with a CSS file. To enhance the appearance and modernize our cards, we can utilize a template named &lt;strong>&lt;a href="https://github.com/pranavdeshai/anki-prettify">prettify&lt;/a>&lt;/strong>.&lt;/p>
-&lt;p>Naturally, we have the freedom to make templates suit our individual preferences, such as opting for centered text or incorporating additional buttons. I have done exactly that, and you can access my customized template on my GitHub repository, named &lt;a href="https://github.com/riceset/NeoMnemo">NeoMnemo&lt;/a> (access it from the &lt;code>mandarin&lt;/code> branch!)&lt;/p>
-&lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/eb6d220e-07f1-474b-a35a-3f8b907ebc9a" alt="Image1">&lt;/p>
-&lt;h3 id="pinyin">Pinyin&lt;/h3>
-&lt;p>After experimenting with numerous plugins for adding pinyin to Chinese characters, the one I ultimately chose was &lt;a href="https://ankiweb.net/shared/info/417709332">Pinyin on top of Hanzi&lt;/a>. This plugin generates pinyin readings and places them within HTML ruby tags, resulting in a visually stunning result.&lt;/p>
-&lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/a62f049f-e84b-4094-99bf-29a42b2a1e6a" alt="Image2">&lt;/p>
-&lt;h3 id="fonts">Fonts&lt;/h3>
-&lt;p>In order to use Chinese fonts like &lt;em>SimSun&lt;/em> (新宋), &lt;em>SongTi&lt;/em> (宋体), and &lt;em>KaiTi&lt;/em> (楷体) on your iPhone, follow these steps:&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>Find a font file with the &lt;code>.ttf&lt;/code> extension. e.g. &lt;code>SongTi.ttf&lt;/code>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Rename the font file by adding an underscore before the font name and keeping the &lt;code>.ttf&lt;/code> extension. For instance, rename &lt;code>SongTi.ttf&lt;/code> to &lt;code>_songti.ttf&lt;/code>.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Move the renamed font file to Anki&amp;rsquo;s media folder. On MacOS, you can usually find this folder at &lt;code>~/Library/Application\ Support/Anki2/user/collection.media&lt;/code>, where &amp;lsquo;user&amp;rsquo; is your profile name in Anki.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Now, you need to load the font into your note type&amp;rsquo;s CSS, typically located at the bottom of the CSS file. Use the following syntax:&lt;/p>
-&lt;/li>
-&lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-css" data-lang="css">&lt;span style="display:flex;">&lt;span>@&lt;span style="color:#66d9ef">font-face&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">font-family&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#f92672">songti&lt;/span>&lt;span style="color:#f92672">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">src&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#f92672">url&lt;/span>&lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;_songti.ttf&amp;#39;&lt;/span>&lt;span style="color:#f92672">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Where &lt;code>songti&lt;/code> will be the name you will use to stylize the cards on your CSS file.&lt;/p>
-&lt;h3 id="audio">Audio&lt;/h3>
-&lt;p>I currently use Google Translate&amp;rsquo;s voice into &lt;a href="https://ankiweb.net/shared/info/1436550454">AwesomeTTS&lt;/a> for generating audio files for my sentences.&lt;/p></description></item><item><title>My Swift Guide: Personal Reference for Swift Programming Concepts</title><link>https://riceset.com/articles/my-swift-guide-personal-reference-for-swift-programming-concepts/</link><pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/my-swift-guide-personal-reference-for-swift-programming-concepts/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Articles on riceset</title><link>https://riceset.com/articles/</link><description>Recent content in Articles on riceset</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2023 riceset</copyright><lastBuildDate>Tue, 19 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://riceset.com/articles/index.xml" rel="self" type="application/rss+xml"/><item><title>My Swift Guide: Personal Reference for Swift Programming Concepts</title><link>https://riceset.com/articles/my-swift-guide-personal-reference-for-swift-programming-concepts/</link><pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/my-swift-guide-personal-reference-for-swift-programming-concepts/</guid><description>
 &lt;img src="https://riceset.com/images/swift-guide.png"/>
 &lt;h3 id="functions">Functions&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">multiply&lt;/span>(operand: Int, by: Int) -&amp;gt; Int {
@@ -134,7 +100,41 @@
 &lt;li>Example: gets data from a SQL database and puts it into an array&lt;/li>
 &lt;li>It constantly looks for changes in the model and publishes &amp;rsquo;to everyone&amp;rsquo; that something has changed&lt;/li>
 &lt;li>Can modify the model&lt;/li>
-&lt;/ul></description></item><item><title>Getting started with SwiftUI (Stanford CS193p)</title><link>https://riceset.com/articles/getting-started-with-swiftui-stanford-cs193p/</link><pubDate>Sun, 10 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/getting-started-with-swiftui-stanford-cs193p/</guid><description>
+&lt;/ul></description></item><item><title>Mastering Mandarin with Anki</title><link>https://riceset.com/articles/mastering-mandarin-chinese-with-anki/</link><pubDate>Mon, 18 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/mastering-mandarin-chinese-with-anki/</guid><description>
+&lt;img src="https://riceset.com/images/anki-chinese.png"/>
+&lt;p>Mandarin Chinese (普通话) has always fascinated me and learning it has been a long-standing aspiration of mine. In this article, I&amp;rsquo;ll introduce you to several tools I use alongside Anki to create visually appealing flashcards for Mandarin Chinese.&lt;/p>
+&lt;h3 id="anki">Anki&lt;/h3>
+&lt;p>Anki is an open-source flashcard program that uses spaced repetition, a learning technique that increases intervals of time between reviews of previously learned material.&lt;/p>
+&lt;h3 id="pretiffy">Pretiffy&lt;/h3>
+&lt;p>Anki&amp;rsquo;s note types consist of two HTML files (one for the front and one for the back of the card) along with a CSS file. To enhance the appearance and modernize our cards, we can utilize a template named &lt;strong>&lt;a href="https://github.com/pranavdeshai/anki-prettify">prettify&lt;/a>&lt;/strong>.&lt;/p>
+&lt;p>Naturally, we have the freedom to make templates suit our individual preferences, such as opting for centered text or incorporating additional buttons. I have done exactly that, and you can access my customized template on my GitHub repository, named &lt;a href="https://github.com/riceset/NeoMnemo">NeoMnemo&lt;/a> (access it from the &lt;code>mandarin&lt;/code> branch!)&lt;/p>
+&lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/eb6d220e-07f1-474b-a35a-3f8b907ebc9a" alt="Image1">&lt;/p>
+&lt;h3 id="pinyin">Pinyin&lt;/h3>
+&lt;p>After experimenting with numerous plugins for adding pinyin to Chinese characters, the one I ultimately chose was &lt;a href="https://ankiweb.net/shared/info/417709332">Pinyin on top of Hanzi&lt;/a>. This plugin generates pinyin readings and places them within HTML ruby tags, resulting in a visually stunning result.&lt;/p>
+&lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/a62f049f-e84b-4094-99bf-29a42b2a1e6a" alt="Image2">&lt;/p>
+&lt;h3 id="fonts">Fonts&lt;/h3>
+&lt;p>In order to use Chinese fonts like &lt;em>SimSun&lt;/em> (新宋), &lt;em>SongTi&lt;/em> (宋体), and &lt;em>KaiTi&lt;/em> (楷体) on your iPhone, follow these steps:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Find a font file with the &lt;code>.ttf&lt;/code> extension. e.g. &lt;code>SongTi.ttf&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Rename the font file by adding an underscore before the font name and keeping the &lt;code>.ttf&lt;/code> extension. For instance, rename &lt;code>SongTi.ttf&lt;/code> to &lt;code>_songti.ttf&lt;/code>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Move the renamed font file to Anki&amp;rsquo;s media folder. On MacOS, you can usually find this folder at &lt;code>~/Library/Application\ Support/Anki2/user/collection.media&lt;/code>, where &amp;lsquo;user&amp;rsquo; is your profile name in Anki.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Now, you need to load the font into your note type&amp;rsquo;s CSS, typically located at the bottom of the CSS file. Use the following syntax:&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-css" data-lang="css">&lt;span style="display:flex;">&lt;span>@&lt;span style="color:#66d9ef">font-face&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">font-family&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#f92672">songti&lt;/span>&lt;span style="color:#f92672">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">src&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#f92672">url&lt;/span>&lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;_songti.ttf&amp;#39;&lt;/span>&lt;span style="color:#f92672">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Where &lt;code>songti&lt;/code> will be the name you will use to stylize the cards on your CSS file.&lt;/p>
+&lt;h3 id="audio">Audio&lt;/h3>
+&lt;p>I currently use Google Translate&amp;rsquo;s voice into &lt;a href="https://ankiweb.net/shared/info/1436550454">AwesomeTTS&lt;/a> for generating audio files for my sentences.&lt;/p></description></item><item><title>Getting started with SwiftUI (Stanford CS193p)</title><link>https://riceset.com/articles/getting-started-with-swiftui-stanford-cs193p/</link><pubDate>Sun, 10 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/getting-started-with-swiftui-stanford-cs193p/</guid><description>
 &lt;img src="https://riceset.com/images/swiftui-intro-cover.png"/>
 &lt;p>This struct behaves like a view (the struct conforms to the &lt;code>View&lt;/code> protocol)
 The &lt;code>View&lt;/code> protocol requires you to have the body variable (of type &amp;lsquo;some View&amp;rsquo;)&lt;/p>
