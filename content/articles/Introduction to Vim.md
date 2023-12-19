@@ -1,10 +1,11 @@
 ---
-title: "Introduction to Vim"
+title: Introduction to Vim
 date: 2022-02-06
 author: Komeno
-cover: "images/vim.jpg"
-description: "Vim is one of the most powerful text editors you can think of. In this article, I will introduce you some basic and useful Vim commands."
-tags: [Vim]
+cover: images/vim.png
+description: Vim is one of the most powerful text editors you can think of. In this article, I will introduce you some basic and useful Vim commands.
+tags:
+  - Vim
 ---
 
 Vim is one of the most powerful text editors you can think of. In this article, I will introduce you some basic and useful Vim commands.
