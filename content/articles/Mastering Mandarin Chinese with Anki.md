@@ -29,13 +29,9 @@ After experimenting with numerous plugins for adding pinyin to Chinese character
 
 ![Image2](https://github.com/riceset/riceset.com/assets/48802655/a62f049f-e84b-4094-99bf-29a42b2a1e6a)
 
-### Audio
-
-I  currently use Google Translate's voice into [AwesomeTTS](https://ankiweb.net/shared/info/1436550454) for generating audio files for my sentences.
-
 ### Fonts
 
-In order to use Chinese fonts like *SimSun* (宋体), *SongTi* (宋体), and *KaiTi* (楷体) on your iPhone, follow these steps:
+In order to use Chinese fonts like *SimSun* (新宋), *SongTi* (宋体), and *KaiTi* (楷体) on your iPhone, follow these steps:
 
 1. Find a font file with the `.ttf` extension. e.g. `SongTi.ttf`
 
@@ -53,3 +49,7 @@ In order to use Chinese fonts like *SimSun* (宋体), *SongTi* (宋体), and *Ka
 ```
 
 Where `songti` will be the name you will use to stylize the cards on your CSS file.
+
+### Audio
+
+I  currently use Google Translate's voice into [AwesomeTTS](https://ankiweb.net/shared/info/1436550454) for generating audio files for my sentences.
