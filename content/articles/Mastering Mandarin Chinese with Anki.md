@@ -31,7 +31,7 @@ After experimenting with numerous plugins for adding pinyin to Chinese character
 
 ### Fonts
 
-In order to use Chinese fonts like *SimSun* (宋体), *SongTi* (宋体), and *KaiTi* (楷体) on your iPhone, follow these steps:
+In order to use Chinese fonts like *SimSun* (新宋), *SongTi* (宋体), and *KaiTi* (楷体) on your iPhone, follow these steps:
 
 1. Find a font file with the `.ttf` extension. e.g. `SongTi.ttf`
 
