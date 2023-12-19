@@ -1,6 +1,6 @@
 ---
 title: Mastering Mandarin with Anki
-date: 2023-12-19
+date: 2023-12-18
 author: Komeno
 cover: images/anki-chinese.png
 description: Mandarin Chinese (普通话) has always fascinated me and learning it has been a long-standing aspiration of mine. In this article, I'll introduce you to several tools I use alongside Anki to create visually appealing flashcards for Mandarin Chinese.
