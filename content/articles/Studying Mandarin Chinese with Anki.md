@@ -21,13 +21,13 @@ Anki's note types consist of two HTML files (one for the front and one for the b
 
 Naturally, we have the freedom to tailor templates to suit our individual preferences, such as opting for centered text or incorporating additional buttons. I have done exactly that, and you can access my customized template on my GitHub repository, named [NeoMnemo](https://github.com/riceset/NeoMnemo) (access it from the `mandarin` branch!)
 
-<img width="780" alt="截屏2023-12-19 18 26 42" src="https://github.com/riceset/riceset.com/assets/48802655/eb6d220e-07f1-474b-a35a-3f8b907ebc9a">
+[Image1](https://github.com/riceset/riceset.com/assets/48802655/eb6d220e-07f1-474b-a35a-3f8b907ebc9a")
 
 ###  Pinyin
 
 After experimenting with numerous plugins for adding pinyin to Chinese characters, the one I ultimately chose was [Pinyin on top of Hanzi](https://ankiweb.net/shared/info/417709332). This plugin generates pinyin readings and places them within HTML ruby tags, resulting in a visually stunning result.
 
-<img width="780" alt="截屏2023-12-19 18 26 57" src="https://github.com/riceset/riceset.com/assets/48802655/a62f049f-e84b-4094-99bf-29a42b2a1e6a">
+[Image2](”https://github.com/riceset/riceset.com/assets/48802655/a62f049f-e84b-4094-99bf-29a42b2a1e6a")
 
 ### Audio
 
