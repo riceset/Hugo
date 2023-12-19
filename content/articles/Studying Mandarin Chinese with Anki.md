@@ -32,3 +32,24 @@ After experimenting with numerous plugins for adding pinyin to Chinese character
 ### Audio
 
 I  currently use Google Translate's voice into [AwesomeTTS](https://ankiweb.net/shared/info/1436550454) for generating audio files for my sentences.
+
+### Fonts
+
+In order to use Chinese fonts like *SimSun* (宋体), *SongTi* (宋体), and *KaiTi* (楷体) on your iPhone, follow these steps:
+
+1. Find a font file with the `.ttf` extension. e.g. `SongTi.ttf`
+
+2. Rename the font file by adding an underscore before the font name and keeping the `.ttf` extension. For instance, rename `SongTi.ttf` to `_songti.ttf`.
+
+3. Move the renamed font file to Anki's media folder. On MacOS, you can usually find this folder at `~/Library/Application\ Support/Anki2/user/collection.media`, where 'user' is your profile name in Anki.
+
+4. Now, you need to load the font into your note type's CSS, typically located at the bottom of the CSS file. Use the following syntax:
+
+```css
+@font-face {
+  font-family: songti;
+  src: url('_songti.ttf');
+}
+```
+
+Where `songti` will be the name you will use to stylize the cards on your CSS file.
