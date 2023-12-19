@@ -76,4 +76,3 @@ We define the array type on the declaration:
 ```swift
 var a = Array<Int>()
 ```
-
