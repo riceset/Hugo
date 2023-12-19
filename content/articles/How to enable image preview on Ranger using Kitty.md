@@ -62,3 +62,6 @@ with the path to where Python is located. In my case it was:
 ```
 
 Now, save the file and everything should be working.
+
+![ranger-2](https://github.com/riceset/riceset.com/assets/48802655/a9be6d14-bace-425f-8ea5-84b77b0b7713)
+
