@@ -456,7 +456,7 @@ The &lt;code>View&lt;/code> protocol requires you to have the body variable (of 
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/28d56dc8-2843-44c1-9c55-286b7e2b397e" alt="adaptive">&lt;/p></description></item><item><title>An approach to solving the dining philosophers problem</title><link>https://riceset.com/articles/philosophers/</link><pubDate>Tue, 15 Aug 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/philosophers/</guid><description>
-&lt;img src="https://riceset.com/images/philosophers.jpg"/>
+&lt;img src="https://riceset.com/images/philo.png"/>
 &lt;h2 id="-overview">👀 Overview&lt;/h2>
 &lt;p>The &lt;strong>Dining Philosophers Problem&lt;/strong> is a computer science problem formulated in 1965 by &lt;a href="https://en.wikipedia.org/wiki/Edsger_W._Dijkstra">Edsger Dijkstra&lt;/a>. It involves dealing with concurrent programming, synchronization issues, threads, deadlocks, and race conditions.&lt;/p>
 &lt;h4 id="the-problem">The Problem&lt;/h4>
