@@ -644,7 +644,90 @@ $$&lt;/p>
 &lt;p>But as &lt;code>pthread_create()&lt;/code> doesn&amp;rsquo;t know what variable type we will pass to it, that&amp;rsquo;s why it&amp;rsquo;s declared as a &lt;strong>void pointer&lt;/strong> so we need to cast this value to our desired variable type (&lt;code>t_philo&lt;/code> in this case).&lt;/p>
 &lt;h2 id="-references">🚀 References&lt;/h2>
 &lt;h4 id="my-repository">My repository&lt;/h4>
-&lt;p>&lt;a href="https://github.com/riceset/philosophers">GitHub - riceset/philosophers&lt;/a>&lt;/p></description></item><item><title>Understanding the stack data structure</title><link>https://riceset.com/articles/understanding-the-stack-data-structure/</link><pubDate>Tue, 23 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/understanding-the-stack-data-structure/</guid><description>
+&lt;p>&lt;a href="https://github.com/riceset/philosophers">GitHub - riceset/philosophers&lt;/a>&lt;/p></description></item><item><title>My Swift Guide: Personal Reference for Swift Programming Concepts</title><link>https://riceset.com/articles/my-swift-guide-personal-reference-for-swift-programming-concepts/</link><pubDate>Sun, 16 Jul 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/my-swift-guide-personal-reference-for-swift-programming-concepts/</guid><description>
+&lt;img src="https://riceset.com/images/swift-guide.png"/>
+&lt;h3 id="functions">Functions&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">multiply&lt;/span>(operand: Int, by: Int) -&amp;gt; Int {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> operand &lt;span style="color:#f92672">*&lt;/span> by
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>multiply(operand: &lt;span style="color:#ae81ff">5&lt;/span>, by: &lt;span style="color:#ae81ff">6&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="using-external-and-internal-labels-to-improve-readability">Using external and internal labels to improve readability&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">multiply&lt;/span>(&lt;span style="color:#66d9ef">_&lt;/span> operand1: Int, by operand2: Int) -&amp;gt; Int {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> operand1 &lt;span style="color:#f92672">*&lt;/span> operand2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>multiply(&lt;span style="color:#ae81ff">5&lt;/span>, by: &lt;span style="color:#ae81ff">6&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="functions-with-function-parameters">Functions with function parameters&lt;/h4>
+&lt;p>You can make a function receive another function as a parameter (similar to function pointers in C)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">doSomething&lt;/span>(what: () -&amp;gt; Bool) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="functions-as-types">Functions as types&lt;/h4>
+&lt;p>We can declare variables of type &amp;lsquo;function&amp;rsquo; in Swift:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> foo: (Double) -&amp;gt; Double
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="structs-and-classes">Structs and Classes&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>struct&lt;/th>
+&lt;th>class&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Passed by&lt;/td>
+&lt;td>value&lt;/td>
+&lt;td>reference&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>gets copied&lt;/td>
+&lt;td>passed via pointers&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Optimization&lt;/td>
+&lt;td>copy on write&lt;/td>
+&lt;td>automatically reference counting&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>only gets copied when you modify it&lt;/td>
+&lt;td>Swift keeps track of how many pointers are pointing to a piece of memory on the heap and when it goes to 0 it frees this memory&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Paradigm&lt;/td>
+&lt;td>functional&lt;/td>
+&lt;td>object-oriented&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Inheritance&lt;/td>
+&lt;td>No&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Initialization&lt;/td>
+&lt;td>free init for (all variables)&lt;/td>
+&lt;td>free init (does not initialize variables)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Mutability&lt;/td>
+&lt;td>Explicitly stated (var and let)&lt;/td>
+&lt;td>Always mutable&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="generics">Generics&lt;/h3>
+&lt;p>These are data structures that we do not care about the type their values are (e.g. an array)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">Array&lt;/span>&amp;lt;Element&amp;gt; {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">append&lt;/span>(&lt;span style="color:#66d9ef">_&lt;/span> element: Element) { ... }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>In which &lt;code>Element&lt;/code> is a generic type.&lt;/p>
+&lt;h4 id="use">Use&lt;/h4>
+&lt;p>We define the array type on the declaration:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> a = Array&amp;lt;Int&amp;gt;()
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Understanding the stack data structure</title><link>https://riceset.com/articles/understanding-the-stack-data-structure/</link><pubDate>Tue, 23 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/understanding-the-stack-data-structure/</guid><description>
 &lt;img src="https://riceset.com/images/stacks.jpg"/>
 &lt;p>&lt;strong>Stack&lt;/strong> is an ADT (Abstract Data Structure) which follows the LIFO (Last In First Out) order. It might be easier to understand this concept by imagining an actual stack of books.&lt;/p>
 &lt;p>When working with stacks, you can use mainly two operations. &lt;code>push()&lt;/code> to add an element to the top of a stack and &lt;code>pop()&lt;/code> to literally pop out or remove an element of a stack. As it is considered an ADT (Abstract Data Structure) you can implement it in many ways with other basic data structures such as arrays or linked lists. Let’s try implementing it using an array first.&lt;/p>
@@ -1070,87 +1153,4 @@ But with pointers, we can access some variable’s memory location and change it
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>output:
 x: 2
-y: 1&lt;/p></description></item><item><title>My Swift Guide: Personal Reference for Swift Programming Concepts</title><link>https://riceset.com/articles/my-swift-guide-personal-reference-for-swift-programming-concepts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/my-swift-guide-personal-reference-for-swift-programming-concepts/</guid><description>
-&lt;img src="https://riceset.com/images/swift-guide.png"/>
-&lt;h3 id="functions">Functions&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">multiply&lt;/span>(operand: Int, by: Int) -&amp;gt; Int {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> operand &lt;span style="color:#f92672">*&lt;/span> by
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>multiply(operand: &lt;span style="color:#ae81ff">5&lt;/span>, by: &lt;span style="color:#ae81ff">6&lt;/span>)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="using-external-and-internal-labels-to-improve-readability">Using external and internal labels to improve readability&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">multiply&lt;/span>(&lt;span style="color:#66d9ef">_&lt;/span> operand1: Int, by operand2: Int) -&amp;gt; Int {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> operand1 &lt;span style="color:#f92672">*&lt;/span> operand2
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>multiply(&lt;span style="color:#ae81ff">5&lt;/span>, by: &lt;span style="color:#ae81ff">6&lt;/span>)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="functions-with-function-parameters">Functions with function parameters&lt;/h4>
-&lt;p>You can make a function receive another function as a parameter (similar to function pointers in C)&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">doSomething&lt;/span>(what: () -&amp;gt; Bool) {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="functions-as-types">Functions as types&lt;/h4>
-&lt;p>We can declare variables of type &amp;lsquo;function&amp;rsquo; in Swift:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> foo: (Double) -&amp;gt; Double
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="structs-and-classes">Structs and Classes&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>&lt;/th>
-&lt;th>struct&lt;/th>
-&lt;th>class&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>Passed by&lt;/td>
-&lt;td>value&lt;/td>
-&lt;td>reference&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;/td>
-&lt;td>gets copied&lt;/td>
-&lt;td>passed via pointers&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Optimization&lt;/td>
-&lt;td>copy on write&lt;/td>
-&lt;td>automatically reference counting&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;/td>
-&lt;td>only gets copied when you modify it&lt;/td>
-&lt;td>Swift keeps track of how many pointers are pointing to a piece of memory on the heap and when it goes to 0 it frees this memory&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Paradigm&lt;/td>
-&lt;td>functional&lt;/td>
-&lt;td>object-oriented&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Inheritance&lt;/td>
-&lt;td>No&lt;/td>
-&lt;td>Yes&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Initialization&lt;/td>
-&lt;td>free init for (all variables)&lt;/td>
-&lt;td>free init (does not initialize variables)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Mutability&lt;/td>
-&lt;td>Explicitly stated (var and let)&lt;/td>
-&lt;td>Always mutable&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h3 id="generics">Generics&lt;/h3>
-&lt;p>These are data structures that we do not care about the type their values are (e.g. an array)&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">Array&lt;/span>&amp;lt;Element&amp;gt; {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">append&lt;/span>(&lt;span style="color:#66d9ef">_&lt;/span> element: Element) { ... }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>In which &lt;code>Element&lt;/code> is a generic type.&lt;/p>
-&lt;h4 id="use">Use&lt;/h4>
-&lt;p>We define the array type on the declaration:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> a = Array&amp;lt;Int&amp;gt;()
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+y: 1&lt;/p></description></item></channel></rss>
