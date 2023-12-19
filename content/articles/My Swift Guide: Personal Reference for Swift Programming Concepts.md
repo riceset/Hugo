@@ -1,6 +1,6 @@
 ---
 title: "My Swift Guide: Personal Reference for Swift Programming Concepts"
-date: 2023-7-16
+date: 2023-07-16
 author: Komeno
 cover: images/swift-guide.png
 description: 
