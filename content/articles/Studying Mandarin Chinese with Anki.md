@@ -33,6 +33,8 @@ After experimenting with numerous plugins for adding pinyin to Chinese character
 
 I  currently use Google Translate's voice into [AwesomeTTS](https://ankiweb.net/shared/info/1436550454) for generating audio files for my sentences.
 
+![Image3](https://github.com/riceset/riceset.com/assets/48802655/73c65f42-1b7c-47ec-aa8b-2735d4101aab)
+
 ### Fonts
 
 In order to use Chinese fonts like *SimSun* (宋体), *SongTi* (宋体), and *KaiTi* (楷体) on your iPhone, follow these steps:
