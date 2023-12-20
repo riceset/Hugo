@@ -76,7 +76,7 @@ The problem here is that we don't have our content yet. To solve this let's crea
 
 ```swift
 for pairIndex in 0..<numberOfPairsOfCards {
-	cards.append(content: createCardContent(pairIndex)
+	cards.append(content: createCardContent(pairIndex))
 }
 ```
 
@@ -92,7 +92,8 @@ The ViewModel is defined as a class:
 
 ```swift
 class EmojiMemoryGame {
-	private var model = MemoryGame<String>(numberOfPairsOfCards: 4, createCardContent: { (index: Int) -> String in
+	private var model = MemoryGame<String>(numberOfPairsOfCards: 4,
+	 createCardContent: { (index: Int) -> String in
 		return "👻"
 	})
 }
@@ -103,7 +104,8 @@ here we can use our model defining it as a private variable (making it only acce
 As Swift already knows the types for the input and output for this function because it was specified in the model we can simplify this function removing the types for the input and output and even remove the `return` statement and parenthesis:
 
 ```swift
-private var model = MemoryGame<String>(numberOfPairsOfCards: 4, createCardContent: { index in "👻" })
+private var model = MemoryGame<String>(numberOfPairsOfCards: 4,
+	createCardContent: { index in "👻" })
 ```
 
 As `createCardContent` is the last parameter we can simplify it like this:
@@ -122,3 +124,28 @@ private var model = MemoryGame<String>(numberOfPairsOfCards: 4) {
 }
 ```
 
+#### Using static
+
+Let's try to insert the emojis array into our ViewModel:
+
+```swift
+let emojis: [String] = ["🚗", "🚕", "🚙", "🚌"]
+```
+
+Now let's assign an emoji indexed from this array to the contents of our card:
+
+```swift
+private var model = MemoryGame<String>(numberOfPairsOfCards: 4) {
+	pairIndex in emojis[pairIndex]
+}
+```
+
+But we cannot initialize a property (e.g. let, var) with a value that depends on another property because the order of initialization of properties is random.
+
+To solve this we can use an initializer to explicitly set the order of initialization of our properties, make the `emojis` constant global or as a better option we can make it `static`:
+
+```swift
+static let emojis: [String] = ["🚗", "🚕", "🚙", "🚌"]
+```
+
+Using type variables (e.g. `static var`, `static let`) and type functions (`static func`) makes them 'global' to all instances of this class. So in contrast to a normal variable that would get created on each instance, a type variable or type function will be created only once and referenced from other instances.
