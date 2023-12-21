@@ -5,7 +5,6 @@ author: Komeno
 cover: images/swiftui-intro-cover.png
 description: This struct behaves like a view (the struct conforms to the View protocol) The View protocol requires you to have the body variable (of type some View)
 tags:
-  - Swift
   - SwiftUI
   - Stanford
 ---
