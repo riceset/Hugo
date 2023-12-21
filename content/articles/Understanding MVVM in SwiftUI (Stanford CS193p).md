@@ -3,7 +3,7 @@ title: Understanding MVVM in SwiftUI (Stanford CS193p)
 date: 2023-12-19
 author: Komeno
 cover: images/mvvm.png
-description: MVVM is a design paradigm that stands for stands for Model-View-ViewModel.
+description: MVVM is a design paradigm that stands for Model-View-ViewModel.
 tags:
   - Swift
   - SwiftUI
