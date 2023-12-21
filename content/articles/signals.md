@@ -8,7 +8,7 @@ tags:
   - C
   - Linux
   - UNIX
-  - École-42
+  - École42
 ---
 
 ## What is a process ID?
