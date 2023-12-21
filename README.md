@@ -1,6 +1,6 @@
 # riceset.com
 
-<img width="1572" alt="screenshot" src="https://github.com/riceset/riceset.com/assets/48802655/d31d01b1-3242-483e-b1ed-58e8f509d570">
+<img width="1562" alt="screenshot" src="https://github.com/riceset/riceset.com/assets/48802655/8c4f7bdd-b1fa-43ac-9e18-0ad93543ef9c">
 
 ## Getting started
 
