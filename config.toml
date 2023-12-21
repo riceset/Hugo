@@ -27,7 +27,7 @@ paginate = 999
 
 [languages]
   [languages.en]
-    title = "Komeno"
+    title = "riceset"
     subtitle = ""
     keywords = ""
     # copyright = ""
@@ -45,9 +45,9 @@ paginate = 999
     # lastModDisplay = ""
 
     [languages.en.params.logo]
-    logoText = "riceset"
+    logoText = "🍚 riceset"
+    # path = "/mstile-150x150.png"
     # logoHomeLink = "/"
-    # path = "/riceset.svg"
     # alt = "riceset"
 
       [[languages.en.menu.main]]
