@@ -99,7 +99,7 @@ class EmojiMemoryGame {
 }
 ```
 
-here we can use our model defining it as a private variable (making it only accessible from this class). Then we assign it to a `MemoryGame` instance and setting `CardContent` type to a string. Then initializing it with 4 pairs of cards and passing a function to create the contents of the cards.
+here we can use our model defining it as a private variable (making it only accessible from this class). Then we assign it to a `MemoryGame` instance and set `CardContent` type to a string. Then initialize it with 4 pairs of cards and pass a function to create the contents of the cards.
 
 As Swift already knows the types for the input and output for this function because it was specified in the model we can simplify this function removing the types for the input and output and even remove the `return` statement and parenthesis:
 
