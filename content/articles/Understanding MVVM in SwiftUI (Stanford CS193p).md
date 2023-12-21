@@ -5,7 +5,6 @@ author: Komeno
 cover: images/mvvm.png
 description: MVVM is a design paradigm that stands for Model-View-ViewModel.
 tags:
-  - Swift
   - SwiftUI
   - Stanford
 ---

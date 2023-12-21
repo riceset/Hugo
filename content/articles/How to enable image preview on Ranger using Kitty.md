@@ -4,7 +4,7 @@ date:   2021-08-09
 author: Komeno
 cover: "images/ranger.png"
 description: "First, create a config file for Ranger in ~/.config/ranger called rc.conf"
-tags: [Ranger, Kitty]
+tags: [Terminal]
 ---
 
 ## Getting Started

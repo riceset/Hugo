@@ -7,8 +7,6 @@ description: A process ID a.k.a. PID is literally what the name says, it is a nu
 tags:
   - C
   - Linux
-  - UNIX
-  - École42
 ---
 
 ## What is a process ID?

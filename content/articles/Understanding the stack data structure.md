@@ -6,7 +6,6 @@ cover: images/stacks.jpg
 description: Stack is an ADT (Abstract Data Structure) which follows the LIFO (Last In First Out) order. It might be easier to understand this concept by imagining an actual stack of books.
 tags:
   - C
-  - École42
 ---
 
 **Stack** is an ADT (Abstract Data Structure) which follows the LIFO (Last In First Out) order. It might be easier to understand this concept by imagining an actual stack of books.
