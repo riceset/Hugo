@@ -435,7 +435,7 @@ The &lt;code>View&lt;/code> protocol requires you to have the body variable (of 
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/28d56dc8-2843-44c1-9c55-286b7e2b397e" alt="adaptive">&lt;/p></description></item><item><title>An approach to solving the dining philosophers problem</title><link>https://riceset.com/articles/philosophers/</link><pubDate>Tue, 15 Aug 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/philosophers/</guid><description>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/28d56dc8-2843-44c1-9c55-286b7e2b397e" alt="adaptive">&lt;/p></description></item><item><title>An approach to solving the dining philosophers problem</title><link>https://riceset.com/articles/an-approach-to-solving-the-dining-philosophers-problem/</link><pubDate>Tue, 15 Aug 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/an-approach-to-solving-the-dining-philosophers-problem/</guid><description>
 &lt;img src="https://riceset.com/images/philo.png"/>
 &lt;h2 id="-overview">👀 Overview&lt;/h2>
 &lt;p>The &lt;strong>Dining Philosophers Problem&lt;/strong> is a computer science problem formulated in 1965 by &lt;a href="https://en.wikipedia.org/wiki/Edsger_W._Dijkstra">Edsger Dijkstra&lt;/a>. It involves dealing with concurrent programming, synchronization issues, threads, deadlocks, and race conditions.&lt;/p>
@@ -760,7 +760,7 @@ $$&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>&lt;strong>output:&lt;/strong>&lt;/em> 3 2 1&lt;/p>
 &lt;p>&lt;em>&lt;strong>note:&lt;/strong>&lt;/em> The output will be printed in reverse order.&lt;/p>
-&lt;p>You can also try popping out an element from the stack simply by calling &lt;em>&lt;strong>pop()&lt;/strong>&lt;/em>.&lt;/p></description></item><item><title>Understanding signals in Linux</title><link>https://riceset.com/articles/signals/</link><pubDate>Fri, 12 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/signals/</guid><description>
+&lt;p>You can also try popping out an element from the stack simply by calling &lt;em>&lt;strong>pop()&lt;/strong>&lt;/em>.&lt;/p></description></item><item><title>Understanding signals in Linux</title><link>https://riceset.com/articles/understanding-signals-in-linux/</link><pubDate>Fri, 12 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/understanding-signals-in-linux/</guid><description>
 &lt;img src="https://riceset.com/images/signals.jpg"/>
 &lt;h2 id="what-is-a-process-id">What is a process ID?&lt;/h2>
 &lt;p>A process ID a.k.a. &lt;em>&lt;strong>PID&lt;/strong>&lt;/em> is literally what the name says, it is a number to uniquely identify a running process. You can print your program’s &lt;em>&lt;strong>PID&lt;/strong>&lt;/em> in C using the &lt;em>&lt;strong>getpid()&lt;/strong>&lt;/em> function included on the header file &lt;em>&lt;strong>unistd.h&lt;/strong>&lt;/em>.&lt;/p>
