@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>riceset</title><link>https://riceset.com/</link><description>Recent content on riceset</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2023 riceset</copyright><lastBuildDate>Tue, 19 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://riceset.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Understanding MVVM in SwiftUI (Stanford CS193p)</title><link>https://riceset.com/articles/understanding-mvvm-in-swiftui-stanford-cs193p/</link><pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/understanding-mvvm-in-swiftui-stanford-cs193p/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>riceset</title><link>https://riceset.com/</link><description>Recent content on riceset</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2023 riceset</copyright><lastBuildDate>Tue, 19 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://riceset.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Understanding MVVM in SwiftUI (Stanford CS193p)</title><link>https://riceset.com/articles/swift/mvvm/</link><pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/swift/mvvm/</guid><description>
 &lt;img src="https://riceset.com/images/mvvm.png"/>
 &lt;p>MVVM is a design paradigm that stands for &lt;em>Model-View-ViewModel&lt;/em>.&lt;/p>
 &lt;h3 id="model">Model&lt;/h3>
@@ -80,7 +80,7 @@ as a parameter and creates cards for us.&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>But we cannot initialize a property (e.g. let, var) with a value that depends on another property because the order of initialization of properties is random.&lt;/p>
 &lt;p>To solve this we can use an initializer to explicitly set the order of initialization of our properties, make the &lt;code>emojis&lt;/code> constant global or as a better option we can make it &lt;code>static&lt;/code>:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">let&lt;/span> emojis: [String] = [&lt;span style="color:#e6db74">&amp;#34;🚗&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚕&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚙&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;🚌&amp;#34;&lt;/span>]
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Using type variables (e.g. &lt;code>static var&lt;/code>, &lt;code>static let&lt;/code>) and type functions (&lt;code>static func&lt;/code>) makes them &amp;lsquo;global&amp;rsquo; to all instances of this class. So in contrast to a normal variable that would get created on each instance, a type variable or type function will be created only once and referenced from other instances.&lt;/p></description></item><item><title>Mastering Mandarin with Anki</title><link>https://riceset.com/articles/mastering-mandarin-chinese-with-anki/</link><pubDate>Mon, 18 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/mastering-mandarin-chinese-with-anki/</guid><description>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Using type variables (e.g. &lt;code>static var&lt;/code>, &lt;code>static let&lt;/code>) and type functions (&lt;code>static func&lt;/code>) makes them &amp;lsquo;global&amp;rsquo; to all instances of this class. So in contrast to a normal variable that would get created on each instance, a type variable or type function will be created only once and referenced from other instances.&lt;/p></description></item><item><title>Mastering Mandarin with Anki</title><link>https://riceset.com/articles/languages/mandarin/</link><pubDate>Mon, 18 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/languages/mandarin/</guid><description>
 &lt;img src="https://riceset.com/images/anki-chinese.png"/>
 &lt;p>Mandarin Chinese (普通话) has always fascinated me and learning it has been a long-standing aspiration of mine. In this article, I&amp;rsquo;ll introduce you to several tools I use alongside Anki to create visually appealing flashcards for Mandarin Chinese.&lt;/p>
 &lt;h3 id="anki">Anki&lt;/h3>
@@ -114,7 +114,7 @@ as a parameter and creates cards for us.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Where &lt;code>songti&lt;/code> will be the name you will use to stylize the cards on your CSS file.&lt;/p>
 &lt;h3 id="audio">Audio&lt;/h3>
-&lt;p>I currently use Google Translate&amp;rsquo;s voice into &lt;a href="https://ankiweb.net/shared/info/1436550454">AwesomeTTS&lt;/a> for generating audio files for my sentences.&lt;/p></description></item><item><title>Getting started with SwiftUI (Stanford CS193p)</title><link>https://riceset.com/articles/getting-started-with-swiftui-stanford-cs193p/</link><pubDate>Sun, 10 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/getting-started-with-swiftui-stanford-cs193p/</guid><description>
+&lt;p>I currently use Google Translate&amp;rsquo;s voice into &lt;a href="https://ankiweb.net/shared/info/1436550454">AwesomeTTS&lt;/a> for generating audio files for my sentences.&lt;/p></description></item><item><title>Getting started with SwiftUI (Stanford CS193p)</title><link>https://riceset.com/articles/swift/getting-started-with-swiftui/</link><pubDate>Sun, 10 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/swift/getting-started-with-swiftui/</guid><description>
 &lt;img src="https://riceset.com/images/swiftui-intro-cover.png"/>
 &lt;p>This struct behaves like a view (the struct conforms to the &lt;code>View&lt;/code> protocol)
 The &lt;code>View&lt;/code> protocol requires you to have the body variable (of type &amp;lsquo;some View&amp;rsquo;)&lt;/p>
@@ -435,7 +435,7 @@ The &lt;code>View&lt;/code> protocol requires you to have the body variable (of 
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/28d56dc8-2843-44c1-9c55-286b7e2b397e" alt="adaptive">&lt;/p></description></item><item><title>An approach to solving the dining philosophers problem</title><link>https://riceset.com/articles/an-approach-to-solving-the-dining-philosophers-problem/</link><pubDate>Tue, 15 Aug 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/an-approach-to-solving-the-dining-philosophers-problem/</guid><description>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/28d56dc8-2843-44c1-9c55-286b7e2b397e" alt="adaptive">&lt;/p></description></item><item><title>An approach to solving the dining philosophers problem</title><link>https://riceset.com/articles/cs/philosophers/</link><pubDate>Tue, 15 Aug 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/cs/philosophers/</guid><description>
 &lt;img src="https://riceset.com/images/philo.png"/>
 &lt;h2 id="-overview">👀 Overview&lt;/h2>
 &lt;p>The &lt;strong>Dining Philosophers Problem&lt;/strong> is a computer science problem formulated in 1965 by &lt;a href="https://en.wikipedia.org/wiki/Edsger_W._Dijkstra">Edsger Dijkstra&lt;/a>. It involves dealing with concurrent programming, synchronization issues, threads, deadlocks, and race conditions.&lt;/p>
@@ -707,7 +707,7 @@ $$&lt;/p>
 &lt;p>But as &lt;code>pthread_create()&lt;/code> doesn&amp;rsquo;t know what variable type we will pass to it, that&amp;rsquo;s why it&amp;rsquo;s declared as a &lt;strong>void pointer&lt;/strong> so we need to cast this value to our desired variable type (&lt;code>t_philo&lt;/code> in this case).&lt;/p>
 &lt;h2 id="-references">🚀 References&lt;/h2>
 &lt;h4 id="my-repository">My repository&lt;/h4>
-&lt;p>&lt;a href="https://github.com/riceset/philosophers">GitHub - riceset/philosophers&lt;/a>&lt;/p></description></item><item><title>Understanding the stack data structure</title><link>https://riceset.com/articles/understanding-the-stack-data-structure/</link><pubDate>Tue, 23 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/understanding-the-stack-data-structure/</guid><description>
+&lt;p>&lt;a href="https://github.com/riceset/philosophers">GitHub - riceset/philosophers&lt;/a>&lt;/p></description></item><item><title>Understanding the stack data structure</title><link>https://riceset.com/articles/cs/stack/</link><pubDate>Tue, 23 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/cs/stack/</guid><description>
 &lt;img src="https://riceset.com/images/stacks.jpg"/>
 &lt;p>&lt;strong>Stack&lt;/strong> is an ADT (Abstract Data Structure) which follows the LIFO (Last In First Out) order. It might be easier to understand this concept by imagining an actual stack of books.&lt;/p>
 &lt;p>When working with stacks, you can use mainly two operations. &lt;code>push()&lt;/code> to add an element to the top of a stack and &lt;code>pop()&lt;/code> to literally pop out or remove an element of a stack. As it is considered an ADT (Abstract Data Structure) you can implement it in many ways with other basic data structures such as arrays or linked lists. Let’s try implementing it using an array first.&lt;/p>
@@ -760,7 +760,7 @@ $$&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>&lt;strong>output:&lt;/strong>&lt;/em> 3 2 1&lt;/p>
 &lt;p>&lt;em>&lt;strong>note:&lt;/strong>&lt;/em> The output will be printed in reverse order.&lt;/p>
-&lt;p>You can also try popping out an element from the stack simply by calling &lt;em>&lt;strong>pop()&lt;/strong>&lt;/em>.&lt;/p></description></item><item><title>Understanding signals in Linux</title><link>https://riceset.com/articles/understanding-signals-in-linux/</link><pubDate>Fri, 12 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/understanding-signals-in-linux/</guid><description>
+&lt;p>You can also try popping out an element from the stack simply by calling &lt;em>&lt;strong>pop()&lt;/strong>&lt;/em>.&lt;/p></description></item><item><title>Understanding signals in Linux</title><link>https://riceset.com/articles/linux/signals/</link><pubDate>Fri, 12 Aug 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/linux/signals/</guid><description>
 &lt;img src="https://riceset.com/images/signals.jpg"/>
 &lt;h2 id="what-is-a-process-id">What is a process ID?&lt;/h2>
 &lt;p>A process ID a.k.a. &lt;em>&lt;strong>PID&lt;/strong>&lt;/em> is literally what the name says, it is a number to uniquely identify a running process. You can print your program’s &lt;em>&lt;strong>PID&lt;/strong>&lt;/em> in C using the &lt;em>&lt;strong>getpid()&lt;/strong>&lt;/em> function included on the header file &lt;em>&lt;strong>unistd.h&lt;/strong>&lt;/em>.&lt;/p>
@@ -796,7 +796,7 @@ $$&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>By the way, there are some pre-existing functions that you can pass to &lt;em>&lt;strong>signal()&lt;/strong>&lt;/em> such as &lt;em>&lt;strong>SIG_IGN&lt;/strong>&lt;/em> (to ignore a signal) and &lt;em>&lt;strong>SIG_DFL&lt;/strong>&lt;/em> (for default handling of a certain signal).&lt;/p>
 &lt;p>Usage:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">signal&lt;/span>(SIGINT, SIG_IGN);
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>My Swift Guide: Personal Reference for Swift Programming Concepts</title><link>https://riceset.com/articles/my-swift-guide-personal-reference-for-swift-programming-concepts/</link><pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/my-swift-guide-personal-reference-for-swift-programming-concepts/</guid><description>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>My Swift Guide: Personal Reference for Swift Programming Concepts</title><link>https://riceset.com/articles/swift/swift-guide/</link><pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/swift/swift-guide/</guid><description>
 &lt;img src="https://riceset.com/images/swift-guide.png"/>
 &lt;h3 id="functions">Functions&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">multiply&lt;/span>(operand: Int, by: Int) -&amp;gt; Int {
@@ -879,7 +879,7 @@ $$&lt;/p>
 &lt;h4 id="use">Use&lt;/h4>
 &lt;p>We define the array type on the declaration:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-swift" data-lang="swift">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> a = Array&amp;lt;Int&amp;gt;()
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Introduction to Vim</title><link>https://riceset.com/articles/introduction-to-vim/</link><pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/introduction-to-vim/</guid><description>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Introduction to Vim</title><link>https://riceset.com/articles/linux/vim/</link><pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/linux/vim/</guid><description>
 &lt;img src="https://riceset.com/images/vim.png"/>
 &lt;p>Vim is one of the most powerful text editors you can think of. In this article, I will introduce you some basic and useful Vim commands.&lt;/p>
 &lt;h2 id="vim-modes">Vim modes&lt;/h2>
@@ -1122,7 +1122,7 @@ You can play it &lt;code>n&lt;/code> times with &lt;code>n@q&lt;/code> with &lt;
 &lt;p>Use &lt;code>:!&lt;/code> to run a Shell command.
 e.g. &lt;code>:! ls&lt;/code> to run &lt;code>ls&lt;/code>.&lt;/p>
 &lt;h2 id="heading">%&lt;/h2>
-&lt;p>&lt;code>%&lt;/code> Jump to the matching parenthesis, brackets, etc.&lt;/p></description></item><item><title>How to enable image preview on Ranger using Kitty</title><link>https://riceset.com/articles/how-to-enable-image-preview-on-ranger-using-kitty/</link><pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/how-to-enable-image-preview-on-ranger-using-kitty/</guid><description>
+&lt;p>&lt;code>%&lt;/code> Jump to the matching parenthesis, brackets, etc.&lt;/p></description></item><item><title>How to enable image preview on Ranger using Kitty</title><link>https://riceset.com/articles/linux/ranger-image-preview/</link><pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/linux/ranger-image-preview/</guid><description>
 &lt;img src="https://riceset.com/images/ranger.png"/>
 &lt;h2 id="getting-started">Getting Started&lt;/h2>
 &lt;p>First, create a config file for Ranger in &lt;code>~/.config/ranger&lt;/code> called &lt;code>rc.conf&lt;/code>&lt;/p>
@@ -1147,7 +1147,7 @@ e.g. &lt;code>:! ls&lt;/code> to run &lt;code>ls&lt;/code>.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>with the path to where Python is located. In my case it was:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/Users/riceset/.asdf/shims/python
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now, save the file and everything should be working.&lt;/p>
-&lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/a9be6d14-bace-425f-8ea5-84b77b0b7713" alt="ranger-2">&lt;/p></description></item><item><title>Introduction to pointers in C</title><link>https://riceset.com/articles/introduction-to-pointers-in-c/</link><pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/introduction-to-pointers-in-c/</guid><description>
+&lt;p>&lt;img src="https://github.com/riceset/riceset.com/assets/48802655/a9be6d14-bace-425f-8ea5-84b77b0b7713" alt="ranger-2">&lt;/p></description></item><item><title>Introduction to pointers in C</title><link>https://riceset.com/articles/c/pointers/</link><pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/c/pointers/</guid><description>
 &lt;img src="https://riceset.com/images/pointers.png"/>
 &lt;p>When we declare a variable in C, we generally do something like this:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> num &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
@@ -1216,4 +1216,14 @@ But with pointers, we can access some variable’s memory location and change it
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>output:
 x: 2
-y: 1&lt;/p></description></item></channel></rss>
+y: 1&lt;/p></description></item><item><title/><link>https://riceset.com/articles/main/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/main/</guid><description>
+&lt;p>[[How to enable image preview on Ranger using Kitty]]
+[[Understanding signals in Linux]]
+[[Understanding the stack data structure]]
+[[An approach to solving the dining philosophers problem]]
+[[Understanding MVVM in SwiftUI (Stanford CS193p)]]
+[[Getting started with SwiftUI (Stanford CS193p)]]
+[[My Swift Guide: Personal Reference for Swift Programming Concepts]]
+[[Mastering Mandarin Chinese with Anki]]
+[[Introduction to pointers in C]]
+[[Introduction to Vim]]&lt;/p></description></item></channel></rss>
