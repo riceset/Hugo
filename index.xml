@@ -114,7 +114,7 @@ as a parameter and creates cards for us.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Where &lt;code>songti&lt;/code> will be the name you will use to stylize the cards on your CSS file.&lt;/p>
 &lt;h3 id="audio">Audio&lt;/h3>
-&lt;p>I currently use Google Translate&amp;rsquo;s voice into &lt;a href="https://ankiweb.net/shared/info/1436550454">AwesomeTTS&lt;/a> for generating audio files for my sentences.&lt;/p></description></item><item><title>Getting started with SwiftUI (Stanford CS193p)</title><link>https://riceset.com/articles/swift/getting-started-with-swiftui/</link><pubDate>Sun, 10 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/swift/getting-started-with-swiftui/</guid><description>
+&lt;p>I currently use Google Translate&amp;rsquo;s voice into &lt;a href="https://ankiweb.net/shared/info/1436550454">AwesomeTTS&lt;/a> for generating audio files for my sentences.&lt;/p></description></item><item><title>Getting started with SwiftUI (Stanford CS193p)</title><link>https://riceset.com/articles/swift/getting-started/</link><pubDate>Sun, 10 Dec 2023 00:00:00 +0000</pubDate><guid>https://riceset.com/articles/swift/getting-started/</guid><description>
 &lt;img src="https://riceset.com/images/swiftui-intro-cover.png"/>
 &lt;p>This struct behaves like a view (the struct conforms to the &lt;code>View&lt;/code> protocol)
 The &lt;code>View&lt;/code> protocol requires you to have the body variable (of type &amp;lsquo;some View&amp;rsquo;)&lt;/p>
